@@ -1,0 +1,201 @@
+<div class="d-flex" id="wrapper">
+
+  <app-sidemenu></app-sidemenu>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <app-header></app-header>
+
+    <div class="container">
+      <!-- stepper -->
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <div id="stepper1" class="bs-stepper">
+            <div class="card border-primary mb-3">
+              <div class="card-header">
+                <div class="bs-stepper-header">
+                  <div class="step" data-target="#test-l-1">
+                    <button type="button" class="btn step-trigger">
+                      <span class="bs-stepper-circle">1</span>
+                      <span class="bs-stepper-label">Login Info</span>
+                    </button>
+                  </div>
+                  <div class="line"></div>
+                  <div class="step" data-target="#test-l-2">
+                    <button type="button" class="btn step-trigger">
+                      <span class="bs-stepper-circle">2</span>
+                      <span class="bs-stepper-label">Personal Info</span>
+                    </button>
+                  </div>
+                  <div class="line"></div>
+                  <div class="step" data-target="#test-l-3">
+                    <button type="button" class="btn step-trigger">
+                      <span class="bs-stepper-circle">3</span>
+                      <span class="bs-stepper-label">Address Info</span>
+                    </button>
+                  </div>
+                  <div class="line"></div>
+                  <div class="step" data-target="#test-l-4">
+                    <button type="button" class="btn step-trigger">
+                      <span class="bs-stepper-circle">4</span>
+                      <span class="bs-stepper-label">Compensation Info</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body text-secondary">
+                <div class="bs-stepper-content">
+                  <div id="test-l-1" class="content">
+                    <form>
+                      <div class="row">
+                        <div class="form-group col-md-4">
+                          <input type="text" class="form-control" name="username" id="username"
+                            placeholder="Enter username here" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Enter password here" required>
+                        </div>
+                      </div>
+                      <!-- <button class="btn btn-outline-primary float-right" (click)="stepper1(2)">Next <i
+                                              class="fa fa-angle-right" aria-hidden="true"></i></button> -->
+                    </form>
+                  </div>
+                  <div id="test-l-2" class="content">
+                    <form>
+                      <div class="row">
+                        <div class="form-group col-md-4">
+                          <input type="text" class="form-control" name="firstname" id="firstname"
+                            placeholder="Enter firstname here">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <input type="text" class="form-control" name="lastname" id="lastname"
+                            placeholder="Enter lastname here">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <input type="email" class="form-control" name="email" id="email"
+                            placeholder="Enter email here">
+                        </div>
+                      </div>
+                      <!-- <button class="btn btn-outline-primary float-right" (click)="stepper1(3)">Next <i
+                                              class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                      <button class="btn btn-outline-primary" (click)="stepper1(1)"><i
+                                              class="fa fa-angle-left" aria-hidden="true"></i> Previous</button> -->
+                    </form>
+                  </div>
+                  <div id="test-l-3" class="content">
+                    <form>
+                      <div class="row">
+                        <div class="form-group col-md-4">
+                          <textarea class="form-control" name="address" id="address"
+                            placeholder="Enter address here"></textarea>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <input type="text" class="form-control" name="city" id="city" placeholder="Enter city here">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <input type="text" class="form-control" name="state" id="state"
+                            placeholder="Enter state here">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <input type="number" class="form-control" name="contact" id="contact"
+                            placeholder="Enter contact here">
+                        </div>
+                      </div>
+                      <!-- <button class="btn btn-outline-primary float-right" (click)="stepper1(4)">Next <i
+                                              class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                      <button class="btn btn-outline-primary" (click)="stepper1(2)"><i
+                                              class="fa fa-angle-left" aria-hidden="true"></i> Previous</button> -->
+                    </form>
+                  </div>
+                  <div id="test-l-4" class="content">
+                    <form [formGroup]="stepForm" name="stepForm">
+                      <div class="row">
+                        <div class="col-md-10">
+                          <div class="form-title-text">
+                            <h5 class="card-title">Merit Guidelines</h5>
+                          </div>
+                          <br>
+                          <div formArrayName="meritData">
+                            <div class="row" *ngFor="let item of stepForm['controls']['meritData']['controls'];
+                                                                                  let i= index" [formGroupName]="i">
+                              <div class="col-md-3 d-flex align-items-center">
+                                <span>{{i+1}}. </span><br><br>
+                                <span class="margin-left-5">
+                                  <p class="card-text">{{ stepForm.value.meritData[i].name }}
+                                  </p>
+                                </span>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group required">
+                                  <label for="field-required" class="control-label">Min
+                                    Value</label>
+                                  <input type="number" class="form-control" formControlName="minValue"
+                                    id="{{ 'minValue' }}" (keyup)="getMinPointAt(i)" [(ngModel)]="minValue[i]">
+                                </div>
+                                <div class="error-note" *ngIf="getMinPointAt(i).touched">
+                                  {{minError}}
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group required">
+                                  <label for="field-required" class="control-label">Max
+                                    Value</label>
+                                  <input type="number" class="form-control" formControlName="maxValue"
+                                    id="{{ 'maxValue' }}" (keyup)="getMaxPointAt(i)" [(ngModel)]="maxValue[i]">
+                                </div>
+                                <div class="error-note" *ngIf="getMaxPointAt(i).touched">
+                                  {{maxError}}
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group required">
+                                  <label for="field-required" class="control-label">Rating</label>
+                                  <input type="text" class="form-control" formControlName="rating" id="{{ 'rating' }}"
+                                    [(ngModel)]="rating[i]">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <button class="btn btn-outline-primary" (click)="stepper1(3)"><i
+                                              class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
+                                      <button class="btn btn-outline-primary float-right" [disabled]="stepForm.invalid"
+                                          (click)="onSaveData()"><i class="fa fa-save" aria-hidden="true"></i>
+                                          Submit</button> -->
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-outline-primary float-right" (click)="nextStep(2)" [disabled]="disabled"
+                  *ngIf="nextForm">Next
+                  <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+
+                <button class="btn btn-outline-primary float-right" (click)="nextStep(3)" *ngIf="nextForm1">Next
+                  <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                <button class="btn btn-outline-primary" (click)="previousStep(1)" *ngIf="prevForm"><i
+                    class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
+
+                <button class="btn btn-outline-primary float-right" (click)="nextStep(4)" *ngIf="nextForm2">Next
+                  <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                <button class="btn btn-outline-primary" (click)="previousStep(2)" *ngIf="prevForm1"><i
+                    class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
+
+                <button class="btn btn-outline-primary" (click)="previousStep(3)" *ngIf="prevForm2"><i
+                    class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
+                <button class="btn btn-outline-primary float-right" [disabled]="stepForm.invalid" (click)="onSaveData()"
+                  *ngIf="saveForm"><i class="fa fa-save" aria-hidden="true"></i>
+                  Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
