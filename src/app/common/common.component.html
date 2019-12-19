@@ -1,1 +1,26 @@
-<p>common works!</p>
+<div class="container">
+    <div class="row">
+        <div class="w3-card-4" style="width: 100%">
+            <header class="w3-container w3-light-grey">
+                <h3 class="text-center"><span class="float-left"><i class="fa fa-home"></i></span>ANGULAR Home</h3>
+            </header>
+
+            <div class="w3-container">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <button class="button button2" [routerLink]="['/login']" routerLinkActive="active" >Login</button>
+                            <button class="button button1" [routerLink]="['/signup']" routerLinkActive="active" >Sign
+                                up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="w3-container w3-light-grey text-center">
+                CopyRights &copy; <a href="http://localhost:4200/" target="">Angular Home.</a> All
+                Rights Reserved.
+            </footer>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,10 @@ import { SignupComponent } from './signup/signup.component';
 import { SharedService } from './shared.service';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { ManagerProfileComponent } from './manager/manager-profile/manager-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { AuthGuardService } from './auth-guard.service';
     DashboardComponent,
     CommonComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ForgotpasswordComponent,
+    AdminProfileComponent,
+    UserProfileComponent,
+    ManagerProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-tables',
@@ -12,7 +13,9 @@ export class TablesComponent implements OnInit {
 
   selectedEntities: any[];
 
-  constructor() { }
+  constructor(
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit() {
     this.data = [
@@ -23,10 +26,21 @@ export class TablesComponent implements OnInit {
       { name: 'Rishi', email: 'rishi.rocks123@gmail.com', age: 23, city: 'India' },
       { name: 'Kingston', email: 'king1ston@gmail.com', age: 29, city: 'China' }
     ]
+
+    this.getAllTasks();
   }
 
   public setSelectedEntities($event: any) {
     this.selectedEntities = $event;
+  }
+
+
+  tasksArr: any = [];
+
+  getAllTasks() {
+    this.sharedService.getAllTasks().subscribe(res => {
+      this.tasksArr = res['data'];
+    })
   }
 
 }

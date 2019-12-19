@@ -1,1 +1,75 @@
-<p>signup works!</p>
+<div class="container">
+    <div class="row">
+        <div class="w3-card-4" style="width: 100%">
+            <header class="w3-container w3-light-grey">
+                <h3 class="text-center"><span class="float-left" [routerLink]="['']" routerLinkActive="active" ><i class="fa fa-arrow-left"></i></span>ANGULAR Home</h3>
+            </header>
+
+            <div class="w3-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- <div class="container" id="id01"> -->
+                            <form action="" method="post">
+                                <div class="container">
+                                    <label for="uname"><b>Username</b></label>
+                                    <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username"
+                                        required>
+
+                                    <label for="email"><b>Email</b></label>
+                                    <input type="text" placeholder="Enter Email" name="email" [(ngModel)]="email"
+                                        required>
+
+                                    <label for="psw"><b>Password</b></label>
+                                    <input type="password" placeholder="Enter Password" name="psw"
+                                        [(ngModel)]="password" required>
+
+                                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                                    <input type="password" placeholder="Repeat Password" name="psw-repeat"
+                                        [(ngModel)]="confirmpassword" required>
+
+                                    <label for="phonenumber"><b>Phone Number</b></label>
+                                    <input type="number" placeholder="Enter Phone Number" name="phonenumber"
+                                        [(ngModel)]="phonenumber" required>
+
+                                    <div class="clearfix">
+                                        <button type="button"
+                                            onclick="document.getElementById('id01').style.display='none'"
+                                            class="cancelbtn">Cancel</button>
+                                        <button type="submit" class="signupbtn" (click)="userSignup()">Sign
+                                            Up</button>
+                                    </div>
+
+                                    <div class="alert-danger" *ngIf="isFalied">
+                                        <span class="closebtn"
+                                            onclick="this.parentElement.style.display='none';">&times;</span>
+                                        <strong>Failed!</strong> Passwords not match.
+                                    </div>
+                                    <div class="alert-success" *ngIf="isSuccess">
+                                        <span class="closebtn"
+                                            onclick="this.parentElement.style.display='none';">&times;</span>
+                                        <strong>Success!</strong> Signup successful.
+                                    </div>
+                                    <div class="alert-info" *ngIf="isInfo">
+                                        <span class="closebtn"
+                                            onclick="this.parentElement.style.display='none';">&times;</span>
+                                        <strong>Warning!</strong> Required fields are empty.
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="w3-container w3-light-grey text-center">
+                CopyRights &copy; <a href="http://localhost:4200/" target="">Angular Home.</a> All
+                Rights Reserved.
+            </footer>
+        </div>
+    </div>
+</div>

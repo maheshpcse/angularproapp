@@ -10,30 +10,38 @@
       <div class="row">
         <div class="col-md-12 mt-5">
           <!-- angular8-data-tale -->
-          <table class="table table-striped" [svData]="data" #sv="svDataTable" [svRowsOnPage]="5" svSortBy="name"
+          <table class="table table-striped" [svData]="tasksArr" #sv="svDataTable" [svRowsOnPage]="5" svSortBy="name"
             svSortOrder="asc">
             <thead>
               <tr>
                 <th>
-                  <sv-default-sorter by="name">Name</sv-default-sorter>
+                  <sv-default-sorter by="name">S.No</sv-default-sorter>
                 </th>
                 <th>
-                  <sv-default-sorter by="name">Email</sv-default-sorter>
+                  <sv-default-sorter by="name">Title</sv-default-sorter>
                 </th>
                 <th>
-                  <sv-default-sorter by="name">Age</sv-default-sorter>
+                  <sv-default-sorter by="name">Description</sv-default-sorter>
                 </th>
                 <th>
-                  <sv-default-sorter by="name">City</sv-default-sorter>
+                  <sv-default-sorter by="name">Status</sv-default-sorter>
+                </th>
+                <th>
+                  <sv-default-sorter by="name">Done By</sv-default-sorter>
+                </th>
+                <th>
+                  <sv-default-sorter by="name">Done On</sv-default-sorter>
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of sv.data">
-                <td>{{ item.name }}</td>
-                <td>{{ item.email }}</td>
-                <td>{{ item.age }}</td>
-                <td>{{ item.city | uppercase }}</td>
+              <tr *ngFor="let item of sv.data; let i=index">
+                <td>{{ i+1 }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.is_complete }}</td>
+                <td>{{ item.user_id }}</td>
+                <td>{{ item.updated_at | date }}</td>
               </tr>
             </tbody>
             <tfoot>

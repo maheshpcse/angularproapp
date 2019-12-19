@@ -51,6 +51,18 @@ export class AuthService {
       return false;
   }
 
+  validateUser(data) {
+    return this.http.post(ApiService.API.VALIDATE_USER, data);
+  }
+
+  changePassword(data) {
+    return this.http.post(ApiService.API.CHANGE_PASSWORD, data);
+  }
+
+  uploadProfileImg(data) {
+    return this.http.post(ApiService.API.UPLOAD_PROFILE_IMAGE, data);
+  }
+
   getUserProfile(id) {
     return this.http.get(ApiService.API.GET_USER_PROFILE, id);
   }
