@@ -54,13 +54,19 @@ export class LoginComponent implements OnInit {
         this.isSuccess = true;
         setInterval(() => {
           this.route.navigate(['/dashboard']);
-        }, 1000)
+        }, 1000);
       } else if (res['statusCode'] == 204) {
         console.log("Required fields are empty");
         this.isInfo = true;
+        setInterval(() => {
+          this.isInfo = false;
+        }, 1000);
       } else if (res['statusCode'] == 404) {
         console.log("Invalid username or password");
         this.isFalied = true;
+        setInterval(() => {
+          this.isFalied = false;
+        }, 1000);
       } else {
         console.log('Login failed');
       }

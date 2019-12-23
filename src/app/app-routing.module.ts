@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { AuthGuardService } from './auth-guard.service';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 
 
 const routes: Routes = [
@@ -53,8 +54,15 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     component: TablesComponent
   },
+  // admin routes
+  {
+    path: 'admin/profile',
+    canActivate: [AuthGuardService],
+    component: AdminProfileComponent
+  },
   {
     path: '**',
+    canActivate: [AuthGuardService],
     component: DashboardComponent
   }
 ];

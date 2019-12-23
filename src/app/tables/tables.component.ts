@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import { SharedService } from '../shared.service';
+import * as $ from 'jquery';
+import * as _ from 'underscore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tables',
@@ -13,7 +15,13 @@ export class TablesComponent implements OnInit {
 
   selectedEntities: any[];
 
+  title: any;
+  description: any;
+  status: any;
+  date: any;
+
   constructor(
+    private route: Router,
     private sharedService: SharedService
   ) { }
 
@@ -40,6 +48,24 @@ export class TablesComponent implements OnInit {
   getAllTasks() {
     this.sharedService.getAllTasks().subscribe(res => {
       this.tasksArr = res['data'];
+    })
+  }
+
+  updateTask() {
+    let taskData = {
+      title: this.title,
+      description: this.description,
+      status: this.status,
+      date: this.date
+    }
+    this.sharedService.updateTask(taskData).subscribe(res=>{
+      if(res['success'] == true) {
+        console.log("Task updated successful");
+        this.route.navigate(['/tables']);
+      } else {
+        console.log("Failed to updated task");
+        this.route.navigate(['/tables']);
+      }
     })
   }
 

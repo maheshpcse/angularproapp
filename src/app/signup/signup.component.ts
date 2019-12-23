@@ -39,14 +39,18 @@ export class SignupComponent implements OnInit {
 
   userSignup() {
     if ((this.username == '' || this.email == '' || this.password == '' || this.confirmpassword == '' || this.confirmpassword == '') ||
-        (this.username == undefined || this.email == undefined || this.password == undefined || this.confirmpassword == undefined || this.confirmpassword == undefined) || 
-        (this.username == null || this.email == null || this.password == null || this.confirmpassword == null || this.confirmpassword == null)) {
+      (this.username == undefined || this.email == undefined || this.password == undefined || this.confirmpassword == undefined || this.confirmpassword == undefined) ||
+      (this.username == null || this.email == null || this.password == null || this.confirmpassword == null || this.confirmpassword == null)) {
       this.isInfo = true;
-      return;
+      setInterval(() => {
+        this.isInfo = false;
+      }, 1000);
     }
     else if (this.password != this.confirmpassword) {
       this.isFalied = true;
-      return;
+      setInterval(() => {
+        this.isFalied = false;
+      }, 1000);
     } else {
       let userData = {
         username: this.username,
@@ -64,6 +68,9 @@ export class SignupComponent implements OnInit {
         } else {
           console.log("Signup failed");
           this.isWarning = true;
+          setInterval(() => {
+            this.isWarning = false;
+          }, 1000);
         }
       })
     }

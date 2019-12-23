@@ -12,5 +12,9 @@ export class SharedService {
   getAllTasks() {
     return this.http.get(ApiService.API.GET_ALL_TASKS);
   }
+
+  updateTask(data) {
+    return this.http.post(ApiService.API.UPDATED_TASK, data);
+  }
   
 }

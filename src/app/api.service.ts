@@ -16,6 +16,7 @@ export class ApiService {
     GET_USER_PROFILE: environment.apiUrl + '/getuserprofile',
 
     // TASKS API URL's
-    GET_ALL_TASKS: environment.apiUrl + '/getTasks'
+    GET_ALL_TASKS: environment.apiUrl + '/getTasks',
+    UPDATED_TASK: environment + '/updateTask'
   }
 }

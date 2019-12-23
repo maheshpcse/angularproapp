@@ -1,32 +1,28 @@
 <div class="d-flex" id="wrapper">
 
-<!-- Sidebar -->
-<div class="bg-light border-right" id="sidebar-wrapper">
-  <div class="sidebar-heading">ANGULAR Home </div>
-  <div class="list-group list-group-flush">
-    <a routerLink="/dashboard" [ngClass]="{'menu-active': (pageType == 'dashboard')}"
-      class="list-group-item list-group-item-action bg-light">
-      <i class="fa fa-folder-o"></i>
-      Dashboard
-    </a>
-    <a routerLink="/settings" [ngClass]="{'menu-active': (pageType == 'settings')}"
-      class="list-group-item list-group-item-action bg-light">
-      <i class="fa fa-gear"></i>
-      Settings
-    </a>
-    <a routerLink="/forms" [ngClass]="{'menu-active': (pageType == 'forms')}"
-      class="list-group-item list-group-item-action bg-light">
-      <i class="fa fa-wpforms"></i>
-      Forms
-    </a>
-    <a routerLink="/tables" [ngClass]="{'menu-active': (pageType == 'tables')}"
-      class="list-group-item list-group-item-action bg-light">
-      <i class="fa fa-table"></i>
-      Tables
-    </a>
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">ANGULAR Home </div>
+    <div class="list-group list-group-flush">
+      <a [routerLink]="['/dashboard']" class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-folder-o"></i>
+        Dashboard
+      </a>
+      <a [routerLink]="['/settings']" class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-gear"></i>
+        Settings
+      </a>
+      <a [routerLink]="['/forms']" class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-wpforms"></i>
+        Forms
+      </a>
+      <a [routerLink]="['/tables']" class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-table"></i>
+        Tables
+      </a>
+    </div>
   </div>
-</div>
-<!-- /#sidebar-wrapper -->
+  <!-- /#sidebar-wrapper -->
 
 </div>
 <!-- #wrapper -->

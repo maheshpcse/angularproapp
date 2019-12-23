@@ -169,8 +169,7 @@
                 </div>
               </div>
               <div class="card-footer">
-                <button class="btn btn-outline-primary float-right" (click)="nextStep(2)" [disabled]="disabled"
-                  *ngIf="nextForm">Next
+                <button class="btn btn-outline-primary float-right" (click)="nextStep(2)" *ngIf="nextForm">Next
                   <i class="fa fa-angle-right" aria-hidden="true"></i></button>
 
                 <button class="btn btn-outline-primary float-right" (click)="nextStep(3)" *ngIf="nextForm1">Next
@@ -185,7 +184,7 @@
 
                 <button class="btn btn-outline-primary" (click)="previousStep(3)" *ngIf="prevForm2"><i
                     class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
-                <button class="btn btn-outline-primary float-right" [disabled]="stepForm.invalid" (click)="onSaveData()"
+                <button class="btn btn-outline-success float-right" [disabled]="stepForm.invalid" (click)="onSaveData()"
                   *ngIf="saveForm"><i class="fa fa-save" aria-hidden="true"></i>
                   Submit</button>
               </div>
