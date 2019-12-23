@@ -14,7 +14,7 @@ export class SharedService {
   }
 
   updateTask(data) {
-    return this.http.post(ApiService.API.UPDATED_TASK, data);
+    return this.http.post(ApiService.API.UPDATE_TASK, data);
   }
   
 }

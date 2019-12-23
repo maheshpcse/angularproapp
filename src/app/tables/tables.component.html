@@ -47,9 +47,15 @@
                 <td>{{ item.username }}</td>
                 <td>{{ item.updated_at | date }}</td>
                 <td>
-                  <i class="fa fa-edit" aria-hidden="true"
-                    onclick="document.getElementById('id01').style.display='block'"></i>
-                  <!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                  <!-- <i class="fa fa-edit" aria-hidden="true" (click)="getTaskid(item.task_id, item.user_id)"></i>
+                  <i class="fa fa-trash" aria-hidden="true"></i> -->
+                  <div class="w3-dropdown-hover">
+                    <i class="fa fa-ellipsis-v w3-button w3-black" aria-hidden="true"></i>
+                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                      <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id, item.user_id)">Edit</a>
+                      <a class="w3-bar-item w3-button">Delete</a>
+                    </div>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -74,8 +80,8 @@
 <!-- Edit Modal -->
 <div class="w3-container">
   <div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-light-gray">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+      <header class="w3-container w3-grey">
         <span onclick="document.getElementById('id01').style.display='none'"
           class="w3-button w3-display-topright">&times;</span>
         <h3>Update Task</h3>
@@ -84,35 +90,45 @@
         <div class="container">
           <div class="row mt-3">
             <!-- <form> -->
-              <div class="col-md-6">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title">
-              </div>
-              <div class="col-md-6">
-                <label for="status">Status</label>
-                <select name="status" id="status" class="form-control">
-                  <option value="disabled">Select Status :</option>
-                  <option value="0">In complete</option>
-                  <option value="1">Complete</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label for="description">Description</label>
-                <textarea class="form-control" name="description" id="description" placeholder="Enter description"></textarea>
-              </div>
-              <div class="col-md-6">
-                <label for="date">Done On</label>
-                <input type="datetime" class="form-control" name="date" id="date">
-              </div>
+            <div class="col-md-6">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" name="title" id="title" [(ngModel)]="title"
+                placeholder="Enter title">
+            </div>
+            <div class="col-md-6">
+              <label for="status">Status</label>
+              <select class="form-control" name="status" id="status" [(ngModel)]="status">
+                <option value="disabled">Select Status :</option>
+                <option value="0">In complete</option>
+                <option value="1">Complete</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="description">Description</label>
+              <textarea class="form-control" name="description" id="description" [(ngModel)]="description"
+                placeholder="Enter description"></textarea>
+            </div>
+            <div class="col-md-6">
+              <label for="date">Done On</label>
+              <input type="date" class="form-control" name="date" id="date" [(ngModel)]="date">
+            </div>
             <!-- </form> -->
           </div>
           <br>
         </div>
       </div>
-      <footer class="w3-container w3-light-gray">
-        <button class="btn btn-outline-info float-right"><i class="fa fa-save"></i> Update</button>
+      <footer class="w3-container w3-grey">
+        <div class="w3-container w3-grey w3-padding">
+          <button class="w3-button w3-right w3-white w3-border" (click)="updateTask()"><i class="fa fa-save"></i>
+            Update</button>
+          <button class="w3-button w3-right w3-grey w3-border"
+            onclick="document.getElementById('id01').style.display='none'">Close</button>
+        </div>
       </footer>
     </div>
   </div>
 </div>
+<!-- End Modal -->
+
+<!-- Delete Modal -->
 <!-- End Modal -->

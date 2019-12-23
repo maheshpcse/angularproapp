@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import * as $ from 'jquery';
-import * as _ from 'underscore';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,9 +14,11 @@ export class TablesComponent implements OnInit {
 
   selectedEntities: any[];
 
+  task_id: any;
   title: any;
   description: any;
   status: any;
+  user_id: any;
   date: any;
 
   constructor(
@@ -34,7 +35,6 @@ export class TablesComponent implements OnInit {
       { name: 'Rishi', email: 'rishi.rocks123@gmail.com', age: 23, city: 'India' },
       { name: 'Kingston', email: 'king1ston@gmail.com', age: 29, city: 'China' }
     ]
-
     this.getAllTasks();
   }
 
@@ -51,19 +51,31 @@ export class TablesComponent implements OnInit {
     })
   }
 
+  getTaskid(taskid, userid) {
+    document.getElementById('id01').style.display = 'block';
+    this.task_id = taskid;
+    this.user_id = userid;
+    console.log("task id is:", this.task_id);
+    console.log("user id is:", this.user_id);
+  }
+
   updateTask() {
     let taskData = {
+      task_id: this.task_id,
       title: this.title,
       description: this.description,
-      status: this.status,
+      is_complete: this.status,
+      user_id: this.user_id,
       date: this.date
     }
-    this.sharedService.updateTask(taskData).subscribe(res=>{
-      if(res['success'] == true) {
+    this.sharedService.updateTask(taskData).subscribe(res => {
+      if (res['success'] == true) {
         console.log("Task updated successful");
+        document.getElementById('id01').style.display = 'none';
         this.route.navigate(['/tables']);
       } else {
-        console.log("Failed to updated task");
+        console.log("Failed to updated task");        
+        document.getElementById('id01').style.display = 'none';
         this.route.navigate(['/tables']);
       }
     })

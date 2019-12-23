@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "@types/underscore": "^1.9.4",
     "bootstrap": "^4.4.1",
     "bs-stepper": "^1.7.0",
     "font-awesome": "^4.7.0",
@@ -27,7 +26,6 @@
     "ng-angular8-datatable": "^0.9.11",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "underscore": "^1.9.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
