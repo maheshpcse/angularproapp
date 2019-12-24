@@ -14,6 +14,7 @@ export class TablesComponent implements OnInit {
 
   selectedEntities: any[];
 
+  token = localStorage.getItem('token');
   task_id: any;
   title: any;
   description: any;

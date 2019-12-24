@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { AuthGuardService } from './auth-guard.service';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'forgotpassword',
     component: ForgotpasswordComponent
+  },
+  {
+    path: 'notifications',
+    component: NotificationsComponent
   },
   {
     path: 'dashboard',

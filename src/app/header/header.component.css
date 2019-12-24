@@ -3,6 +3,11 @@
     font-size: 1.5rem !important;
 }
 
+.bars {
+    border: 1px dashed black;
+    padding: 5px;
+}
+
 .dropdown-item {
     cursor: pointer;
 }

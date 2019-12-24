@@ -23,6 +23,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { ManagerProfileComponent } from './manager/manager-profile/manager-profile.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ManagerProfileComponent } from './manager/manager-profile/manager-profi
     ForgotpasswordComponent,
     AdminProfileComponent,
     UserProfileComponent,
-    ManagerProfileComponent
+    ManagerProfileComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

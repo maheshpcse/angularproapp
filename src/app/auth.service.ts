@@ -64,6 +64,6 @@ export class AuthService {
   }
 
   getUserProfile(id) {
-    return this.http.get(ApiService.API.GET_USER_PROFILE, id);
+    return this.http.post(ApiService.API.GET_USER_PROFILE, id);
   }
 }

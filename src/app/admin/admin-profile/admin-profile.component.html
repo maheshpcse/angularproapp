@@ -7,18 +7,28 @@
         <app-header></app-header>
 
         <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 mt-5">
-                        <div class="card">
-                            <div class="card-header">
-
-                            </div>
-                            <div class="card-body">
-
-                            </div>
-                            <div class="card-footer">
-
+            <div class="row">
+                <div class="col-md-12 mt-3">
+                    <div class="w3-container">
+                        <div class="w3-card-4">
+                            <header class="w3-container w3-light-gray">
+                                <h3>{{ username }}</h3>
+                            </header>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3 p-3">
+                                        <div class="w3-container">
+                                            <img src="../../../assets/images/admin-avatar.png" alt="_profileImage">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 p-3">
+                                        <div class="w3-container">
+                                            <label for="email">Email :</label> {{ email }} <br>
+                                            <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
+                                            <label for="created_on">Created on :</label> {{ created_on }} <br>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
