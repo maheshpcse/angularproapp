@@ -16,5 +16,9 @@ export class SharedService {
   updateTask(data) {
     return this.http.post(ApiService.API.UPDATE_TASK, data);
   }
+
+  deleteTask(data) {
+    return this.http.post(ApiService.API.DELETE_TASK, data);
+  }
   
 }

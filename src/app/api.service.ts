@@ -17,6 +17,7 @@ export class ApiService {
 
     // TASKS API URL's
     GET_ALL_TASKS: environment.apiUrl + '/getTasks',
-    UPDATE_TASK: environment.apiUrl + '/updateTask'
+    UPDATE_TASK: environment.apiUrl + '/updateTask',
+    DELETE_TASK: environment.apiUrl + '/deleteTask'
   }
 }

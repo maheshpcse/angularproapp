@@ -46,14 +46,14 @@
                 <td *ngIf="item.is_complete == 1">Complete</td>
                 <td>{{ item.username }}</td>
                 <td>{{ item.updated_at | date }}</td>
-                <td>
+                <td class="text-center">
                   <!-- <i class="fa fa-edit" aria-hidden="true" (click)="getTaskid(item.task_id, item.user_id)"></i>
                   <i class="fa fa-trash" aria-hidden="true"></i> -->
                   <div class="w3-dropdown-hover">
-                    <i class="fa fa-ellipsis-v w3-button w3-black" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                      <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id, item.user_id)">Edit</a>
-                      <a class="w3-bar-item w3-button">Delete</a>
+                      <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id, item.user_id, 'edit')">Edit</a>
+                      <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id,'','delete')">Delete</a>
                     </div>
                   </div>
                 </td>
@@ -81,7 +81,7 @@
 <div class="w3-container">
   <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom">
-      <header class="w3-container w3-grey">
+      <header class="w3-container w3-teal">
         <span onclick="document.getElementById('id01').style.display='none'"
           class="w3-button w3-display-topright">&times;</span>
         <h3>Update Task</h3>
@@ -117,11 +117,11 @@
           <br>
         </div>
       </div>
-      <footer class="w3-container w3-grey">
-        <div class="w3-container w3-grey w3-padding">
-          <button class="w3-button w3-right w3-white w3-border" (click)="updateTask()"><i class="fa fa-save"></i>
+      <footer class="w3-container w3-teal">
+        <div class="w3-container w3-teal w3-padding">
+          <button class="w3-button w3-right w3-white w3-border" (click)="updateTask()">
             Update</button>
-          <button class="w3-button w3-right w3-grey w3-border"
+          <button class="w3-button w3-right w3-teal w3-border"
             onclick="document.getElementById('id01').style.display='none'">Close</button>
         </div>
       </footer>
@@ -131,4 +131,31 @@
 <!-- End Modal -->
 
 <!-- Delete Modal -->
+<div class="w3-container">
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+      <header class="w3-container w3-teal">
+        <span onclick="document.getElementById('id02').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <h3>Delete Task</h3>
+      </header>
+      <div class="w3-container">
+        <div class="container">
+          <div class="row mt-3">
+            Are you want to delete task?
+          </div>
+          <br>
+        </div>
+      </div>
+      <footer class="w3-container w3-teal">
+        <div class="w3-container w3-teal w3-padding">
+          <button class="w3-button w3-right w3-white w3-border" (click)="deleteTask()">
+            Yes</button>
+          <button class="w3-button w3-right w3-teal w3-border"
+            onclick="document.getElementById('id02').style.display='none'">No</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
 <!-- End Modal -->

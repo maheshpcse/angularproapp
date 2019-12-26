@@ -52,10 +52,15 @@ export class TablesComponent implements OnInit {
     })
   }
 
-  getTaskid(taskid, userid) {
-    document.getElementById('id01').style.display = 'block';
-    this.task_id = taskid;
-    this.user_id = userid;
+  getTaskid(taskid, userid, action) {
+    if(action == 'edit') {
+      document.getElementById('id01').style.display = 'block';
+      this.task_id = taskid;
+      this.user_id = userid;
+    } else {
+      document.getElementById('id02').style.display = 'block';
+      this.task_id = taskid;
+    }
     console.log("task id is:", this.task_id);
     console.log("user id is:", this.user_id);
   }
@@ -77,6 +82,23 @@ export class TablesComponent implements OnInit {
       } else {
         console.log("Failed to updated task");        
         document.getElementById('id01').style.display = 'none';
+        this.route.navigate(['/tables']);
+      }
+    })
+  }
+
+  deleteTask() {
+    let taskData = {
+      task_id: this.task_id
+    }
+    this.sharedService.deleteTask(taskData).subscribe(res => {
+      if (res['success'] == true) {
+        console.log("Task delete successful");
+        document.getElementById('id02').style.display = 'none';
+        this.route.navigate(['/tables']);
+      } else {
+        console.log("Failed to delete task");        
+        document.getElementById('id02').style.display = 'none';
         this.route.navigate(['/tables']);
       }
     })
