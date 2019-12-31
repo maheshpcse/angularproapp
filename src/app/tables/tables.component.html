@@ -32,7 +32,7 @@
                 <th>
                   <sv-default-sorter by="name">Done On</sv-default-sorter>
                 </th>
-                <th>
+                <th class="text-center">
                   Action
                 </th>
               </tr>
@@ -47,15 +47,15 @@
                 <td>{{ item.username }}</td>
                 <td>{{ item.updated_at | date }}</td>
                 <td class="text-center">
-                  <!-- <i class="fa fa-edit" aria-hidden="true" (click)="getTaskid(item.task_id, item.user_id)"></i>
-                  <i class="fa fa-trash" aria-hidden="true"></i> -->
-                  <div class="w3-dropdown-hover">
-                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                  <i class="fa fa-edit btn btn-info" aria-hidden="true" (click)="getTaskid(item.task_id, item.user_id, 'edit')"></i>
+                  <i class="fa fa-trash btn btn-danger ml-3" aria-hidden="true" (click)="getTaskid(item.task_id,'','delete')"></i>
+                  <!-- <div class="w3-dropdown-hover">
+                    <i class="fa fa-gears" aria-hidden="true"></i>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                       <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id, item.user_id, 'edit')">Edit</a>
                       <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id,'','delete')">Delete</a>
                     </div>
-                  </div>
+                  </div> -->
                 </td>
               </tr>
             </tbody>

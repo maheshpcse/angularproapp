@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as $ from 'jquery';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-sidemenu',
@@ -10,12 +11,54 @@ import * as $ from 'jquery';
 export class SidemenuComponent implements OnInit {
 
   pageType: any;
+  userData: any = [];
 
-  constructor(public _route: ActivatedRoute) { }
+  data: any;
+  role: any;
+
+  constructor(
+    public _route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.pageType = this._route.snapshot.url[0].path;
     console.log(this.pageType);
+    this.getUserInfo();
+
+    this.data = this._route.queryParams.subscribe(res => {
+      this.role = res['data'];
+    });
+
+    console.log("getting role is:", this.role);
   }
 
+  username: any;
+  profileImage: any;
+  email: any;
+  phoneNumber: any;
+  created_on: any;
+  role: any;
+
+  getUserInfo() {
+    let data = {
+      username: sessionStorage.getItem('id')
+    }
+    this.authService.getUserProfile(data).subscribe(res => {
+      if (res['success'] == true) {
+        this.userData = res['data'];
+        // console.log("user data is:", this.userData);
+        this.username = this.userData[0].username;
+        this.profileImage = this.userData[0].profilePath;
+        this.email = this.userData[0].email;
+        this.phoneNumber = this.userData[0].phonenumber;
+        this.created_on = this.userData[0].created_at;
+        this.role = this.userData[0].role;
+        // console.log("profile image path is:", this.profileImage);
+      } else {
+        console.log("Error while getting user data");
+      }
+    })
+  }
 }
