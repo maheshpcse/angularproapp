@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,8 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { ManagerProfileComponent } from './manager/manager-profile/manager-profile.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { AuthInterceptorService } from './auth-interceptor.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     AdminProfileComponent,
     UserProfileComponent,
     ManagerProfileComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
   providers: [
     SharedService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })

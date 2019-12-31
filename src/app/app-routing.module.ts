@@ -11,6 +11,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { AuthGuardService } from './auth-guard.service';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -67,8 +68,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    canActivate: [AuthGuardService],
-    component: DashboardComponent
+    component: NotFoundComponent
   }
 ];
 
