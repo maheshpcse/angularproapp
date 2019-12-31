@@ -31,18 +31,35 @@ export class HeaderComponent implements OnInit {
     this.route.navigate(['']);
   }
 
+  role: any;
+  roles: any = [];
+  rolesArr: any = [];
+
   getUserInfo() {
     let data = {
       username: sessionStorage.getItem('id')
     }
     this.authService.getUserProfile(data).subscribe(res => {
-      if(res['success'] == true) {
+      if (res['success'] == true) {
         this.userData = res['data'];
         // console.log("user data is:", this.userData);
+        this.role = this.userData[0].role;
+        for (let i = 0; i < this.userData.length; i++) {
+          this.roles.push(this.userData[i].assigned_roles.split(','));
+        }
+        for (let i = 0; i < this.roles[0].length; i++) {
+          this.rolesArr.push(this.roles[0][i]);
+        }
+        console.log("roles is:", this.rolesArr);
       } else {
         console.log("Error while getting user data");
       }
     })
+  }
+
+  changeRole(role: any) {
+    console.log("get role is:", role);
+    this.route.navigate(['/dashboard', { data: role }]);
   }
 
 }

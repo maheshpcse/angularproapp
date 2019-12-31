@@ -44,7 +44,7 @@ body {
 
 .fa {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.5rem; 
 }
 
 @media (min-width: 768px) {

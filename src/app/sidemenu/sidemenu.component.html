@@ -2,8 +2,22 @@
 
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading">ANGULAR Home </div>
-    <div class="list-group list-group-flush">
+    <!-- <div class="sidebar-heading">ANGULAR Home </div> -->
+    <!-- <div class="card bg-light"> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <i class="fa fa-user-circle-o user list-group-item list-group-item-action bg-light" aria-hidden="true"></i>
+          </div>
+          <div class="col-md-6 ml-3">
+            <h3>{{ username }}</h3>
+            <p>{{ role }}</p>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+    <!-- For admin -->
+    <div class="list-group list-group-flush" *ngIf="role == 'admin'">
       <a [routerLink]="['/dashboard']" class="list-group-item list-group-item-action bg-light">
         <i class="fa fa-folder-o"></i>
         Dashboard
@@ -21,6 +35,47 @@
         Tables
       </a>
     </div>
+
+    <!-- For User -->
+    <div class="list-group list-group-flush" *ngIf="role == 'user'">
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-folder-o"></i>
+        Dashboard
+      </a>
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-gear"></i>
+        Services
+      </a>
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-wpforms"></i>
+        Chat
+      </a>
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-table"></i>
+        Activity
+      </a>
+    </div>
+
+    <!-- For Manager -->
+    <div class="list-group list-group-flush" *ngIf="role == 'manager'">
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-folder-o"></i>
+        Dashboard
+      </a>
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-gear"></i>
+        Attandance
+      </a>
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-wpforms"></i>
+        Leaves
+      </a>
+      <a class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-table"></i>
+        Accounts
+      </a>
+    </div>
+
   </div>
   <!-- /#sidebar-wrapper -->
 
