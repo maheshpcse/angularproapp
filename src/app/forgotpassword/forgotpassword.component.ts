@@ -66,7 +66,7 @@ export class ForgotpasswordComponent implements OnInit {
         user_id: this.user_id,
         password: this.password
       }
-      this.authService.changePassword(userData).subscribe(res => {
+      this.authService.forgotPassword(userData).subscribe(res => {
         console.log("response is:", res);
         if (res['success'] == true) {
           this.isSuccess = true;

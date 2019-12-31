@@ -11,9 +11,12 @@ export class ApiService {
     SIGNUP: environment.apiUrl + '/signup',
     VALID_LOGIN: environment.apiUrl + '/validlogin',
     VALIDATE_USER: environment.apiUrl + '/validateuser',
-    CHANGE_PASSWORD: environment.apiUrl + '/changepassword',
-    UPLOAD_PROFILE_IMAGE: environment.apiUrl + '/uploadprofile',
+    FORGOT_PASSWORD: environment.apiUrl + '/forgotpassword',
+    
+    // USERS API URLS's
     GET_USER_PROFILE: environment.apiUrl + '/getuserprofile',
+    UPLOAD_PROFILE_IMAGE: environment.apiUrl + '/uploadprofile',
+    CHANGE_PASSWORD: environment.apiUrl + '/changepassword',
 
     // TASKS API URL's
     GET_ALL_TASKS: environment.apiUrl + '/getTasks',

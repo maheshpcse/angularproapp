@@ -55,8 +55,8 @@ export class AuthService {
     return this.http.post(ApiService.API.VALIDATE_USER, data);
   }
 
-  changePassword(data) {
-    return this.http.post(ApiService.API.CHANGE_PASSWORD, data);
+  forgotPassword(data) {
+    return this.http.post(ApiService.API.FORGOT_PASSWORD, data);
   }
 
   uploadProfileImg(data) {

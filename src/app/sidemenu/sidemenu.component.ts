@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as $ from 'jquery';
 import { AuthService } from '../auth.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-sidemenu',
@@ -13,8 +13,13 @@ export class SidemenuComponent implements OnInit {
   pageType: any;
   userData: any = [];
 
+  username: any;
+  profileImage: any;
+  email: any;
+  phoneNumber: any;
+  created_on: any;
+  role: any = sessionStorage.getItem('role');
   data: any;
-  role: any;
 
   constructor(
     public _route: ActivatedRoute,
@@ -27,19 +32,24 @@ export class SidemenuComponent implements OnInit {
     console.log(this.pageType);
     this.getUserInfo();
 
+    // this.data = this._route.queryParams.subscribe(res => {
+    //   this.role = res['data'];
+    // });
+
+    // console.log("getting role is:", this.role);
+    // sessionStorage.setItem('role', this.role);
+  }
+
+  ngAfterViewInit(): void {
+    // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    // Add 'implements AfterViewInit' to the class.
+
     this.data = this._route.queryParams.subscribe(res => {
       this.role = res['data'];
     });
-
     console.log("getting role is:", this.role);
+    return sessionStorage.setItem('role', this.role);
   }
-
-  username: any;
-  profileImage: any;
-  email: any;
-  phoneNumber: any;
-  created_on: any;
-  role: any;
 
   getUserInfo() {
     let data = {
@@ -54,7 +64,7 @@ export class SidemenuComponent implements OnInit {
         this.email = this.userData[0].email;
         this.phoneNumber = this.userData[0].phonenumber;
         this.created_on = this.userData[0].created_at;
-        this.role = this.userData[0].role;
+        // this.role = this.userData[0].role;
         // console.log("profile image path is:", this.profileImage);
       } else {
         console.log("Error while getting user data");
