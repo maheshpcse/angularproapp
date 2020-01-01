@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
         for (let i = 0; i < this.roles[0].length; i++) {
           this.rolesArr.push(this.roles[0][i]);
         }
-        console.log("roles is:", this.rolesArr);
+        // console.log("roles is:", this.rolesArr);
       } else {
         console.log("Error while getting user data");
       }

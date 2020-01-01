@@ -7,7 +7,17 @@
     <app-header></app-header>
 
     <div class="container-fluid">
-      <p>settings works!</p>
+      <div class="row">
+        <div class="col-md-4">
+          <form action="" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+              <label for="profile">Upload Profile</label>
+              <input type="file" #fileInput class="form-control" name="avatar" (change)="selectedFile($event.target.files)">
+            </div>
+            <button class="btn btn-info" type="submit" (click)="uploadProfile()">Upload</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   <!-- /#page-content-wrapper -->
