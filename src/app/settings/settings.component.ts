@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import * as $ from 'jquery';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-settings',
@@ -11,31 +13,32 @@ import * as $ from 'jquery';
 export class SettingsComponent implements OnInit {
 
   username: any = sessionStorage.getItem('id');
-  fileSrc: File = null;
-  formData: FormData = new FormData();
-  @ViewChild("fileInput", { static: false }) fileInputRef: ElementRef;
+  image: any;
 
   constructor(
     private route: Router,
     private authService: AuthService
-  ) { }
+  ) {
 
-  ngOnInit() {
-    // console.log("username is: ", this.username);
   }
 
-  selectedFile(event: FileList) {
-    // console.log(event.target.files[0]);
-    this.fileSrc = event.item(0);
-    this.formData.append('avatar', this.fileSrc, this.fileSrc.name);
+  ngOnInit() {
+
+  }
+
+  selectedFile(event) {
+    console.log(event.target.files[0]);
+    this.image = event.target.files[0];
   }
 
   uploadProfile() {
-    console.log(this.formData.get('avatar'));
+    const formData = new FormData();
+    formData.append('file', this.image);
+    console.log(formData.get('file'));
     let obj = {
       username: this.username
     }
-    this.authService.uploadProfileImg(obj, this.formData).subscribe(res => {
+    this.authService.uploadProfileImg(obj, formData).subscribe(res => {
       if (res['success'] == true) {
         console.log("File upload successful");
       } else {

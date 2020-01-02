@@ -12,7 +12,7 @@
           <form action="" enctype="multipart/form-data" method="POST">
             <div class="form-group">
               <label for="profile">Upload Profile</label>
-              <input type="file" #fileInput class="form-control" name="avatar" (change)="selectedFile($event.target.files)">
+              <input type="file" class="form-control" name="image" (change)="selectedFile($event)">
             </div>
             <button class="btn btn-info" type="submit" (click)="uploadProfile()">Upload</button>
           </form>

@@ -26,6 +26,7 @@ import { ManagerProfileComponent } from './manager/manager-profile/manager-profi
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     BrowserAnimationsModule,
-    DataTableModule
+    DataTableModule,
+    FileUploadModule
   ],
   providers: [
     SharedService,

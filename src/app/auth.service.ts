@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -60,10 +60,12 @@ export class AuthService {
   }
 
   uploadProfileImg(id, data) {
-    return this.http.post(ApiService.API.UPLOAD_PROFILE_IMAGE, id, data);
+    return this.http.post<any>(ApiService.API.UPLOAD_PROFILE_IMAGE, id, data);
   }
 
   getUserProfile(id) {
     return this.http.post(ApiService.API.GET_USER_PROFILE, id);
   }
+
+ 
 }
