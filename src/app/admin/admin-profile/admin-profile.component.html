@@ -1,10 +1,10 @@
 <div class="d-flex" id="wrapper">
 
-    <app-sidemenu></app-sidemenu>
+    <!-- <app-sidemenu></app-sidemenu> -->
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-        <app-header></app-header>
+        <!-- <app-header></app-header> -->
 
         <div class="container-fluid">
             <div class="row">
@@ -12,13 +12,15 @@
                     <div class="w3-container">
                         <div class="w3-card-4">
                             <header class="w3-container w3-light-gray">
-                                <h3>{{ username }}</h3>
+                                <!-- <h3>{{ username }}</h3> -->
+                                <h3>User</h3>
                             </header>
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-3 p-3">
                                         <div class="w3-container">
-                                            <img src="{{ profileImage }}" alt="_profileImage">
+                                            <!-- <img src="../../../assets/images/admin-avatar.png" alt="_profileImage" class="img-responsive"> -->
+                                            <img [src]="imgSrc" alt="_profile" class="img-responsive">
                                         </div>
                                     </div>
                                     <div class="col-md-9 p-3">

@@ -42,28 +42,28 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: DashboardComponent
   },
   {
     path: 'settings',
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: SettingsComponent
   },
   {
     path: 'forms',
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: FormsComponent
   },
   {
     path: 'tables',
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: TablesComponent
   },
   // admin routes
   {
     path: 'admin/profile',
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: AdminProfileComponent
   },
   {

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 192.168.2.146",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -22,9 +22,11 @@
     "bootstrap": "^4.4.1",
     "bs-stepper": "^1.7.0",
     "font-awesome": "^4.7.0",
+    "fs": "0.0.1-security",
     "jquery": "^3.4.1",
     "ng-angular8-datatable": "^0.9.11",
     "ng2-file-upload": "^1.4.0",
+    "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

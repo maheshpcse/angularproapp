@@ -59,8 +59,8 @@ export class AuthService {
     return this.http.post(ApiService.API.FORGOT_PASSWORD, data);
   }
 
-  uploadProfileImg(id, data) {
-    return this.http.post<any>(ApiService.API.UPLOAD_PROFILE_IMAGE, id, data);
+  uploadProfileImg(data) {
+    return this.http.post<any>(ApiService.API.UPLOAD_PROFILE_IMAGE, data);
   }
 
   getUserProfile(id) {

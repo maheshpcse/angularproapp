@@ -6,7 +6,8 @@ import * as env from '../assets/env';
 
 export const environment = {
   production: false,
-  apiUrl: env.serverIP.apiUrl
+  apiUrl: env.serverIP.apiUrl,
+  imgUrl: env.serverIP.imgUrl
 };
 
 /*
