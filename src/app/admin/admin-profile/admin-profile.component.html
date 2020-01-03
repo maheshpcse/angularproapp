@@ -1,44 +1,50 @@
 <div class="d-flex" id="wrapper">
 
-    <!-- <app-sidemenu></app-sidemenu> -->
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
+  <app-sidemenu></app-sidemenu>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
 
-        <!-- <app-header></app-header> -->
+    <app-header></app-header>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 mt-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <div class="w3-container">
+            <div class="w3-card-4">
+              <header class="w3-container w3-light-gray">
+                <!-- <h3>{{ username }}</h3> -->
+                <h3>User</h3>
+              </header>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-3 p-3">
                     <div class="w3-container">
-                        <div class="w3-card-4">
-                            <header class="w3-container w3-light-gray">
-                                <!-- <h3>{{ username }}</h3> -->
-                                <h3>User</h3>
-                            </header>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-3 p-3">
-                                        <div class="w3-container">
-                                            <!-- <img src="../../../assets/images/admin-avatar.png" alt="_profileImage" class="img-responsive"> -->
-                                            <img [src]="imgSrc" alt="_profile" class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9 p-3">
-                                        <div class="w3-container">
-                                            <label for="email">Email :</label> {{ email }} <br>
-                                            <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
-                                            <label for="created_on">Created on :</label> {{ created_on }} <br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      <!-- <img src="../../../assets/images/admin-avatar.png" alt="_profileImage" class="img-responsive"> -->
+                      <img [src]="imgSrc" alt="_profile" class="img-responsive">
                     </div>
+                  </div>
+                  <div class="col-md-9 p-3">
+                    <div class="w3-container">
+                      <label for="email">Email :</label> {{ email }} <br>
+                      <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
+                      <label for="created_on">Created on :</label> {{ created_on }} <br>
+                    </div>
+                  </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <!-- <iframe src="../../../assets/videos/100 Second Countdown Timer.mp4" frameborder="0"></iframe> -->
+                    <!-- <iframe src="{{ profileImage }}" frameborder="0"></iframe> -->
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- /#page-content-wrapper -->
+  </div>
+  <!-- /#page-content-wrapper -->
 
 </div>
 <!-- /#wrapper -->

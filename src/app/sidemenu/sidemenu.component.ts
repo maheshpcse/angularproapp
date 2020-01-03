@@ -29,8 +29,8 @@ export class SidemenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.pageType = this._route.snapshot.url[0].path;
-    console.log(this.pageType);
+    // this.pageType = this._route.snapshot.url[0].path;
+    // console.log(this.pageType);
     this.getUserInfo();
 
     // this.data = this._route.queryParams.subscribe(res => {
@@ -39,17 +39,6 @@ export class SidemenuComponent implements OnInit {
 
     // console.log("getting role is:", this.role);
     // sessionStorage.setItem('role', this.role);
-  }
-
-  ngAfterViewInit(): void {
-    // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    // Add 'implements AfterViewInit' to the class.
-
-    // this.data = this._route.queryParams.subscribe(res => {
-    //   this.role = res['data'];
-    // });
-    // console.log("getting role is:", this.role);
-    // return sessionStorage.setItem('role', this.role);
   }
 
   getUserInfo() {
