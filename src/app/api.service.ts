@@ -16,6 +16,7 @@ export class ApiService {
     // USERS API URLS's
     GET_USER_PROFILE: environment.apiUrl + '/getuserprofile',
     UPLOAD_PROFILE_IMAGE: environment.apiUrl + '/uploadprofile',
+    UPLOAD_MULTIPLE_IMAGES: environment.apiUrl + '/uploadmultiple',
     CHANGE_PASSWORD: environment.apiUrl + '/changepassword',
 
     // TASKS API URL's

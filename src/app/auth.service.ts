@@ -63,6 +63,10 @@ export class AuthService {
     return this.http.post<any>(ApiService.API.UPLOAD_PROFILE_IMAGE, data);
   }
 
+  uploadMultiple(data) {
+    return this.http.post<any>(ApiService.API.UPLOAD_MULTIPLE_IMAGES, data);
+  }
+
   getUserProfile(id) {
     return this.http.post(ApiService.API.GET_USER_PROFILE, id);
   }

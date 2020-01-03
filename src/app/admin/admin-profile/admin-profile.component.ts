@@ -49,9 +49,9 @@ export class AdminProfileComponent implements OnInit {
         this.email = this.userData[0].email;
         this.phoneNumber = this.userData[0].phonenumber;
         this.created_on = this.userData[0].created_at;
-        this.profileImage = this.userData[0].profilePath;
-        // this.profileImage = atob(res['file']);
-        this.imgSrc = this.sanitization.bypassSecurityTrustResourceUrl('data:image/*;base64,' + this.profileImage);
+        this.profileImage = res['file'];
+        // console.log("profile image is:", this.profileImage);
+        this.imgSrc = this.sanitization.bypassSecurityTrustResourceUrl('data:image/*;base64,' + `${this.profileImage}`);
         // this.imgSrc = 'data:image/*;base64' + (this.sanitization.bypassSecurityTrustResourceUrl(this.profileImage) as any).changingThisBreaksApplicationSecurity;
         // console.log("profile image path is:", this.imgSrc);
       } else {
