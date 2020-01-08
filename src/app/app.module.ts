@@ -26,7 +26,17 @@ import { ManagerProfileComponent } from './manager/manager-profile/manager-profi
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {FileUploadModule} from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
+import { HotTableModule } from '@handsontable/angular';
+import { UserServicesComponent } from './user-services/user-services.component';
+import { UserActivitiesComponent } from './user-activities/user-activities.component';
+import { UserChatComponent } from './user-chat/user-chat.component';
+import { AttandanceComponent } from './attandance/attandance.component';
+import { LeavesComponent } from './leaves/leaves.component';
+import { AccountsComponent } from './accounts/accounts.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
+import { CompaniesComponent } from './companies/companies.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +56,16 @@ import {FileUploadModule} from 'ng2-file-upload';
     UserProfileComponent,
     ManagerProfileComponent,
     NotificationsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserServicesComponent,
+    UserActivitiesComponent,
+    UserChatComponent,
+    AttandanceComponent,
+    LeavesComponent,
+    AccountsComponent,
+    UserDashboardComponent,
+    ManagerDashboardComponent,
+    CompaniesComponent
   ],
   imports: [
     BrowserModule,
@@ -56,13 +75,14 @@ import {FileUploadModule} from 'ng2-file-upload';
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     BrowserAnimationsModule,
     DataTableModule,
-    FileUploadModule
+    FileUploadModule,
+    HotTableModule.forRoot()
   ],
   providers: [
     SharedService,
     AuthService,
     AuthGuardService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

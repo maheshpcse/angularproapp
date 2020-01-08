@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   image: File = null;
 
   @ViewChild('fileInput', { static: false }) fileInputRef: ElementRef;
+  @ViewChild('filesInput', { static: false }) filesInputRef: ElementRef;
 
   constructor(
     private route: Router,
@@ -52,16 +53,16 @@ export class DashboardComponent implements OnInit {
     // this.image = this.fileInputRef.nativeElement.files[0];
   }
 
-  uploadProfile() {
+  uploadSingle() {
     const formData = new FormData();
     formData.append('username', this.username);
     formData.append('file', this.image, this.image.name);
     console.log(formData.get('file'));
-    this.authService.uploadProfileImg(formData).subscribe(res => {
+    this.authService.uploadSingle(formData).subscribe(res => {
       if (res['success'] == true) {
         console.log("File upload successful");
       } else {
-        console.log("Failed to upload profile");
+        console.log("Failed to upload a file");
       }
     })
   }
@@ -72,6 +73,7 @@ export class DashboardComponent implements OnInit {
   selectedFiles(event) {
     console.log(event);
     // this.filesArr.push(<File>event.target.files[0]);
+    // this.filesArr.push(this.filesInputRef.nativeElement.files[0]);
     // console.log("Files array is:", this.filesArr);
     for (let i = 0; i < event.length; i++) {
       this.formData.append('files', event[i], event[i]['name'])

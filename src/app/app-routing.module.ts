@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FormsComponent } from './forms/forms.component';
@@ -12,6 +12,17 @@ import { AuthGuardService } from './auth-guard.service';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserServicesComponent } from './user-services/user-services.component';
+import { UserActivitiesComponent } from './user-activities/user-activities.component';
+import { UserChatComponent } from './user-chat/user-chat.component';
+import { ManagerProfileComponent } from './manager/manager-profile/manager-profile.component';
+import { AttandanceComponent } from './attandance/attandance.component';
+import { LeavesComponent } from './leaves/leaves.component';
+import { AccountsComponent } from './accounts/accounts.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
+import { CompaniesComponent } from './companies/companies.component';
 
 
 const routes: Routes = [
@@ -37,35 +48,97 @@ const routes: Routes = [
     component: ForgotpasswordComponent
   },
   {
-    path: 'notifications',
-    component: NotificationsComponent
-  },
-  {
-    path: 'dashboard',
-    // canActivate: [AuthGuardService],
-    component: DashboardComponent
-  },
-  {
     path: 'settings',
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     component: SettingsComponent
   },
   {
-    path: 'forms',
-    // canActivate: [AuthGuardService],
-    component: FormsComponent
+    path: 'notifications',
+    canActivate: [AuthGuardService],
+    component: NotificationsComponent
   },
-  {
-    path: 'tables',
-    // canActivate: [AuthGuardService],
-    component: TablesComponent
-  },
+
   // admin routes
   {
     path: 'admin/profile',
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     component: AdminProfileComponent
   },
+  {
+    path: 'admin/dashboard',
+    canActivate: [AuthGuardService],
+    component: DashboardComponent
+  },
+  {
+    path: 'admin/forms',
+    canActivate: [AuthGuardService],
+    component: FormsComponent
+  },
+  {
+    path: 'admin/tables',
+    canActivate: [AuthGuardService],
+    component: TablesComponent
+  },
+  {
+    path: 'admin/companies',
+    canActivate: [AuthGuardService],
+    component: CompaniesComponent
+  },
+  
+  // user routes
+  {
+    path: 'user/profile',
+    canActivate: [AuthGuardService],
+    component: UserProfileComponent
+  },
+  {
+    path: 'user/dashboard',
+    canActivate: [AuthGuardService],
+    component: UserDashboardComponent
+  },
+  {
+    path: 'user/services',
+    canActivate: [AuthGuardService],
+    component: UserServicesComponent
+  },
+  {
+    path: 'user/activities',
+    canActivate: [AuthGuardService],
+    component: UserActivitiesComponent
+  },
+  {
+    path: 'user/chat',
+    canActivate: [AuthGuardService],
+    component: UserChatComponent
+  },
+
+  // manager routes
+  {
+    path: 'manager/profile',
+    canActivate: [AuthGuardService],
+    component: ManagerProfileComponent
+  },
+  {
+    path: 'manager/dashboard',
+    component: ManagerDashboardComponent
+  },
+  {
+    path: 'manager/attandance',
+    canActivate: [AuthGuardService],
+    component: AttandanceComponent
+  },
+  {
+    path: 'manager/leaves',
+    canActivate: [AuthGuardService],
+    component: LeavesComponent
+  },
+  {
+    path: 'manager/accounts',
+    canActivate: [AuthGuardService],
+    component: AccountsComponent
+  },
+
+  // not found page route
   {
     path: '**',
     component: NotFoundComponent

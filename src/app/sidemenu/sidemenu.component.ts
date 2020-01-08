@@ -19,7 +19,7 @@ export class SidemenuComponent implements OnInit {
   phoneNumber: any;
   created_on: any;
   // role: any = sessionStorage.getItem('role');
-  role: any;
+  role: any = sessionStorage.getItem('role');
   data: any;
 
   constructor(
@@ -54,7 +54,7 @@ export class SidemenuComponent implements OnInit {
         this.email = this.userData[0].email;
         this.phoneNumber = this.userData[0].phonenumber;
         this.created_on = this.userData[0].created_at;
-        this.role = this.userData[0].role;
+        // this.role = this.userData[0].role;
         // console.log("profile image path is:", this.profileImage);
       } else {
         console.log("Error while getting user data");

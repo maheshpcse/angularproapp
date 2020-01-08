@@ -38,7 +38,7 @@ export class SettingsComponent implements OnInit {
     let obj = {
       username: this.username
     }
-    this.authService.uploadProfileImg(formData).subscribe(res => {
+    this.authService.uploadSingle(formData).subscribe(res => {
       if (res['success'] == true) {
         console.log("File upload successful");
       } else {

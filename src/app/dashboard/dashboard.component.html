@@ -1,10 +1,10 @@
 <div class="d-flex" id="wrapper">
 
-  <!-- <app-sidemenu></app-sidemenu> -->
+  <app-sidemenu></app-sidemenu>
   <!-- Page Content -->
   <div id="page-content-wrapper">
 
-    <!-- <app-header></app-header> -->
+    <app-header></app-header>
     <div class="container">
       <!-- <h3 class="text-center text-danger">ANGULAR Pro</h3> -->
       <!-- <p class="text-center text-secondary">Created By @angular</p> -->
@@ -21,20 +21,23 @@
           <p class="text-center">no results found...</p>
         </div>
       </div>
-    </div>
-    <br><br> -->
-      <!-- <div class="row">
+      <br><br> -->
+
+      <!-- Single image/* upload -->
+      <div class="row">
         <div class="col-md-4">
           <form action="" enctype="multipart/form-data" method="POST">
             <div class="form-group">
-              <label for="profile">Upload Profile</label>
-              <input type="file" #fileInput class="form-control" accept="video/mp4,image/png,image/jpeg" name="image"
+              <label for="profile">Single File Upload Form :</label>
+              <input type="file" #fileInput class="form-control" accept="*" name="image"
                 (change)="selectedFile($event)">
             </div>
-            <button class="btn btn-info" type="submit" (click)="uploadProfile()">Upload</button>
+            <button class="btn btn-info" type="submit" (click)="uploadSingle()">Upload</button>
           </form>
         </div>
-      </div> -->
+      </div>
+
+      <!-- Multiple images/* upload-->
       <div class="row">
         <div class="col-md-12">
           <form action="" [formGroup]="ImageForm" enctype="multipart/form-data" method="POST">
@@ -43,18 +46,17 @@
                 [formGroupName]="i">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="image-required">Profile Image</label>
-                    <input type="file" class="form-control" accept="video/mp4,image/png,image/jpeg" name="image"
-                      formControlName="image" (change)="selectedFiles($event.target.files)">
+                    <label for="image-required">Multiple File Upload Form :</label>
+                    <input type="file" #filesInput class="form-control" accept="video/mp4,image/png,image/jpeg"
+                      name="image" formControlName="image" (change)="selectedFiles($event.target.files)">
                   </div>
                 </div>
                 <div class="col-md-3 mt-4">
                   <div class="form-group">
                     <button class="btn btn-outline-success" *ngIf="ImageForm.controls.ImageArr.controls.length <= i+1"
                       (click)="addForm(i)"><i class="fa fa-plus"></i></button>
-                    <button class="btn btn-outline-danger ml-2"
-                      *ngIf="ImageForm.controls.ImageArr.controls.length > 1" (click)="removeForm(i)"><i
-                        class="fa fa-minus"></i></button>
+                    <button class="btn btn-outline-danger ml-2" *ngIf="ImageForm.controls.ImageArr.controls.length > 1"
+                      (click)="removeForm(i)"><i class="fa fa-minus"></i></button>
                   </div>
                 </div>
               </div>

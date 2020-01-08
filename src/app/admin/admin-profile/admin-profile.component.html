@@ -12,16 +12,13 @@
           <div class="w3-container">
             <div class="w3-card-4">
               <header class="w3-container w3-light-gray">
-                <!-- <h3>{{ username }}</h3> -->
-                <h3>User</h3>
+                <h3>{{ username }}</h3>
               </header>
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-3 p-3">
                     <div class="w3-container">
-                      <!-- <img src="../../../assets/images/admin-avatar.png" alt="_profileImage" class="img-responsive"> -->
                       <img [src]="imgSrc" alt="_profile" class="img-responsive">
-                      <!-- <img src="{{ profileImage }}" alt="_profile" class="img-responsive"> -->
                     </div>
                   </div>
                   <div class="col-md-9 p-3">
@@ -32,10 +29,55 @@
                     </div>
                   </div>
                 </div>
+                <h3>Users Profiles :</h3>
                 <div class="row">
-                  <div class="col-md-3">
-                    <!-- <iframe src="../../../assets/videos/100 Second Countdown Timer.mp4" frameborder="0"></iframe> -->
-                    <!-- <iframe [src]="imgSrc" frameborder="0"></iframe> -->
+                  <div class="col-md-3" *ngFor="let item of profilesArr">
+                    <img [src]="item" alt="_profiles" class="img-responsive">
+                  </div>
+                </div>
+                <h3>Text File Data :</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    {{ textData }}
+                  </div>
+                </div>
+                <h3>PDF File Data :</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    {{ pdfData }}
+                  </div>
+                </div>
+                <h3>Excel File Data :</h3>
+                <div class="row">
+                  <div class="col-md-6">
+                    <table class="table table-borderless table-hover">
+                      <thead>
+                        <tr *ngFor="let item of headersArr; let i=index">
+                          <th>#</th>
+                          <th>F</th>
+                          <th>X</th>
+                          <th>Y</th>
+                          <th>Z</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of excelData; let i=index">
+                          <td>{{ i+1 }}</td>
+                          <td>{{ item.F }}</td>
+                          <td>{{ item.X }}</td>
+                          <td>{{ item.Y }}</td>
+                          <td>{{ item.Z }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <h3>Handsontable :</h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <hot-table [data]="data" [colHeaders]="true" [rowHeaders]="true" [width]="600" [height]="300"
+                      [settings]="settings" [licenseKey]="00000-00000-00000-00000-00000">
+                    </hot-table>
                   </div>
                 </div>
               </div>

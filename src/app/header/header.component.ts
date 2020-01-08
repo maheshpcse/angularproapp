@@ -50,7 +50,8 @@ export class HeaderComponent implements OnInit {
         for (let i = 0; i < this.roles[0].length; i++) {
           this.rolesArr.push(this.roles[0][i]);
         }
-        // console.log("roles is:", this.rolesArr);
+        this.rolesArr.push(this.role);
+        console.log("roles is:", this.rolesArr);
       } else {
         console.log("Error while getting user data");
       }
@@ -59,7 +60,9 @@ export class HeaderComponent implements OnInit {
 
   changeRole(role: any) {
     console.log("get role is:", role);
-    this.route.navigate(['/dashboard', { data: role }]);
+    sessionStorage.setItem('role', role);
+    window.location.reload();
+    // this.route.navigate(['/dashboard', { data: role }]);
   }
 
 }

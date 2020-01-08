@@ -11,3 +11,7 @@
 .dropdown-item {
     cursor: pointer;
 }
+
+.roleActive {
+    color: teal;
+}

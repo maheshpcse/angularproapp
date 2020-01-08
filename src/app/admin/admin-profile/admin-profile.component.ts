@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/api.service';
 import { environment } from '../../../environments/environment';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import * as $ from 'jquery';
+import Handsontable from 'handsontable';
 
 @Component({
   selector: 'app-admin-profile',
@@ -17,6 +18,20 @@ export class AdminProfileComponent implements OnInit {
   project: any;
   apiUrl: string;
 
+  data: any[] = [
+    ['', 'Tesla', 'Mercedes', 'Toyota', 'Volvo'],
+    ['2019', 10, 11, 12, 13],
+    ['2020', 20, 11, 14, 13],
+    ['2021', 30, 15, 12, 13]
+  ];
+
+  settings: Object =  {
+    data: this.data,
+    rowHeaders: true,
+    colHeaders: true,
+    licenseKey: 'non-commercial-and-evaluation'
+  }
+
   constructor(
     private route: Router,
     private authService: AuthService,
@@ -27,6 +42,7 @@ export class AdminProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
+    this.getUsersInfo();
   }
 
   username: any;
@@ -35,6 +51,10 @@ export class AdminProfileComponent implements OnInit {
   phoneNumber: any;
   created_on: any;
   imgSrc: SafeResourceUrl;
+  textData: any;
+  pdfData: any;
+  excelData: any = [];
+  headersArr: any = [];
 
   getUserInfo() {
     let data = {
@@ -44,16 +64,55 @@ export class AdminProfileComponent implements OnInit {
       console.log("response:", res);
       if (res['success'] == true) {
         this.userData = res['data'];
+        let extName = res['ext'];
         console.log("user data is:", this.userData);
+        console.log("File extension name is:", extName);
         this.username = this.userData[0].username;
         this.email = this.userData[0].email;
         this.phoneNumber = this.userData[0].phonenumber;
         this.created_on = this.userData[0].created_at;
-        this.profileImage = res['file'];
-        // console.log("profile image is:", this.profileImage);
-        this.imgSrc = this.sanitization.bypassSecurityTrustResourceUrl('data:image/*;base64,' + `${this.profileImage}`);
-        // this.imgSrc = 'data:image/*;base64' + (this.sanitization.bypassSecurityTrustResourceUrl(this.profileImage) as any).changingThisBreaksApplicationSecurity;
-        // console.log("profile image path is:", this.imgSrc);
+        if (extName == 'jpg' || extName == 'png' || extName == 'gif' || extName == 'JPEG' || extName == 'PNG' || extName == 'GIF') {
+          this.profileImage = res['file'];
+          this.imgSrc = this.sanitization.bypassSecurityTrustResourceUrl('data:image/*;base64,' + `${this.profileImage}`);
+        }
+        else if (extName == 'txt' || extName == 'TXT') {
+          this.textData = res['file'];
+        }
+        else if (extName == 'pdf' || extName == 'PDF') {
+          this.pdfData = res['file'];
+          console.log("type of pdf data is:", typeof(this.pdfData));
+        }
+        else if (extName == 'xlsx' || extName == 'xls' || extName == 'XLSX' || extName == 'XLS') {
+          this.excelData = res['file'];
+          this.headersArr = res['thead'];
+        }
+        else {
+          console.log("No file data is found");
+        }
+      } else {
+        console.log("Error while getting user data");
+      }
+    })
+  }
+
+  ImagesSrc: SafeResourceUrl;
+  filesArr: any = [];
+  profilesArr = [];
+
+  getUsersInfo() {
+    let data = {
+      username: sessionStorage.getItem('id')
+    }
+    this.authService.getUsersprofiles(data).subscribe((res: any) => {
+      console.log("response:", res);
+      if (res['success'] == true) {
+        this.userData = res['data'];
+        this.filesArr = res['files'];
+        console.log("user data is:", this.userData);
+        for (let i = 0; i < this.filesArr.length; i++) {
+          this.ImagesSrc = this.sanitization.bypassSecurityTrustResourceUrl('data:image/*;base64,' + `${this.filesArr[i]}`);
+          this.profilesArr.push(this.ImagesSrc);
+        }
       } else {
         console.log("Error while getting user data");
       }
