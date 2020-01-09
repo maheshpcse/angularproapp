@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('role', res['role']);
         this.isSuccess = true;
         setInterval(() => {
-          this.route.navigate(['/dashboard']);
+          this.route.navigate([`/${res['role']}/dashboard`]);
         }, 1000);
       } else if (res['statusCode'] == 204) {
         console.log("Required fields are empty");
