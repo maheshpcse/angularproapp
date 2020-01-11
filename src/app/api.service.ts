@@ -4,6 +4,7 @@ export class ApiService {
   public static timer = 30000;
   public static API = {
     // DATA APT URL's
+    GET_DB_CONNECTION: environment.apiUrl + '/server',
     GETDATA: environment.apiUrl + '/getdata',
 
     // LOGIN and SIGNUP API URL's

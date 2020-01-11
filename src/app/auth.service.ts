@@ -9,6 +9,10 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  getDbConnection() {
+    return this.http.get(ApiService.API.GET_DB_CONNECTION);
+  }
+
   getData() {
     return this.http.get(ApiService.API.GETDATA);
   }

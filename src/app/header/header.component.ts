@@ -11,6 +11,9 @@ import { AuthService } from '../auth.service';
 export class HeaderComponent implements OnInit {
 
   userData: any = [];
+  public role: any;
+  public roles: any = [];
+  public rolesArr: any = [];
 
   constructor(
     private route: Router,
@@ -31,10 +34,6 @@ export class HeaderComponent implements OnInit {
     this.route.navigate(['']);
   }
 
-  role: any;
-  roles: any = [];
-  rolesArr: any = [];
-
   getUserInfo() {
     let data = {
       username: sessionStorage.getItem('id')
@@ -42,7 +41,7 @@ export class HeaderComponent implements OnInit {
     this.authService.getUserProfile(data).subscribe(res => {
       if (res['success'] == true) {
         this.userData = res['data'];
-        // console.log("user data is:", this.userData);
+        console.log("user data is:", this.userData);
         this.role = this.userData[0].role;
         for (let i = 0; i < this.userData.length; i++) {
           this.roles.push(this.userData[i].assigned_roles.split(','));
