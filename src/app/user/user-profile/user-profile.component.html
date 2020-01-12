@@ -1,42 +1,63 @@
 <div class="d-flex" id="wrapper">
 
-    <app-sidemenu></app-sidemenu>
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-  
-      <app-header></app-header>
-  
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12 mt-3">
-            <div class="w3-container">
-              <div class="w3-card-4">
-                <header class="w3-container w3-light-gray">
-                  <h3>{{ username }}</h3>
-                </header>
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-3 p-3">
+  <!-- <app-sidemenu></app-sidemenu> -->
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <!-- <app-header></app-header> -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <div class="w3-container">
+            <div class="w3-card-4">
+              <header class="w3-container w3-light-gray">
+                <h3>{{ username }}</h3>
+              </header>
+              <div class="container-fluid">
+                <div class="row">
+                  <!-- <div class="col-md-3 p-3">
                       <div class="w3-container">
-                        <img [src]="imgSrc" alt="_profile" class="img-responsive">
+                        <img [src]="imgSrc" alt="_profile" class="img-responsive" style="width: 50%;">
                       </div>
-                    </div>
-                    <div class="col-md-9 p-3">
-                      <div class="w3-container">
-                        <label for="email">Email :</label> {{ email }} <br>
-                        <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
-                        <label for="created_on">Created on :</label> {{ created_on }} <br>
-                      </div>
+                    </div> -->
+                  <div class="col-md-9 p-3">
+                    <div class="w3-container">
+                      <label for="email">Email :</label> {{ email }} <br>
+                      <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
+                      <label for="created_on">Created on :</label> {{ created_on }} <br>
                     </div>
                   </div>
                 </div>
+              </div>
+              <hr>
+              <!-- user story and message -->
+              <div class="w3-container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" role="tablist">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#story" role="tab" aria-controls="#story-tab">Item 1</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#message" role="tab" aria-controls="#message-tab" tabindex="-1">Item 2</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" role="tabpanel">
+                    <div class="tab-pane fade active" id="story" aria-labelledby="story-tab">coming soon...</div>
+                    <div class="tab-pane fade" id="message" aria-labelledby="message-tab">
+                      <textarea name="content" id="content" cols="30" rows="10" placeholder="Enter message..."></textarea>
+                    </div>
+                    <button class="btn btn-info" (click)="sendMessage()">Send</button>
+                  </div>
+                </nav>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- /#page-content-wrapper -->
-  
   </div>
-  <!-- /#wrapper -->
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->

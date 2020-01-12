@@ -16,6 +16,10 @@ export class NotFoundComponent implements OnInit {
   public url: any;
   public pageType: any;
 
+  autogen: number;
+  public clientIP: any;
+  public currentUrl: any
+
   constructor(
     private route: Router,
     private authService: AuthService,
@@ -23,23 +27,25 @@ export class NotFoundComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.pageType = this._route.snapshot.url[0].path;
+    this.currentUrl = this._route.snapshot.url[0].path;
+    this.clientIP = 'http://192.168.2.146:3200';
+    console.log("current url is:", this.currentUrl);
+    console.log("client ip address is:", this.clientIP);
+    
+    this.subscription = timer(0, 10000).pipe(
+      switchMap(() => this.authService.getDbConnection())
+    ).subscribe(res => {
+      console.log("server connection is checking", res);
+      console.log(res['data']);
+    });
+
     if (this.role == '' || this.role == null) {
       this.url = 'login';
       this.pageType = 'Login';
-      console.log("current url issssss:", this.url);
     } else {
       this.url = `${this.role}/dashboard`;
       this.pageType = 'Dashboard';
-      console.log("current url is:", this.url);
     }
-
-    this.subscription = timer(0, 5000).pipe(
-      switchMap(() => this.authService.getDbConnection())
-    ).subscribe(res => {
-      console.log("server connection checking", res);
-      console.log(res['data']);
-    });
   }
 
 }

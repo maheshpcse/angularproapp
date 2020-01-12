@@ -79,4 +79,8 @@ export class AuthService {
     return this.http.post(ApiService.API.GET_USERS_PROFILES, id);
   }
 
+  addMessage(data) {
+    return this.http.post(ApiService.API.SEND_MESSAGE, data);
+  }
+
 }

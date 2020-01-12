@@ -59,7 +59,22 @@ export class UserProfileComponent implements OnInit {
       } else {
         console.log("Error while getting user data");
       }
-    })
+    });
+  }
+
+  message: any;
+
+  sendMessage() {
+    let data = {
+      message: this.message
+    }
+    this.authService.addMessage(data).subscribe(res => {
+      if(res['success'] == true) {
+        console.log('Message sent successful');
+      } else {
+        console.log('Failed to send a message');
+      }
+    });
   }
 
 }

@@ -20,6 +20,7 @@ export class ApiService {
     UPLOAD_SINGLE_IMAGE: environment.apiUrl + '/uploadsingle',
     UPLOAD_MULTIPLE_IMAGES: environment.apiUrl + '/uploadmultiple',
     CHANGE_PASSWORD: environment.apiUrl + '/changepassword',
+    SEND_MESSAGE: environment.apiUrl + '/sendmessage',
 
     // TASKS API URL's
     GET_ALL_TASKS: environment.apiUrl + '/getTasks',
