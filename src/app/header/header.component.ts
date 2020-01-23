@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 export class HeaderComponent implements OnInit {
 
   userData: any = [];
-  public role: any;
+  public role = sessionStorage.getItem('role');
   public roles: any = [];
   public rolesArr: any = [];
 
@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+    console.log("curret role is:", this.role);
     this.getUserInfo();
   }
 
@@ -42,7 +43,7 @@ export class HeaderComponent implements OnInit {
       if (res['success'] == true) {
         this.userData = res['data'];
         console.log("user data is:", this.userData);
-        this.role = this.userData[0].role;
+        // this.role = this.userData[0].role;
         for (let i = 0; i < this.userData.length; i++) {
           this.roles.push(this.userData[i].assigned_roles.split(','));
         }
