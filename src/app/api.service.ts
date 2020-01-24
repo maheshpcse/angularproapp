@@ -4,8 +4,8 @@ export class ApiService {
   public static timer = 30000;
   public static API = {
     // DATA APT URL's
-    GET_DB_CONNECTION: environment.apiUrl + '/server',
-    GETDATA: environment.apiUrl + '/getdata',
+    GET_DB_CONNECTION: environment.apiUrl + '/dbconnection',
+    GET_API_WORK: environment.apiUrl + '/server',
 
     // LOGIN and SIGNUP API URL's
     LOGIN: environment.apiUrl + '/login',
@@ -25,6 +25,9 @@ export class ApiService {
     // TASKS API URL's
     GET_ALL_TASKS: environment.apiUrl + '/getTasks',
     UPDATE_TASK: environment.apiUrl + '/updateTask',
-    DELETE_TASK: environment.apiUrl + '/deleteTask'
+    DELETE_TASK: environment.apiUrl + '/deleteTask',
+
+    // NOTIFICATIONS API URL's
+    GET_NOTIFICATIONS_COUNT: environment.apiUrl + '/getNotifications'
   }
 }

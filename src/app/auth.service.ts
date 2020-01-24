@@ -14,7 +14,7 @@ export class AuthService {
   }
 
   getData() {
-    return this.http.get(ApiService.API.GETDATA);
+    return this.http.get(ApiService.API.GET_API_WORK);
   }
 
   userLogin(data) {

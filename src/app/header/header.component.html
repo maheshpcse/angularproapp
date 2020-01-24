@@ -12,21 +12,24 @@
         <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="active" ><i class="fa fa-home" aria-hidden="true"></i> </a>
       </li> -->
       <li class="nav-item mr-5">
-        <a class="nav-link" [routerLink]="['/notifications']" routerLinkActive="active"><i class="fa fa-bell-o"
-            aria-hidden="true"></i> </a>
+        <a class="nav-link" [routerLink]="['/notifications']" routerLinkActive="active">
+          <span class="badge">{{ notificationsCount }}</span>
+          <i class="fa fa-bell-o" aria-hidden="true"></i>
+        </a>
       </li>
       <li class="nav-item dropdown mr-5">
-        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
           <i class="fa fa-reply" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" *ngFor="let item of rolesArr" (click)="changeRole(item)" [ngClass]="{'roleActive': item == role}">{{ item }}</a>
+          <a class="dropdown-item" *ngFor="let item of rolesArr" (click)="changeRole(item)"
+            [ngClass]="{'roleActive': item == role}">{{ item }}</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
           <!-- <img src="../../assets/images/admin-avatar.png" alt="_profileImg" class="img-responsive float-right"> -->
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
         </a>

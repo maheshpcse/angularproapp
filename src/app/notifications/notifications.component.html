@@ -7,7 +7,32 @@
       <app-header></app-header>
   
       <div class="container-fluid">
-        <p>notifications works!</p>
+        <!-- <p>notifications works!</p> -->
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <div class="w3-container">
+              <div class="w3-card-4">
+                <header class="w3-container w3-light-gray">
+                  <h3>{{ sharedService.translation('Notifications') }}</h3>
+                </header>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-3 p-3">
+                      <div class="w3-container">
+                        {{ sharedService.translation('Type of Notifications') }}
+                      </div>
+                    </div>
+                    <div class="col-md-9 p-3">
+                      <div class="w3-container">
+                        {{ sharedService.translation('Information') }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- /#page-content-wrapper -->

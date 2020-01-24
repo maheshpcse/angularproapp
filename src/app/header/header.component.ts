@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import { Subscription, timer, pipe, Observable, Subject } from 'rxjs';
+import { switchMap, takeUntil, catchError } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   userData: any = [];
   public role = sessionStorage.getItem('role');
   public roles: any = [];
   public rolesArr: any = [];
 
+  subscription: Subscription;
+  notificationsCount: any = 0;
+
   constructor(
     private route: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    public sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -26,7 +33,30 @@ export class HeaderComponent implements OnInit {
       $("#wrapper").toggleClass("toggled");
     });
     console.log("curret role is:", this.role);
+
     this.getUserInfo();
+
+    this.subscription = timer(0, 10000).pipe(
+      switchMap(() => this.sharedService.getNotificationsCount())
+    ).subscribe(res => {
+      if (res['success'] == true) {
+        console.log("Notifications response:", res['data']);
+        this.notificationsCount = res['data'].length ? res['data'].length : 0;
+      } else {
+        console.log("Error while getting notifications count");
+      }
+      this.getDbConnection();
+    });
+  }
+
+  getDbConnection() {
+    this.sharedService.getDbConnection().subscribe(res => {
+      if (res['success'] == false) {
+        console.log("Database connection error", res['data']);
+      } else if (res['success'] == true) {
+        console.log("Database connection success", res['data']);
+      }
+    })
   }
 
   logOut() {
@@ -63,6 +93,21 @@ export class HeaderComponent implements OnInit {
     sessionStorage.setItem('role', role);
     window.location.reload();
     // this.route.navigate(['/dashboard', { data: role }]);
+  }
+
+  getNotificationsCount() {
+    this.sharedService.getNotificationsCount().subscribe(res => {
+      if (res['success'] == true) {
+        console.log("Notifications response:", res['data']);
+        this.notificationsCount = res['data'].length ? res['data'].length : 0;
+      } else {
+        console.log("Error while getting notifications count");
+      }
+    })
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
