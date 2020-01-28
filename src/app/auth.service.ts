@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -18,7 +18,8 @@ export class AuthService {
   }
 
   userLogin(data) {
-    return this.http.post(ApiService.API.LOGIN, data);
+    console.log(data);
+    return this.http.post<any>(ApiService.API.LOGIN, data);
   }
 
   userSignup(data) {
