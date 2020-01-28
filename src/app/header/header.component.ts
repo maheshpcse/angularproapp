@@ -11,7 +11,7 @@ import { SharedService } from '../shared.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
 
   userData: any = [];
   public role = sessionStorage.getItem('role');
@@ -36,17 +36,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.getUserInfo();
 
-    this.subscription = timer(0, 10000).pipe(
-      switchMap(() => this.sharedService.getNotificationsCount())
-    ).subscribe(res => {
-      if (res['success'] == true) {
-        console.log("Notifications response:", res['data']);
-        this.notificationsCount = res['data'].length ? res['data'].length : 0;
-      } else {
-        console.log("Error while getting notifications count");
-      }
-      this.getDbConnection();
-    });
+    // this.subscription = timer(0, 10000).pipe(
+    //   switchMap(() => this.sharedService.getNotificationsCount())
+    // ).subscribe(res => {
+    //   console.log("response isss:", res);
+    //   if (res['success'] == true) {
+    //     console.log("Notifications response:", res['data']);
+    //     this.notificationsCount = res['data'].length ? res['data'].length : 0;
+    //   } else {
+    //     console.log("Error while getting notifications count");
+    //   }
+    //   this.getDbConnection();
+    // });
+
+    this.getNotificationsCount();
   }
 
   getDbConnection() {
@@ -96,6 +99,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getNotificationsCount() {
+    console.log("incoming request");
     this.sharedService.getNotificationsCount().subscribe(res => {
       if (res['success'] == true) {
         console.log("Notifications response:", res['data']);
@@ -106,8 +110,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 
 }

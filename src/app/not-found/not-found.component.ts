@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.css']
 })
-export class NotFoundComponent implements OnInit, OnDestroy {
+export class NotFoundComponent implements OnInit {
 
   subscription: Subscription;
   public role = sessionStorage.getItem('role');
@@ -32,12 +32,12 @@ export class NotFoundComponent implements OnInit, OnDestroy {
     console.log("current url is:", this.currentUrl);
     console.log("client ip address is:", this.clientIP);
     
-    this.subscription = timer(0, 10000).pipe(
-      switchMap(() => this.authService.getDbConnection())
-    ).subscribe(res => {
-      console.log("server connection is checking", res);
-      console.log(res['data']);
-    });
+    // this.subscription = timer(0, 10000).pipe(
+    //   switchMap(() => this.authService.getDbConnection())
+    // ).subscribe(res => {
+    //   console.log("server connection is checking", res);
+    //   console.log(res['data']);
+    // });
 
     if (this.role == '' || this.role == null) {
       this.url = 'login';
@@ -48,8 +48,8 @@ export class NotFoundComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 
 }
