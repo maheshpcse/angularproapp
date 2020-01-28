@@ -1,32 +1,63 @@
 <div class="d-flex" id="wrapper">
 
-    <app-sidemenu></app-sidemenu>
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-  
-      <app-header></app-header>
-  
-      <div class="container-fluid">
-        <!-- <p>notifications works!</p> -->
-        <div class="row">
-          <div class="col-md-12 mt-3">
-            <div class="w3-container">
-              <div class="w3-card-4">
-                <header class="w3-container w3-light-gray">
-                  <h3>{{ sharedService.translation('Notifications') }}</h3>
-                </header>
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-3 p-3">
-                      <div class="w3-container">
-                        {{ sharedService.translation('Type of Notifications') }}
-                      </div>
+  <app-sidemenu></app-sidemenu>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <app-header></app-header>
+
+    <div class="container-fluid">
+      <!-- <p>notifications works!</p> -->
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <div class="w3-container">
+            <div class="w3-card-4">
+              <header class="w3-container w3-light-gray">
+                <h3>{{ sharedService.translation('Notifications') }}</h3>
+              </header>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-3 p-3">
+                    <div class="w3-container">
+                      {{ sharedService.translation('Type of Notifications') }}
                     </div>
-                    <div class="col-md-9 p-3">
-                      <div class="w3-container">
-                        {{ sharedService.translation('Information') }}
-                      </div>
+                    <hr>
+                    <!-- Navbar coming soon for type of notifications list -->
+                  </div>
+                  <div class="col-md-9 p-3">
+                    <div class="w3-container">
+                      {{ sharedService.translation('Information') }}
                     </div>
+                    <hr>
+                    <table class="table table-light table-borderless">
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th>Notification</th>
+                          <th>Type of Notify</th>
+                          <th>Module</th>
+                          <th>Sender</th>
+                          <th>Receiver</th>
+                          <th>Status</th>
+                          <th>Date of Received</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of notifications">
+                          <td>{{ i+1 }}</td>
+                          <td>{{ item.notification }}</td>
+                          <td>{{ item.type_of_notify }}</td>
+                          <td>{{ item.module_name }}</td>
+                          <td>{{ item.sender_name }}</td>
+                          <td>{{ item.receiver_name }}</td>
+                          <td class="read" [ngClass]="{'status': item.status == 1}">
+                            <span *ngIf="item.status == 1">Read</span>
+                            <span *ngIf="item.status == 0">Not Read</span>
+                          </td>
+                          <td>{{ item.updated_at | date }}</td>
+                        </tr> 
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -35,8 +66,8 @@
         </div>
       </div>
     </div>
-    <!-- /#page-content-wrapper -->
-  
   </div>
-  <!-- /#wrapper -->
-  
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
