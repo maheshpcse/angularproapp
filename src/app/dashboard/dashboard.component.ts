@@ -19,6 +19,9 @@ export class DashboardComponent implements OnInit {
   @ViewChild('fileInput', { static: false }) fileInputRef: ElementRef;
   @ViewChild('filesInput', { static: false }) filesInputRef: ElementRef;
 
+  searchItem: any;
+  hiddenItem: any;
+
   constructor(
     private route: Router,
     private authService: AuthService,
@@ -91,5 +94,9 @@ export class DashboardComponent implements OnInit {
         console.log("Failed to upload files");  
       }
     })
+  }
+
+  searchData() {
+
   }
 }
