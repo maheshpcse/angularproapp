@@ -7,6 +7,9 @@ export class ApiService {
     GET_DB_CONNECTION: environment.apiUrl + '/dbconnection',
     GET_API_WORK: environment.apiUrl + '/server',
 
+    // DOWNLOAD A FILE
+    ADD_DATA_TO_DOWNLOAD: environment.apiUrl + '/download',
+
     // LOGIN and SIGNUP API URL's
     LOGIN: environment.apiUrl + '/login',
     SIGNUP: environment.apiUrl + '/signup',

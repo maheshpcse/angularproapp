@@ -12,6 +12,11 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
 
+  addDatatoDowload(data) {
+    console.log(data);
+    return this.http.post(ApiService.API.ADD_DATA_TO_DOWNLOAD, data);
+  }
+
   getDbConnection() {
     return this.http.get(ApiService.API.GET_DB_CONNECTION);
   }

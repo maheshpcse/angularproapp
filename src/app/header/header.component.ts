@@ -11,7 +11,7 @@ import { SharedService } from '../shared.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
 
   userData: any = [];
   public role = sessionStorage.getItem('role');
@@ -115,7 +115,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/notifications']);
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 }

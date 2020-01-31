@@ -7,9 +7,9 @@
     <app-header></app-header>
 
     <div class="container">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-12 mt-5">
-          <!-- angular8-data-tale -->
+          angular8-data-tale
           <table class="table table-striped" [svData]="tasksArr" #sv="svDataTable" [svRowsOnPage]="5" svSortBy="name"
             svSortOrder="asc">
             <thead>
@@ -49,13 +49,13 @@
                 <td class="text-center">
                   <i class="fa fa-edit btn btn-info" aria-hidden="true" (click)="getTaskid(item.task_id, item.user_id, 'edit')"></i>
                   <i class="fa fa-trash btn btn-danger ml-3" aria-hidden="true" (click)="getTaskid(item.task_id,'','delete')"></i>
-                  <!-- <div class="w3-dropdown-hover">
+                  <div class="w3-dropdown-hover">
                     <i class="fa fa-gears" aria-hidden="true"></i>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
                       <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id, item.user_id, 'edit')">Edit</a>
                       <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id,'','delete')">Delete</a>
                     </div>
-                  </div> -->
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -67,6 +67,13 @@
               </tr>
             </tfoot>
           </table>
+        </div>
+      </div> -->
+
+      <!-- Download a file -->
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <button class="btn btn-info col-md-2" (click)="downloadReport()">Download Report</button>
         </div>
       </div>
     </div>
