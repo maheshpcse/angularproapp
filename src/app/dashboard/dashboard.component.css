@@ -11,10 +11,6 @@ h4 {
   opacity: none;
 }
 
-.card {
-  background-color: white;
-}
-
 form.example input[type=text] {
   padding: 10px;
   font-size: 17px;
@@ -44,4 +40,8 @@ form.example::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.list {
+  border: none;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription, timer, pipe, Observable, Subject } from 'rxjs';
 import { switchMap, takeUntil, catchError } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
@@ -20,9 +20,14 @@ export class HeaderComponent implements OnInit {
 
   subscription: Subscription;
   notificationsCount: any = 0;
+  notifications: any = [];
+  hiddenNotify: boolean = false;
+
+  currentUrl: any;
 
   constructor(
-    private route: Router,
+    private router: Router,
+    private route: ActivatedRoute,
     private authService: AuthService,
     public sharedService: SharedService
   ) { }
@@ -36,20 +41,23 @@ export class HeaderComponent implements OnInit {
 
     this.getUserInfo();
 
+    this.currentUrl = this.route.snapshot.url[0].path;
+    console.log("current url is", this.currentUrl);
     // this.subscription = timer(0, 10000).pipe(
     //   switchMap(() => this.sharedService.getNotificationsCount())
     // ).subscribe(res => {
-    //   console.log("response isss:", res);
     //   if (res['success'] == true) {
-    //     console.log("Notifications response:", res['data']);
-    //     this.notificationsCount = res['data'].length ? res['data'].length : 0;
+    //     console.log("Notifications count is:", res['data']);
+    //     if (this.currentUrl != 'notifications') {
+    //       this.notificationsCount = res['data'].length ? res['data'].length : 0;
+    //       this.notifications = res['data'];
+    //     } else {
+    //       this.notificationsCount = 0;
+    //     }
     //   } else {
     //     console.log("Error while getting notifications count");
     //   }
-    //   this.getDbConnection();
-    // });
-
-    this.getNotificationsCount();
+    // })
   }
 
   getDbConnection() {
@@ -65,7 +73,7 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.clear();
     sessionStorage.clear();
-    this.route.navigate(['']);
+    this.router.navigate(['']);
   }
 
   getUserInfo() {
@@ -98,20 +106,16 @@ export class HeaderComponent implements OnInit {
     // this.route.navigate(['/dashboard', { data: role }]);
   }
 
-  getNotificationsCount() {
-    console.log("incoming request");
-    this.sharedService.getNotificationsCount().subscribe(res => {
-      if (res['success'] == true) {
-        console.log("Notifications response:", res['data']);
-        this.notificationsCount = res['data'].length ? res['data'].length : 0;
-      } else {
-        console.log("Error while getting notifications count");
-      }
-    })
+  notifyList() {
+    this.hiddenNotify = true;
+    $('data')
+  }
+
+  viewNotifications() {
+    this.router.navigate(['/notifications']);
   }
 
   // ngOnDestroy() {
   //   this.subscription.unsubscribe();
   // }
-
 }

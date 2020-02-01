@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import * as XLSX from 'xlsx';
+import * as xlsx from 'xlsx-style';
 
 @Component({
   selector: 'app-tables',
@@ -53,7 +55,7 @@ export class TablesComponent implements OnInit {
   }
 
   getTaskid(taskid, userid, action) {
-    if(action == 'edit') {
+    if (action == 'edit') {
       document.getElementById('id01').style.display = 'block';
       this.task_id = taskid;
       this.user_id = userid;
@@ -80,7 +82,7 @@ export class TablesComponent implements OnInit {
         document.getElementById('id01').style.display = 'none';
         this.route.navigate(['/tables']);
       } else {
-        console.log("Failed to updated task");        
+        console.log("Failed to updated task");
         document.getElementById('id01').style.display = 'none';
         this.route.navigate(['/tables']);
       }
@@ -97,11 +99,27 @@ export class TablesComponent implements OnInit {
         document.getElementById('id02').style.display = 'none';
         this.route.navigate(['/tables']);
       } else {
-        console.log("Failed to delete task");        
+        console.log("Failed to delete task");
         document.getElementById('id02').style.display = 'none';
         this.route.navigate(['/tables']);
       }
     })
   }
 
+  downloadReport() {
+    // this.sharedService.addDatatoDowload(this.tasksArr).subscribe(res => {
+    //   console.log("File download succeessful");
+    // })
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.json_to_sheet(this.tasksArr);
+    var cell = {
+      s: {
+        font: { bold: true, underline: true, color: { rgb: "FFFFAA00" }, sz: 25 },
+        alignment: { wrapText: true}
+      }, v: 'task_id'
+    };
+    worksheet['A1'] = cell;
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Tasks');
+    XLSX.writeFile(workbook, 'a.xlsx', { cellStyles: true });
+  }
 }
