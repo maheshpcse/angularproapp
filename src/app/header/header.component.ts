@@ -84,14 +84,14 @@ export class HeaderComponent implements OnInit {
       if (res['success'] == true) {
         this.userData = res['data'];
         console.log("user data is:", this.userData);
-        // this.role = this.userData[0].role;
+        let role = this.userData[0].role;
         for (let i = 0; i < this.userData.length; i++) {
           this.roles.push(this.userData[i].assigned_roles.split(','));
         }
         for (let i = 0; i < this.roles[0].length; i++) {
           this.rolesArr.push(this.roles[0][i]);
         }
-        this.rolesArr.push(this.role);
+        this.rolesArr.push(role);
         console.log("roles is:", this.rolesArr);
       } else {
         console.log("Error while getting user data");
@@ -102,7 +102,8 @@ export class HeaderComponent implements OnInit {
   changeRole(role: any) {
     console.log("get role is:", role);
     sessionStorage.setItem('role', role);
-    window.location.reload();
+    this.router.navigate([`${role}/dashboard`]);
+    // window.location.reload();
     // this.route.navigate(['/dashboard', { data: role }]);
   }
 

@@ -3,7 +3,6 @@ import { SharedService } from '../shared.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
-import * as xlsx from 'xlsx-style';
 
 @Component({
   selector: 'app-tables',
@@ -110,16 +109,30 @@ export class TablesComponent implements OnInit {
     // this.sharedService.addDatatoDowload(this.tasksArr).subscribe(res => {
     //   console.log("File download succeessful");
     // })
-    const workbook = XLSX.utils.book_new();
-    const worksheet = XLSX.utils.json_to_sheet(this.tasksArr);
-    var cell = {
-      s: {
-        font: { bold: true, underline: true, color: { rgb: "FFFFAA00" }, sz: 25 },
-        alignment: { wrapText: true}
-      }, v: 'task_id'
-    };
-    worksheet['A1'] = cell;
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Tasks');
-    XLSX.writeFile(workbook, 'a.xlsx', { cellStyles: true });
+    let keys = Object.keys(this.tasksArr[0]);
+    var cell = [];
+    for (let i = 0; i < keys.length; i++) {
+      var cellStyle = {
+        s: {
+          font: { bold: true, underline: true, color: { rgb: "FFFFAA00" }, sz: 30 },
+          alignment: { wrapText: true, autoWidth: true }
+        }, v: keys[i]
+      };
+      cell.push(cellStyle);
+    }
+    const wscols = [];
+    for (let i = 0; i< keys.length; i++) {
+      let obj = {
+        wch: keys[i].length + 5
+      }
+      wscols.push(obj);
+    }
+    // create workbook and worksheet
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(this.tasksArr);
+    ws['!cols'] = wscols;
+    ws['!margins'] = { left: 0.25, right: 0.25, top: 0.75, bottom: 0.75, header: 0.3, footer: 0.3 };
+    XLSX.utils.book_append_sheet(wb, ws, 'Tasks');
+    XLSX.writeFile(wb, 'a.xlsx', { cellStyles: true });
   }
 }
