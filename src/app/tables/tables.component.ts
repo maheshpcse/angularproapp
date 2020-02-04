@@ -3,6 +3,8 @@ import { SharedService } from '../shared.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-tables',
@@ -109,30 +111,42 @@ export class TablesComponent implements OnInit {
     // this.sharedService.addDatatoDowload(this.tasksArr).subscribe(res => {
     //   console.log("File download succeessful");
     // })
-    let keys = Object.keys(this.tasksArr[0]);
-    var cell = [];
-    for (let i = 0; i < keys.length; i++) {
-      var cellStyle = {
-        s: {
-          font: { bold: true, underline: true, color: { rgb: "FFFFAA00" }, sz: 30 },
-          alignment: { wrapText: true, autoWidth: true }
-        }, v: keys[i]
-      };
-      cell.push(cellStyle);
-    }
-    const wscols = [];
-    for (let i = 0; i< keys.length; i++) {
-      let obj = {
-        wch: keys[i].length + 5
-      }
-      wscols.push(obj);
-    }
-    // create workbook and worksheet
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.json_to_sheet(this.tasksArr);
+    let keys = Object.keys(this.tasksArr[0]);
+    const ws_name = 'Report';
+    let a = [];
+    let b = [];
+    let e = [];
+    let f = [];
+    let g = [];
+    for (let i = 0; i < this.tasksArr.length; i++) {
+      a.push((this.tasksArr[i].title).length);
+      b.push((this.tasksArr[i].description).length);
+      e.push((this.tasksArr[i].username).length);
+      f.push((this.tasksArr[i].created_at).length);
+      g.push((this.tasksArr[i].updated_at).length);
+    }
+    console.log(Math.max.apply(Math, a));
+    const wscols = [
+      { wch: 10 },
+      { wch: Math.max.apply(Math, a) + 1 },
+      { wch: Math.max.apply(Math, b) + 1 },
+      { wch: 10 },
+      { wch: 10 },
+      { wch: Math.max.apply(Math, e) + 1 },
+      { wch: Math.max.apply(Math, f) + 1 },
+      { wch: Math.max.apply(Math, g) + 1 }
+    ];
     ws['!cols'] = wscols;
-    ws['!margins'] = { left: 0.25, right: 0.25, top: 0.75, bottom: 0.75, header: 0.3, footer: 0.3 };
-    XLSX.utils.book_append_sheet(wb, ws, 'Tasks');
-    XLSX.writeFile(wb, 'a.xlsx', { cellStyles: true });
+    wb.SheetNames.push(ws_name);
+    wb.Sheets[ws_name] = ws;
+    const wbout = XLSX.write(wb, {
+      type: 'binary',
+      bookSST: true,
+      bookType: 'xlsx',
+      cellStyles: true
+    });
+    XLSX.writeFile(wb, 'a.xlsx')
   }
 }

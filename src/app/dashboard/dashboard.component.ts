@@ -22,6 +22,8 @@ export class DashboardComponent implements OnInit {
   searchItem: any;
   hiddenItem: any;
 
+  dataItems: any = [];
+
   constructor(
     private route: Router,
     private authService: AuthService,
@@ -32,6 +34,7 @@ export class DashboardComponent implements OnInit {
     this.ImageForm = this.fb.group({
       ImageArr: this.fb.array([this.initForm()])
     })
+    this.dataItems = ['MongoDB', 'ExpressJS', 'Angular', 'Node.JS'];
   }
 
   initForm() {
@@ -96,7 +99,21 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  searchData() {
+  data: any = [];
 
+  searchData(val: any) {
+    console.log(val);
+    for(let i = 0; i<this.dataItems.length; i++) {
+      if (val == '' || val == null || val == undefined) {
+        this.data[0] = 'No data found';
+      }
+      else if (this.dataItems[i].toLowerCase() == val.toLowerCase()) {
+        this.data.push(this.dataItems[i]);
+        // return this.data;
+      } else {
+        this.data[0] = 'No data found';
+        // return this.data;
+      }
+    }
   }
 }

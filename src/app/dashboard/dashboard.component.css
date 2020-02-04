@@ -42,6 +42,10 @@ form.example::after {
   display: table;
 }
 
+.card {
+  width: 80%;
+}
+
 .list {
   border: none;
 }

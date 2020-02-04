@@ -6,21 +6,17 @@
 
     <app-header></app-header>
     <div class="container">
-
       <div class="row">
-        
-      </div>
-
-      <!-- <div class="row">
         <div class="col-md-12 mt-5">
           <form class="example">
-            <input type="text" name="search" [(ngModel)]="searchItem" placeholder="Search...">
-            <button type="submit" (click)="searchData()"><i class="fa fa-search"></i></button>
+            <input type="text" name="search" [(ngModel)]="searchItem" placeholder="Search..."
+              (keyPress)="searchData(searchItem)">
+            <button type="submit" (click)="searchData(searchItem)"><i class="fa fa-search"></i></button>
           </form>
           <div class="card">
             <div class="card-body">
-              <ul class="list-group list">
-                <li class="list-group-item">Text</li>
+              <ul class="list-group list" *ngFor="let item of data">
+                <li class="list-group-item">{{ item }}</li>
               </ul>
             </div>
           </div>
@@ -29,12 +25,12 @@
 
       <div class="row">
         <div class="col-md-12 mt-5">
-          <p class="text-center">no results found...</p>
+          <p class="text-center">No results found...</p>
         </div>
-      </div> -->
+      </div>
 
       <!-- Single image/* upload -->
-      <!-- <div class="row mt-5">
+      <div class="row mt-5">
         <div class="col-md-6">
           <form action="" enctype="multipart/form-data" method="POST">
             <div class="form-group">
@@ -44,10 +40,10 @@
             </div>
             <button class="btn btn-info" type="submit" (click)="uploadSingle()">Upload</button>
           </form>
-        </div> -->
+        </div>
 
         <!-- Multiple images/* upload-->
-        <!-- <div class="col-md-6">
+        <div class="col-md-6">
           <form action="" [formGroup]="ImageForm" enctype="multipart/form-data" method="POST">
             <div formArrayName="ImageArr">
               <div class="row" *ngFor="let item of ImageForm['controls']['ImageArr']['controls'];let i=index"
@@ -71,7 +67,7 @@
             </div>
             <button class="btn btn-info" type="submit" (click)="uploadMultiple()">Upload</button>
           </form>
-        </div> -->
+        </div>
       </div>
       <!-- /#page-content-wrapper -->
 
