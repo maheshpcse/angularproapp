@@ -45,3 +45,7 @@ form.example::after {
 .list {
   border: none;
 }
+
+.card {
+  width: 80%;
+}
