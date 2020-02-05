@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+<nav class="navbar navbar-expand-lg border-bottom site-header">
   <i class="fa fa-bars bars" aria-hidden="true" id="menu-toggle"></i>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -6,41 +6,54 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+    <li class="nav-item ml-5">
+      <a class="nav-link" data-toggle="modal" data-target="#notify">
+        <span class="badge">{{ notificationsCount }}</span>
+        <i class="fa fa-bell-o" aria-hidden="true"></i>
+      </a>
+      <div id="notify" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>New Notifications</h4>
+            </div>
+            <div class="modal-body">
+              <ul class="list-group" *ngFor="let item of notifications">
+                <li class="list-group-item">{{ item.notification }}</li>
+              </ul>
+              <div class="text-center" *ngIf="notifications.length <= 0">
+                No new notificaions.
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-info float-right" type="submit" (click)="viewNotifications()">View All</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <!-- <li class="nav-item mr-5">
         <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="active" ><i class="fa fa-home" aria-hidden="true"></i> </a>
       </li> -->
-      <li class="nav-item mr-5">
-        <a class="nav-link" data-toggle="modal" data-target="#notify">
-          <span class="badge">{{ notificationsCount }}</span>
-          <i class="fa fa-bell-o" aria-hidden="true"></i>
+      <li class="nav-item dropdown mr-5">
+        <a class="nav-link lan" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fa fa-flag-o" aria-hidden="true"> English</i>
         </a>
-        <div id="notify" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4>New Notifications</h4>
-              </div>
-              <div class="modal-body">
-                <ul class="list-group" *ngFor="let item of notifications">
-                  <li class="list-group-item">{{ item.notification }}</li>
-                </ul>
-                <div class="text-center" *ngIf="notifications.length <= 0">
-                  No new notificaions.
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-info float-right" type="submit" (click)="viewNotifications()">View All</button>
-              </div>
-            </div>
-          </div>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" *ngFor="let item of languages" (click)="switchLanguage(item)"
+            [ngClass]="{'lanActive': item.code == activeLanguage}">{{ item.language }}</a>
         </div>
       </li>
       <li class="nav-item dropdown mr-5">
         <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          <i class="fa fa-reply" aria-hidden="true"></i>
+          <i class="fa fa-reply" aria-hidden="true"> Switch</i>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <a class="dropdown-item" *ngFor="let item of rolesArr" (click)="changeRole(item)"

@@ -1,11 +1,16 @@
 .fa {
   cursor: pointer !important;
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
+  color: white;
 }
 
 .bars {
-  border: 1px dashed black;
+  border: 1px dashed whitesmoke;
   padding: 5px;
+}
+
+.collapse {
+  color: whitesmoke;
 }
 
 .dropdown-item {
@@ -16,12 +21,25 @@
   color: teal;
 }
 
+.lan {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.lanActive {
+  font-family: Arial, Helvetica, sans-serif;
+  color: teal;
+}
+
 .badge {
   position: absolute;
   top: 0px;
   margin-left: 10px;
   padding: 5px 10px;
   border-radius: 50%;
-  background: red;
+  background-color: #c54040;
   color: white;
+}
+
+.site-header {
+  background-color: #1668af;
 }

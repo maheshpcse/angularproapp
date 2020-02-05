@@ -22,6 +22,9 @@ export class DashboardComponent implements OnInit {
   searchItem: any;
   hiddenItem: any;
 
+  dataItems: any = [];
+  searchRes: boolean = false;
+
   constructor(
     private route: Router,
     private authService: AuthService,
@@ -32,6 +35,7 @@ export class DashboardComponent implements OnInit {
     this.ImageForm = this.fb.group({
       ImageArr: this.fb.array([this.initForm()])
     })
+    this.dataItems = ['MongoDB', 'ExpressJS', 'Angular', 'Node.JS'];
   }
 
   initForm() {
@@ -82,21 +86,35 @@ export class DashboardComponent implements OnInit {
       this.formData.append('files', event[i], event[i]['name'])
     }
   }
-  
+
   uploadMultiple() {
     this.formData.append('username', this.username);
     console.log(this.formData.get('username'));
     console.log(this.formData.getAll('files'));
-    this.authService.uploadMultiple(this.formData).subscribe(res=>{
-      if(res['success'] == true) {
+    this.authService.uploadMultiple(this.formData).subscribe(res => {
+      if (res['success'] == true) {
         console.log("Files upload successful");
       } else {
-        console.log("Failed to upload files");  
+        console.log("Failed to upload files");
       }
     })
   }
 
-  searchData() {
+  data: any = [];
 
+  searchData(val: any) {
+    console.log(val);
+    for (let i = 0; i < this.dataItems.length; i++) {
+      if (val == '' || val == null || val == undefined) {
+        this.searchRes = false;
+      }
+      else if (this.dataItems[i].toLowerCase() == val.toLowerCase()) {
+        this.searchRes = true;
+        this.data.push(this.dataItems[i]);
+      } else {
+        this.searchRes = true;
+        this.data[0] = 'No data found';
+      }
+    }
   }
 }

@@ -6,30 +6,26 @@
 
     <app-header></app-header>
     <div class="container">
-
-      <div class="row">
-        
-      </div>
-
       <div class="row">
         <div class="col-md-12 mt-5">
           <form class="example">
-            <input type="text" name="search" [(ngModel)]="searchItem" placeholder="Search...">
-            <button type="submit" (click)="searchData()"><i class="fa fa-search"></i></button>
+            <input type="text" name="search" [(ngModel)]="searchItem" placeholder="Search..."
+              (keypress)="searchData(searchItem)">
+            <button type="submit" (click)="searchData(searchItem)"><i class="fa fa-search"></i></button>
           </form>
-          <div class="card">
+          <div class="card" *ngIf="searchRes">
             <div class="card-body">
-              <ul class="list-group list">
-                <li class="list-group-item">Text</li>
+              <ul class="list-group list" *ngFor="let item of data">
+                <li class="list-group-item">{{ item }}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="searchRes">
         <div class="col-md-12 mt-5">
-          <p class="text-center">no results found...</p>
+          <p class="text-center">No results found...</p>
         </div>
       </div>
 
@@ -42,7 +38,7 @@
               <input type="file" #fileInput class="form-control col-md-10" accept="*" name="image"
                 (change)="selectedFile($event)">
             </div>
-            <button class="btn btn-info" type="submit" (click)="uploadSingle()">Upload</button>
+            <button class="btn btn1" type="submit" (click)="uploadSingle()">Upload</button>
           </form>
         </div>
 
@@ -61,15 +57,15 @@
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <button class="btn btn-outline-success" *ngIf="ImageForm.controls.ImageArr.controls.length <= i+1"
-                      (click)="addForm(i)"><i class="fa fa-plus"></i></button>
-                    <button class="btn btn-outline-danger" *ngIf="ImageForm.controls.ImageArr.controls.length > 1"
-                      (click)="removeForm(i)"><i class="fa fa-minus"></i></button>
+                    <a class="btn btn-white" *ngIf="ImageForm.controls.ImageArr.controls.length <= i+1"
+                      (click)="addForm(i)"><i class="fa fa-plus"></i></a>
+                    <a class="btn btn-white" *ngIf="ImageForm.controls.ImageArr.controls.length > 1"
+                      (click)="removeForm(i)"><i class="fa fa-minus"></i></a>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="btn btn-info" type="submit" (click)="uploadMultiple()">Upload</button>
+            <button class="btn btn1" type="submit" (click)="uploadMultiple()">Upload</button>
           </form>
         </div>
       </div>

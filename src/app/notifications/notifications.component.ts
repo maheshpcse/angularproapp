@@ -16,7 +16,7 @@ export class NotificationsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
-    private sharedService: SharedService
+    public sharedService: SharedService
   ) { }
 
   ngOnInit() {

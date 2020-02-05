@@ -3,7 +3,8 @@ import { SharedService } from '../shared.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
-import * as xlsx from 'xlsx-style';
+import { saveAs } from 'file-saver';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-tables',
@@ -110,16 +111,41 @@ export class TablesComponent implements OnInit {
     // this.sharedService.addDatatoDowload(this.tasksArr).subscribe(res => {
     //   console.log("File download succeessful");
     // })
-    const workbook = XLSX.utils.book_new();
-    const worksheet = XLSX.utils.json_to_sheet(this.tasksArr);
-    var cell = {
-      s: {
-        font: { bold: true, underline: true, color: { rgb: "FFFFAA00" }, sz: 25 },
-        alignment: { wrapText: true}
-      }, v: 'task_id'
-    };
-    worksheet['A1'] = cell;
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Tasks');
-    XLSX.writeFile(workbook, 'a.xlsx', { cellStyles: true });
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(this.tasksArr);
+    let keys = Object.keys(this.tasksArr[0]);
+    const ws_name = 'Report';
+    let a = [];
+    let b = [];
+    let e = [];
+    let f = [];
+    let g = [];
+    for (let i = 0; i < this.tasksArr.length; i++) {
+      a.push((this.tasksArr[i].title).length);
+      b.push((this.tasksArr[i].description).length);
+      e.push((this.tasksArr[i].username).length);
+      f.push((this.tasksArr[i].created_at).length);
+      g.push((this.tasksArr[i].updated_at).length);
+    }
+    const wscols = [
+      { wch: 10 },
+      { wch: Math.max.apply(Math, a) + 1 },
+      { wch: Math.max.apply(Math, b) + 1 },
+      { wch: 10 },
+      { wch: 10 },
+      { wch: Math.max.apply(Math, e) + 1 },
+      { wch: Math.max.apply(Math, f) + 1 },
+      { wch: Math.max.apply(Math, g) + 1 }
+    ];
+    ws['!cols'] = wscols;
+    wb.SheetNames.push(ws_name);
+    wb.Sheets[ws_name] = ws;
+    const wbout = XLSX.write(wb, {
+      type: 'binary',
+      bookSST: true,
+      bookType: 'xlsx',
+      cellStyles: true
+    });
+    XLSX.writeFile(wb, 'a.xlsx')
   }
 }
