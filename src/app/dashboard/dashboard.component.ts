@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   hiddenItem: any;
 
   dataItems: any = [];
+  searchRes: boolean = false;
 
   constructor(
     private route: Router,
@@ -85,16 +86,16 @@ export class DashboardComponent implements OnInit {
       this.formData.append('files', event[i], event[i]['name'])
     }
   }
-  
+
   uploadMultiple() {
     this.formData.append('username', this.username);
     console.log(this.formData.get('username'));
     console.log(this.formData.getAll('files'));
-    this.authService.uploadMultiple(this.formData).subscribe(res=>{
-      if(res['success'] == true) {
+    this.authService.uploadMultiple(this.formData).subscribe(res => {
+      if (res['success'] == true) {
         console.log("Files upload successful");
       } else {
-        console.log("Failed to upload files");  
+        console.log("Failed to upload files");
       }
     })
   }
@@ -103,16 +104,16 @@ export class DashboardComponent implements OnInit {
 
   searchData(val: any) {
     console.log(val);
-    for(let i = 0; i<this.dataItems.length; i++) {
+    for (let i = 0; i < this.dataItems.length; i++) {
       if (val == '' || val == null || val == undefined) {
-        this.data[0] = 'No data found';
+        this.searchRes = false;
       }
       else if (this.dataItems[i].toLowerCase() == val.toLowerCase()) {
+        this.searchRes = true;
         this.data.push(this.dataItems[i]);
-        // return this.data;
       } else {
+        this.searchRes = true;
         this.data[0] = 'No data found';
-        // return this.data;
       }
     }
   }

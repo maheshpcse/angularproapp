@@ -48,4 +48,14 @@ form.example::after {
 
 .list {
   border: none;
+  outline: none;
+  list-style: none;
+}
+
+.btn1 {
+  background-color: #1668af;
+}
+
+.btn-white {
+  background-color: aliceblue;
 }

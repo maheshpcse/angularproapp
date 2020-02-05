@@ -127,7 +127,6 @@ export class TablesComponent implements OnInit {
       f.push((this.tasksArr[i].created_at).length);
       g.push((this.tasksArr[i].updated_at).length);
     }
-    console.log(Math.max.apply(Math, a));
     const wscols = [
       { wch: 10 },
       { wch: Math.max.apply(Math, a) + 1 },

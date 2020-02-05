@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
   hiddenNotify: boolean = false;
 
   currentUrl: any;
+  languages: any = [];
+  public activeLanguage = 'en-Us';
 
   constructor(
     private router: Router,
@@ -58,6 +60,14 @@ export class HeaderComponent implements OnInit {
     //     console.log("Error while getting notifications count");
     //   }
     // })
+    this.languages = [
+      {code: 'en-Us', language: 'English'},
+      {code: 'ar-AE', language: 'Arabic'}
+    ];
+  }
+
+  switchLanguage(item: any) {
+
   }
 
   getDbConnection() {
