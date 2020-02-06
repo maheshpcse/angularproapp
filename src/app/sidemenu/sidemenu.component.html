@@ -17,62 +17,53 @@
     </div>
     <!-- </div> -->
     <!-- For admin -->
-    <div class="list-group list-group-flush" *ngIf="role == 'admin'">
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin'">
       <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-folder-o"></i>
-        Dashboard
+        <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
+      </a>
+      <a [routerLink]="['/admin/tasks']" class="list-group-item list-group-item-action bg-light">
+        <i class="fa fa-folder-o"></i><span class="ml-3">Tasks</span>
       </a>
       <a [routerLink]="['/admin/forms']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-wpforms"></i>
-        Forms
+        <i class="fa fa-wpforms"></i><span class="ml-3">Forms</span>
       </a>
       <a [routerLink]="['/admin/tables']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-table"></i>
-        Tables
+        <i class="fa fa-table"></i><span class="ml-3">Tables</span>
       </a>
       <a [routerLink]="['/admin/companies']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-gear"></i>
-        Visit
+        <i class="fa fa-gear"></i><span class="ml-3">Visit</span>
       </a>
     </div>
 
     <!-- For User -->
-    <div class="list-group list-group-flush" *ngIf="role == 'user'">
+    <div class="list-group list-group-flush list" *ngIf="role == 'user'">
       <a [routerLink]="['/user/dashboard']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-folder-o"></i>
-        Dashboard
+        <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
       </a>
       <a [routerLink]="['/user/services']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-gear"></i>
-        Services
+        <i class="fa fa-gear"></i><span class="ml-3">Services</span>
       </a>
       <a [routerLink]="['/user/chat']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-wpforms"></i>
-        Chat
+        <i class="fa fa-wpforms"></i><span class="ml-3">Chat</span>
       </a>
       <a [routerLink]="['/user/activities']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-table"></i>
-        Activity
+        <i class="fa fa-table"></i><span class="ml-3">Activity</span>
       </a>
     </div>
 
     <!-- For Manager -->
-    <div class="list-group list-group-flush" *ngIf="role == 'manager'">
+    <div class="list-group list-group-flush list" *ngIf="role == 'manager'">
       <a [routerLink]="['/manager/dashboard']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-folder-o"></i>
-        Dashboard
+        <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
       </a>
       <a [routerLink]="['/manager/attandance']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-gear"></i>
-        Attandance
+        <i class="fa fa-gear"></i><span class="ml-3">Attandance</span>
       </a>
       <a [routerLink]="['/manager/leaves']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-wpforms"></i>
-        Leaves
+        <i class="fa fa-wpforms"></i><span class="ml-3">Leaves</span>
       </a>
       <a [routerLink]="['/manager/accounts']" class="list-group-item list-group-item-action bg-light">
-        <i class="fa fa-table"></i>
-        Accounts
+        <i class="fa fa-table"></i><span class="ml-3">Accounts</span>
       </a>
     </div>
 

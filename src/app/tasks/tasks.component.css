@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  opacity: none;
+}
+
+.card {
+  width: 80%;
+}
+
+.list {
+  border: none;
+  outline: none;
+  list-style: none;
+}
+
+.btn1 {
+  color: white;
+  background-color: #1668af;
+}
+
+.btn-white {
+  background-color: white;
+  border: 1px solid lightslategray;
+  margin-top: 32px;
+}
+
+.btn-white:hover {
+  box-shadow: border-box;
+}

@@ -23,6 +23,7 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { CompaniesComponent } from './companies/companies.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,11 @@ const routes: Routes = [
     path: 'admin/dashboard',
     canActivate: [AuthGuardService],
     component: DashboardComponent
+  },
+  {
+    path: 'admin/tasks',
+    canActivate: [AuthGuardService],
+    component: TasksComponent
   },
   {
     path: 'admin/forms',
