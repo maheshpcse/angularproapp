@@ -7,30 +7,19 @@
   </button>
 
   <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-    <li class="nav-item ml-5">
-      <a class="nav-link" data-toggle="modal" data-target="#notify">
+    <li class="nav-item dropdown ml-5">
+      <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <span class="badge">{{ notificationsCount }}</span>
         <i class="fa fa-bell-o" aria-hidden="true"></i>
       </a>
-      <div id="notify" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4>New Notifications</h4>
-            </div>
-            <div class="modal-body">
-              <ul class="list-group" *ngFor="let item of notifications">
-                <li class="list-group-item">{{ item.notification }}</li>
-              </ul>
-              <div class="text-center" *ngIf="notifications.length <= 0">
-                No new notificaions.
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-info float-right" type="submit" (click)="viewNotifications()">View All</button>
-            </div>
-          </div>
+      <div class="dropdown-menu">
+        <ul class="list-group" *ngFor="let item of notifications">
+          <li class="list-group-item">{{ item.notification }}</li>
+        </ul>
+        <div class="text-center" *ngIf="notifications.length <= 0">
+          No new notificaions.
         </div>
+        <a class="btn btn-outline-info ml-10" type="submit" (click)="viewNotifications()">View All</a>
       </div>
     </li>
   </ul>

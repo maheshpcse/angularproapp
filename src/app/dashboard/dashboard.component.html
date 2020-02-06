@@ -28,48 +28,8 @@
           <p class="text-center">No results found...</p>
         </div>
       </div>
-
-      <!-- Single image/* upload -->
-      <div class="row mt-5">
-        <div class="col-md-6">
-          <form action="" enctype="multipart/form-data" method="POST">
-            <div class="form-group">
-              <label for="profile">Single File Upload Form :</label>
-              <input type="file" #fileInput class="form-control col-md-10" accept="*" name="image"
-                (change)="selectedFile($event)">
-            </div>
-            <button class="btn btn1" type="submit" (click)="uploadSingle()">Upload</button>
-          </form>
-        </div>
-
-        <!-- Multiple images/* upload-->
-        <div class="col-md-6">
-          <form action="" [formGroup]="ImageForm" enctype="multipart/form-data" method="POST">
-            <div formArrayName="ImageArr">
-              <div class="row" *ngFor="let item of ImageForm['controls']['ImageArr']['controls'];let i=index"
-                [formGroupName]="i">
-                <div class="col-md-10">
-                  <div class="form-group">
-                    <label for="image-required">Multiple File Upload Form :</label>
-                    <input type="file" #filesInput class="form-control" accept="video/mp4,image/png,image/jpeg"
-                      name="image" formControlName="image" (change)="selectedFiles($event.target.files)">
-                  </div>
-                </div>
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <a class="btn btn-white" *ngIf="ImageForm.controls.ImageArr.controls.length <= i+1"
-                      (click)="addForm(i)"><i class="fa fa-plus"></i></a>
-                    <a class="btn btn-white" *ngIf="ImageForm.controls.ImageArr.controls.length > 1"
-                      (click)="removeForm(i)"><i class="fa fa-minus"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn1" type="submit" (click)="uploadMultiple()">Upload</button>
-          </form>
-        </div>
-      </div>
       <!-- /#page-content-wrapper -->
 
     </div>
     <!-- /#wrapper -->
+</div>
