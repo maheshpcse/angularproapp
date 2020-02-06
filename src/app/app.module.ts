@@ -37,6 +37,7 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { CompaniesComponent } from './companies/companies.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { CompaniesComponent } from './companies/companies.component';
     AccountsComponent,
     UserDashboardComponent,
     ManagerDashboardComponent,
-    CompaniesComponent
+    CompaniesComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,
