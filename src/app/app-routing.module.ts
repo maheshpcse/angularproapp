@@ -60,35 +60,41 @@ const routes: Routes = [
   },
 
   // admin routes
+  // {
+  //   path: 'admin/profile',
+  //   canActivate: [AuthGuardService],
+  //   component: AdminProfileComponent
+  // },
+  // {
+  //   path: 'admin/dashboard',
+  //   canActivate: [AuthGuardService],
+  //   component: DashboardComponent
+  // },
+  // {
+  //   path: 'admin/tasks',
+  //   canActivate: [AuthGuardService],
+  //   component: TasksComponent
+  // },
+  // {
+  //   path: 'admin/forms',
+  //   canActivate: [AuthGuardService],
+  //   component: FormsComponent
+  // },
+  // {
+  //   path: 'admin/tables',
+  //   canActivate: [AuthGuardService],
+  //   component: TablesComponent
+  // },
+  // {
+  //   path: 'admin/companies',
+  //   canActivate: [AuthGuardService],
+  //   component: CompaniesComponent
+  // },
+
   {
-    path: 'admin/profile',
-    canActivate: [AuthGuardService],
-    component: AdminProfileComponent
-  },
-  {
-    path: 'admin/dashboard',
-    canActivate: [AuthGuardService],
-    component: DashboardComponent
-  },
-  {
-    path: 'admin/tasks',
-    canActivate: [AuthGuardService],
-    component: TasksComponent
-  },
-  {
-    path: 'admin/forms',
-    canActivate: [AuthGuardService],
-    component: FormsComponent
-  },
-  {
-    path: 'admin/tables',
-    canActivate: [AuthGuardService],
-    component: TablesComponent
-  },
-  {
-    path: 'admin/companies',
-    canActivate: [AuthGuardService],
-    component: CompaniesComponent
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule',
+    canActivate: [AuthGuardService]
   },
   
   // user routes
@@ -118,6 +124,11 @@ const routes: Routes = [
     component: UserChatComponent
   },
 
+  // {
+  //   path: 'user',
+  //   loadChildren: './user/user.module.ts#UserModule'
+  // },
+
   // manager routes
   {
     path: 'manager/profile',
@@ -143,6 +154,11 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     component: AccountsComponent
   },
+
+  // {
+  //   path: 'manager',
+  //   loadChildren: './manager/manager.module.ts#ManagerModule',
+  // },
 
   // not found page route
   {

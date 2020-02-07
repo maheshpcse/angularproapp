@@ -1,7 +1,15 @@
 .fa {
-  cursor: pointer !important;
-  font-size: 1.2rem !important;
+  cursor: pointer;
+  font-size: 1.2rem;
   color: white;
+}
+
+.user {
+  font-size: 1.5rem !important;
+}
+
+.nav-link {
+  font-weight: lighter;
 }
 
 .bars {

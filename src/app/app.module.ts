@@ -13,6 +13,7 @@ import { TablesComponent } from './tables/tables.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataTableModule } from 'ng-angular8-datatable';
+// import { DataTableModule } from "angular-6-datatable";
 import { CommonComponent } from './common/common.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -45,15 +46,15 @@ import { TasksComponent } from './tasks/tasks.component';
     HeaderComponent,
     FooterComponent,
     SidemenuComponent,
-    FormsComponent,
-    TablesComponent,
+    // FormsComponent,
+    // TablesComponent,
     SettingsComponent,
-    DashboardComponent,
+    // DashboardComponent,
     CommonComponent,
     LoginComponent,
     SignupComponent,
     ForgotpasswordComponent,
-    AdminProfileComponent,
+    // AdminProfileComponent,
     UserProfileComponent,
     ManagerProfileComponent,
     NotificationsComponent,
@@ -66,8 +67,8 @@ import { TasksComponent } from './tasks/tasks.component';
     AccountsComponent,
     UserDashboardComponent,
     ManagerDashboardComponent,
-    CompaniesComponent,
-    TasksComponent
+    // CompaniesComponent,
+    // TasksComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +78,7 @@ import { TasksComponent } from './tasks/tasks.component';
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     BrowserAnimationsModule,
     DataTableModule,
+    // DataTableModule,
     FileUploadModule,
     HotTableModule.forRoot()
   ],
