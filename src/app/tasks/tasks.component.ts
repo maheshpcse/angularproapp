@@ -14,6 +14,8 @@ export class TasksComponent implements OnInit {
   username: any = sessionStorage.getItem('id');
   image: File = null;
 
+  favouriteColor = new FormControl('Orange');
+
   @ViewChild('fileInput', { static: false }) fileInputRef: ElementRef;
   @ViewChild('filesInput', { static: false }) filesInputRef: ElementRef;
 

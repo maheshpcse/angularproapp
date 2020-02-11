@@ -7,3 +7,7 @@
     border: none;
     outline: none;
 }
+
+.menuactive {
+    background-color: rgb(200, 220, 226);
+}

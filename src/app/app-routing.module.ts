@@ -60,42 +60,42 @@ const routes: Routes = [
   },
 
   // admin routes
-  // {
-  //   path: 'admin/profile',
-  //   canActivate: [AuthGuardService],
-  //   component: AdminProfileComponent
-  // },
-  // {
-  //   path: 'admin/dashboard',
-  //   canActivate: [AuthGuardService],
-  //   component: DashboardComponent
-  // },
-  // {
-  //   path: 'admin/tasks',
-  //   canActivate: [AuthGuardService],
-  //   component: TasksComponent
-  // },
-  // {
-  //   path: 'admin/forms',
-  //   canActivate: [AuthGuardService],
-  //   component: FormsComponent
-  // },
-  // {
-  //   path: 'admin/tables',
-  //   canActivate: [AuthGuardService],
-  //   component: TablesComponent
-  // },
-  // {
-  //   path: 'admin/companies',
-  //   canActivate: [AuthGuardService],
-  //   component: CompaniesComponent
-  // },
-
   {
-    path: 'admin',
-    loadChildren: './admin/admin.module#AdminModule',
-    canActivate: [AuthGuardService]
+    path: 'admin/profile',
+    canActivate: [AuthGuardService],
+    component: AdminProfileComponent
   },
+  {
+    path: 'admin/dashboard',
+    canActivate: [AuthGuardService],
+    component: DashboardComponent
+  },
+  {
+    path: 'admin/tasks',
+    canActivate: [AuthGuardService],
+    component: TasksComponent
+  },
+  {
+    path: 'admin/forms',
+    canActivate: [AuthGuardService],
+    component: FormsComponent
+  },
+  {
+    path: 'admin/tables',
+    canActivate: [AuthGuardService],
+    component: TablesComponent
+  },
+  {
+    path: 'admin/companies',
+    canActivate: [AuthGuardService],
+    component: CompaniesComponent
+  },
+
+  // {
+  //   path: 'admin',
+  //   loadChildren: './admin/admin.module#AdminModule',
+  //   canActivate: [AuthGuardService]
+  // },
   
   // user routes
   {

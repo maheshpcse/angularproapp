@@ -18,19 +18,19 @@
     <!-- </div> -->
     <!-- For admin -->
     <div class="list-group list-group-flush list" *ngIf="role == 'admin'">
-      <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
         <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
       </a>
-      <a [routerLink]="['/admin/tasks']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/admin/tasks']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
         <i class="fa fa-folder-o"></i><span class="ml-3">Tasks</span>
       </a>
-      <a [routerLink]="['/admin/forms']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/admin/forms']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
         <i class="fa fa-wpforms"></i><span class="ml-3">Forms</span>
       </a>
-      <a [routerLink]="['/admin/tables']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/admin/tables']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
         <i class="fa fa-table"></i><span class="ml-3">Tables</span>
       </a>
-      <a [routerLink]="['/admin/companies']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/admin/companies']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
         <i class="fa fa-gear"></i><span class="ml-3">Visit</span>
       </a>
     </div>
