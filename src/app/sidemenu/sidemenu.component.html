@@ -2,67 +2,72 @@
 
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper">
-    <!-- <div class="sidebar-heading">ANGULAR Home </div> -->
-    <!-- <div class="card bg-light"> -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <i class="fa fa-user-circle-o user list-group-item list-group-item-action bg-light" aria-hidden="true"></i>
-        </div>
-        <div class="col-md-6 ml-3">
-          <h3>{{ username }}</h3>
-          <p>{{ role }}</p>
+    <div class="sidebar-heading"><i class="fa fa-home"></i> ANGULAR Home</div>
+    <!-- <div class="card bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <i class="fa fa-user-circle-o user list-group-item list-group-item-action bg-light" aria-hidden="true"></i>
+          </div>
+          <div class="col-md-6 ml-3">
+            <h3>{{ username }}</h3>
+            <p>{{ role }}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- </div> -->
+    </div> -->
     <!-- For admin -->
     <div class="list-group list-group-flush list" *ngIf="role == 'admin'">
-      <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
+      <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == '/admin/dashboard'}">
         <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
       </a>
-      <a [routerLink]="['/admin/tasks']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
+      <a [routerLink]="['/admin/tasks']" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == '/admin/tasks'}">
         <i class="fa fa-folder-o"></i><span class="ml-3">Tasks</span>
       </a>
-      <a [routerLink]="['/admin/forms']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
+      <a [routerLink]="['/admin/forms']" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == '/admin/forms'}">
         <i class="fa fa-wpforms"></i><span class="ml-3">Forms</span>
       </a>
-      <a [routerLink]="['/admin/tables']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
+      <a [routerLink]="['/admin/tables']" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == '/admin/tables'}">
         <i class="fa fa-table"></i><span class="ml-3">Tables</span>
       </a>
-      <a [routerLink]="['/admin/companies']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': role == 'admin'}">
+      <a [routerLink]="['/admin/companies']" class="list-group-item list-group-item-action"
+        [ngClass]="{'menuactive': href == '/admin/companies'}">
         <i class="fa fa-gear"></i><span class="ml-3">Visit</span>
       </a>
     </div>
 
     <!-- For User -->
     <div class="list-group list-group-flush list" *ngIf="role == 'user'">
-      <a [routerLink]="['/user/dashboard']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/user/dashboard']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/user/dashboard'}">
         <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
       </a>
-      <a [routerLink]="['/user/services']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/user/services']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/user/services'}">
         <i class="fa fa-gear"></i><span class="ml-3">Services</span>
       </a>
-      <a [routerLink]="['/user/chat']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/user/chat']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/user/chat'}">
         <i class="fa fa-wpforms"></i><span class="ml-3">Chat</span>
       </a>
-      <a [routerLink]="['/user/activities']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/user/activities']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/user/activities'}">
         <i class="fa fa-table"></i><span class="ml-3">Activity</span>
       </a>
     </div>
 
     <!-- For Manager -->
     <div class="list-group list-group-flush list" *ngIf="role == 'manager'">
-      <a [routerLink]="['/manager/dashboard']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/manager/dashboard']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/manager/activities'}">
         <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
       </a>
-      <a [routerLink]="['/manager/attandance']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/manager/attandance']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/manager/attandance'}">
         <i class="fa fa-gear"></i><span class="ml-3">Attandance</span>
       </a>
-      <a [routerLink]="['/manager/leaves']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/manager/leaves']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/manager/leaves'}">
         <i class="fa fa-wpforms"></i><span class="ml-3">Leaves</span>
       </a>
-      <a [routerLink]="['/manager/accounts']" class="list-group-item list-group-item-action bg-light">
+      <a [routerLink]="['/manager/accounts']" class="list-group-item list-group-item-action" [ngClass]="{'menuactive': href == '/manager/accounts'}">
         <i class="fa fa-table"></i><span class="ml-3">Accounts</span>
       </a>
     </div>

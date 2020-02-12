@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fontfamily/ubuntu/Ubuntu-Regular.ttf') format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../fontfamily/comfortaa/Comfortaa[wght].ttf') format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'VarelaRound';
+  src: url('../fontfamily/varelaround/VarelaRound-Regular.ttf') format("truetype");
+  font-weight: 400;
+}
