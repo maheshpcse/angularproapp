@@ -3,6 +3,10 @@
   font-size: 1rem;
 }
 
+.card-title {
+  color: #1668af;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -31,6 +35,7 @@
 }
 
 .btnn {
+  color: #1668af;
   border: 1px solid #1668af
 }
 
@@ -55,3 +60,50 @@ input[type=number] {
   width: 2.5%;
   padding: 0.5;
 }
+
+input[type=text] {
+  padding: 5px;
+}
+
+.input-group-text {
+  color: white;
+  background-color: #1668af;
+}
+
+.btn-blue {
+  color: #1668af;
+  border-color: #1668af;
+}
+
+.btn-maroon {
+  color: maroon;
+  border-color: maroon;
+}
+
+table tr th {
+  font-family: 'Montserrat';
+}
+
+table
+  thead
+    tr
+      th
+        sv-default-sorter
+          a
+            span {
+              color: #1668af;
+            }
+
+table
+  tfoot
+      tr
+        td
+          sv-bootstrap-paginator
+            sv-paginator
+              .row
+                .col-md-10
+                  ul 
+                    .page-item,.active
+                      .page-link {
+                        background-color: #1668af;
+                      }

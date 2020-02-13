@@ -2,12 +2,22 @@
   padding: 16px;
 }
 
+.fa-home {
+  color: #1668af;
+}
+
 h3 {
+  color: #1668af;  
   font-family: 'VarelaRound';
+}
+
+.home {
+  color: #ff962e;
 }
 
 a {
   text-decoration: none;
+  color: #1668af;  
 }
 
 .button {

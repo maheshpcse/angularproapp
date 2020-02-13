@@ -7,14 +7,6 @@
     <app-header></app-header>
 
     <div class="container">
-      <!-- Download a file -->
-      <div class="row">
-        <div class="col-md-12 mt-3">
-          <button class="btn btnn col-md-2" (click)="downloadReport()">
-            <i class="fa fa-download"></i><span class="ml-2">Download Report</span>
-          </button>
-        </div>
-      </div>
       <!-- <div class="row">
         <div class="col-md-12">
           <div class="input-group">
@@ -31,6 +23,31 @@
             <div class="card-header">
               <div class="card-title">
                 <i class="fa fa-group"></i><span class="ml-2">User Task List</span>
+                <span class="ml-3">
+                  <button class="btn btnn col-md-2" (click)="downloadReport()">
+                    <i class="fa fa-download"></i><span class="ml-2">Download Report</span>
+                  </button>
+                </span>
+                <span class="float-right">
+                  <!-- <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </div>
+                    <input class="form-control pull-left input-sm"
+                      placeholder="Search" type="text" [(ngModel)]="filterQuery"
+                      autocomplete="off">
+                  </div> -->
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </div>
+                    <input type="text" name="task" [(ngModel)]="filterQuery" placeholder="Search" autocomplete="off">
+                  </div>
+                </span>
               </div>
             </div>
             <div class="card-body padding-0">
@@ -72,9 +89,9 @@
                     <td>{{ item.username }}</td>
                     <td>{{ item.updated_at | date }}</td>
                     <td class="text-center">
-                      <i class="fa fa-edit btn btn-outline-info btn1" aria-hidden="true"
+                      <i class="fa fa-edit btn btn-blue btn1" aria-hidden="true"
                         (click)="getTaskid(item.task_id, item.user_id, 'edit')"></i>
-                      <i class="fa fa-trash btn btn-outline-danger btn1 ml-3" aria-hidden="true"
+                      <i class="fa fa-trash btn btn-maroon btn1 ml-3" aria-hidden="true"
                         (click)="getTaskid(item.task_id,'','delete')"></i>
                       <!-- <div class="w3-dropdown-hover">
                         <i class="fa fa-gears" aria-hidden="true"></i>
