@@ -29,8 +29,8 @@ export class SidemenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.pageType = this._route.snapshot.url[0].path;
-    // console.log(this.pageType);
+    this.pageType = this._route.snapshot.url[0].path;
+    console.log(this.pageType);
     this.getUserInfo();
 
     // this.data = this._route.queryParams.subscribe(res => {

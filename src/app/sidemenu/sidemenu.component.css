@@ -1,9 +1,13 @@
 .user {
-    font-size: 2.5rem;
-    border: none;
+  font-size: 2.5rem;
+  border: none;
 }
 
 .list {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
+}
+
+.menu-active {
+  background-color: #dae0e5 !important
 }
