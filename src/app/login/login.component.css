@@ -55,18 +55,6 @@ label {
   font-family: 'Comfortaa';
 }
 
-.alert-danger {
-  font-family: 'Comfortaa';
-}
-
-.alert-success {
-  font-family: 'Comfortaa';
-}
-
-.alert-info {
-  font-family: 'Comfortaa';
-}
-
 /* Extra styles for the cancel button */
 .cancelbtn {
   width: auto;
@@ -160,24 +148,27 @@ span.psw {
 .alert-danger {
   padding: 20px;
   background-color: #f44336;
-  color: black;
+  color: white;
+  font-family: 'Comfortaa';
 }
 
 .alert-success {
   padding: 20px;
   background-color: #4CAF50;
-  color: black;
+  color: white;
+  font-family: 'Comfortaa';
 }
 
 .alert-info {
   padding: 20px;
   background-color: #ffeb3b;
-  color: black;
+  color: white;
+  font-family: 'Comfortaa';
 }
 
 .closebtn {
   margin-left: 15px;
-  color: black;
+  color: white;
   font-weight: bold;
   float: right;
   font-size: 22px;

@@ -12,16 +12,22 @@
           <div class="w3-container">
             <div class="w3-card-4">
               <header class="w3-container w3-light-gray">
-                <h3>{{ username }}</h3>
+                <h3><i class="fa fa-check-circle mt-2"></i> {{ username }}</h3>
               </header>
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-3 p-3">
                     <div class="w3-container">
-                      <img [src]="imgSrc" alt="_profile" class="img-responsive">
+                      <!-- <img [src]="imgSrc" alt="_profile" class="img-responsive"> -->
                     </div>
                   </div>
-                  <div class="col-md-9 p-3">
+                  <div class="col-md-9 p-2">
+                    <div class="primary-text">
+                      <label for="firstname"><span class="ml-2"><i class="fa fa-user"></i> {{ firstname }}</span></label>
+                      <span class="ml-1">{{ lastname }}</span>
+                      <p class="design ml-2"><i class="fa fa-briefcase"></i> {{ designation }}</p>
+                    </div>
+                    <hr>
                     <div class="w3-container">
                       <label for="email">Email :</label> {{ email }} <br>
                       <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
@@ -71,7 +77,7 @@
                       </tbody>
                     </table>
                   </div>
-                </div>
+                </div> 
                 <h3>Handsontable :</h3>
                 <div class="row">
                   <div class="col-md-12">
