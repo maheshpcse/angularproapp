@@ -107,3 +107,12 @@ table
                       .page-link {
                         background-color: #1668af;
                       }
+
+.w3-teal {
+  background-color: #1668af !important;
+}
+
+h3 {
+  font-family: 'Montserrat';
+  font-size: 1rem;
+}
