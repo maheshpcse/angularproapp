@@ -5,10 +5,32 @@
 .form-title-text {
   font-size: 1.2rem;
   line-height: 3rem;
-  color: teal;
+  color: #1668af;
 }
 
 .form-group.required .control-label:after {
   content: "*";
   color: red;
+}
+
+.border-blue {
+  border-color: #1668af;
+}
+
+.bs-stepper-circle {
+  background-color: #1668af;
+}
+
+.divide {
+  color: #1668af;
+}
+
+.btn-blue {
+  color: #1668af;
+  border-color: #1668af;
+}
+
+.btn-blue:hover {
+  color: white;
+  background-color: #1668af;
 }

@@ -20,10 +20,15 @@
 
 .btn-white {
   background-color: white;
-  border: 1px solid lightslategray;
+  border: 1px solid #1668af;
   margin-top: 32px;
 }
 
 .btn-white:hover {
-  box-shadow: border-box;
+  color: white;
+  background-color: #1668af;
 }
+
+/* .fa {
+  color: #1668af;
+} */

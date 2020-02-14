@@ -20,7 +20,9 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@handsontable/angular": "^5.1.0",
+    "@types/node": "^13.7.1",
     "@types/underscore": "^1.9.4",
+    "angular-6-datatable": "^0.8.0",
     "bootstrap": "^4.4.1",
     "bs-stepper": "^1.7.0",
     "file-saver": "^2.0.2",
@@ -34,6 +36,7 @@
     "rxjs": "^6.5.4",
     "translate": "^1.1.1",
     "tslib": "^1.10.0",
+    "typeface-ubuntu": "0.0.65",
     "underscore": "^1.9.2",
     "xlsx": "^0.15.5",
     "zone.js": "~0.9.1"

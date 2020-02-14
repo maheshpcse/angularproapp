@@ -2,8 +2,22 @@
   padding: 16px;
 }
 
+.fa-home {
+  color: #1668af;
+}
+
+h3 {
+  color: #1668af;  
+  font-family: 'VarelaRound';
+}
+
+.home {
+  color: #ff962e;
+}
+
 a {
   text-decoration: none;
+  color: #1668af;  
 }
 
 .button {
@@ -15,6 +29,7 @@ a {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  font-family: 'Comfortaa';
   font-size: 16px;
   /* margin: 4px 2px; */
   align-content: center;
@@ -45,4 +60,8 @@ a {
 .button2:hover {
   background-color: #008CBA;
   color: white;
+}
+
+footer {
+  font-family: 'Comfortaa';
 }

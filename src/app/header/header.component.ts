@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   currentUrl: any;
   languages: any = [];
   public activeLanguage = 'en-Us';
+  public href: string = "";
 
   constructor(
     private router: Router,
@@ -39,12 +40,12 @@ export class HeaderComponent implements OnInit {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-    console.log("curret role is:", this.role);
+    // console.log("curret role is:", this.role);
 
     this.getUserInfo();
 
     this.currentUrl = this.route.snapshot.url[0].path;
-    console.log("current url is", this.currentUrl);
+    // console.log("current url is", this.currentUrl);
     // this.subscription = timer(0, 10000).pipe(
     //   switchMap(() => this.sharedService.getNotificationsCount())
     // ).subscribe(res => {
@@ -64,6 +65,9 @@ export class HeaderComponent implements OnInit {
       {code: 'en-Us', language: 'English'},
       {code: 'ar-AE', language: 'Arabic'}
     ];
+
+    this.href = this.router.url;
+    console.log(this.router.url);
   }
 
   switchLanguage(item: any) {
@@ -102,7 +106,7 @@ export class HeaderComponent implements OnInit {
           this.rolesArr.push(this.roles[0][i]);
         }
         this.rolesArr.push(role);
-        console.log("roles is:", this.rolesArr);
+        // console.log("roles is:", this.rolesArr);
       } else {
         console.log("Error while getting user data");
       }

@@ -11,6 +11,7 @@ import * as $ from 'jquery';
 export class SidemenuComponent implements OnInit {
 
   pageType: any;
+  currentUrl: any;
   userData: any = [];
 
   username: any;
@@ -22,17 +23,24 @@ export class SidemenuComponent implements OnInit {
   role: any = sessionStorage.getItem('role');
   data: any;
 
+  public href: string = "";
+
   constructor(
     public _route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    // public ubuntu:
   ) { }
 
   ngOnInit() {
+    // this.currentUrl = window.location.href.split('http://localhost:3200/')[1];
+    // console.log("current url is", this.currentUrl);
     this.pageType = this._route.snapshot.url[0].path;
-    console.log(this.pageType);
+    // console.log(this.pageType);
     this.getUserInfo();
 
+    this.href = this.router.url;
+    console.log(this.router.url);
     // this.data = this._route.queryParams.subscribe(res => {
     //   this.role = res['data'];
     // });

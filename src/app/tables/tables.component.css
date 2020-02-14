@@ -1,6 +1,10 @@
 .fa {
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1rem;
+}
+
+.card-title {
+  color: #1668af;
 }
 
 .tooltip {
@@ -29,3 +33,77 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.btnn {
+  color: #1668af;
+  border: 1px solid #1668af
+}
+
+.btnn:hover {
+  color: white;
+  background-color: #1668af;
+}
+
+.btn1 {
+  padding: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+  width: 2.5%;
+  padding: 0.5;
+}
+
+input[type=text] {
+  padding: 5px;
+}
+
+.input-group-text {
+  color: white;
+  background-color: #1668af;
+}
+
+.btn-blue {
+  color: #1668af;
+  border-color: #1668af;
+}
+
+.btn-maroon {
+  color: maroon;
+  border-color: maroon;
+}
+
+table tr th {
+  font-family: 'Montserrat';
+}
+
+table
+  thead
+    tr
+      th
+        sv-default-sorter
+          a
+            span {
+              color: #1668af;
+            }
+
+table
+  tfoot
+      tr
+        td
+          sv-bootstrap-paginator
+            sv-paginator
+              .row
+                .col-md-10
+                  ul 
+                    .page-item,.active
+                      .page-link {
+                        background-color: #1668af;
+                      }

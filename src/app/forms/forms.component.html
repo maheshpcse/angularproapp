@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-12 mt-5">
           <div id="stepper1" class="bs-stepper">
-            <div class="card border-primary mb-3">
+            <div class="card border-blue mb-3">
               <div class="card-header">
                 <div class="bs-stepper-header">
                   <div class="step" data-target="#test-l-1">
@@ -20,6 +20,7 @@
                       <span class="bs-stepper-label">Login Info</span>
                     </button>
                   </div>
+                  <!-- [ngClass]="{'divide': nextForm1}" -->
                   <div class="line"></div>
                   <div class="step" data-target="#test-l-2">
                     <button type="button" class="btn step-trigger">
@@ -169,20 +170,20 @@
                 </div>
               </div>
               <div class="card-footer">
-                <button class="btn btn-outline-primary float-right" (click)="nextStep(2)" *ngIf="nextForm">Next
+                <button class="btn btn-blue float-right" (click)="nextStep(2)" *ngIf="nextForm">Next
                   <i class="fa fa-angle-right" aria-hidden="true"></i></button>
 
-                <button class="btn btn-outline-primary float-right" (click)="nextStep(3)" *ngIf="nextForm1">Next
+                <button class="btn btn-blue float-right" (click)="nextStep(3)" *ngIf="nextForm1">Next
                   <i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                <button class="btn btn-outline-primary" (click)="previousStep(1)" *ngIf="prevForm"><i
+                <button class="btn btn-blue" (click)="previousStep(1)" *ngIf="prevForm"><i
                     class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
 
-                <button class="btn btn-outline-primary float-right" (click)="nextStep(4)" *ngIf="nextForm2">Next
+                <button class="btn btn-blue float-right" (click)="nextStep(4)" *ngIf="nextForm2">Next
                   <i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                <button class="btn btn-outline-primary" (click)="previousStep(2)" *ngIf="prevForm1"><i
+                <button class="btn btn-blue" (click)="previousStep(2)" *ngIf="prevForm1"><i
                     class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
 
-                <button class="btn btn-outline-primary" (click)="previousStep(3)" *ngIf="prevForm2"><i
+                <button class="btn btn-blue" (click)="previousStep(3)" *ngIf="prevForm2"><i
                     class="fa fa-angle-left" aria-hidden="true"></i> Previous</button>
                 <button class="btn btn-outline-success float-right" [disabled]="stepForm.invalid" (click)="onSaveData()"
                   *ngIf="saveForm"><i class="fa fa-save" aria-hidden="true"></i>
