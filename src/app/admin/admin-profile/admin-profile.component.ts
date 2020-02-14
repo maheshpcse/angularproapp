@@ -45,10 +45,13 @@ export class AdminProfileComponent implements OnInit {
     this.getUsersInfo();
   }
 
+  firstname: any;
+  lastname: any;
   username: any;
   profileImage: any;
   email: any;
   phoneNumber: any;
+  designation: any;
   created_on: any;
   imgSrc: SafeResourceUrl;
   textData: any;
@@ -67,9 +70,12 @@ export class AdminProfileComponent implements OnInit {
         let extName = res['ext'];
         console.log("user data is:", this.userData);
         console.log("File extension name is:", extName);
+        this.firstname = this.userData[0].firstname;
+        this.lastname = this.userData[0].lastname;
         this.username = this.userData[0].username;
         this.email = this.userData[0].email;
         this.phoneNumber = this.userData[0].phonenumber;
+        this.designation = this.userData[0].designation;
         this.created_on = this.userData[0].created_at;
         if (extName == 'jpg' || extName == 'png' || extName == 'gif' || extName == 'JPEG' || extName == 'PNG' || extName == 'GIF') {
           this.profileImage = res['file'];

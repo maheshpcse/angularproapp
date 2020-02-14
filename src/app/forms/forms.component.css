@@ -1,5 +1,5 @@
 .error-note {
-  color: maroon;
+  color: #c54040;
 }
 
 .form-title-text {
@@ -10,7 +10,7 @@
 
 .form-group.required .control-label:after {
   content: "*";
-  color: red;
+  color: #c54040;
 }
 
 .border-blue {
