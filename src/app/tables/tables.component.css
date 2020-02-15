@@ -81,7 +81,7 @@ input[type=text] {
 }
 
 table tr th {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
 }
 
 table
@@ -107,3 +107,21 @@ table
                       .page-link {
                         background-color: #1668af;
                       }
+
+.w3-teal {
+  background-color: #1668af !important;
+}
+
+h3 {
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.field-required:after {
+  content: "*";
+  color: #c54040;
+}
+
+.w3-button {
+  font-family: 'Comfortaa', sans-serif !important;
+}

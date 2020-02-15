@@ -55,11 +55,21 @@ export class TablesComponent implements OnInit {
     })
   }
 
+  taskArray: any = [];
+
   getTaskid(taskid, userid, action) {
     if (action == 'edit') {
       document.getElementById('id01').style.display = 'block';
       this.task_id = taskid;
       this.user_id = userid;
+      this.taskArray = _.filter(this.tasksArr, (o: any) => {
+        return o.task_id == this.task_id;
+      });
+      console.log("task array list", this.taskArray);
+      this.title = this.taskArray[0].title;
+      this.description = this.taskArray[0].description;
+      this.status = this.taskArray[0].status;
+      this.date = this.taskArray[0].updated_at;
     } else {
       document.getElementById('id02').style.display = 'block';
       this.task_id = taskid;
