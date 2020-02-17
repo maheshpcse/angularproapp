@@ -39,7 +39,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { TasksComponent } from './tasks/tasks.component';
-
+import { ToastrModule } from 'ng6-toastr-notifications';
+import { DatacolumnfilterPipe } from './datacolumnfilter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { TasksComponent } from './tasks/tasks.component';
     UserDashboardComponent,
     ManagerDashboardComponent,
     CompaniesComponent,
-    TasksComponent
+    TasksComponent,
+    DatacolumnfilterPipe
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ import { TasksComponent } from './tasks/tasks.component';
     DataTableModule,
     // DataTableModule,
     FileUploadModule,
-    HotTableModule.forRoot()
+    HotTableModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [
     SharedService,

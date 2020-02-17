@@ -90,8 +90,8 @@ table
       th
         sv-default-sorter
           a
-            span {
-              color: #1668af;
+            .fa-sort-up::after {
+              color: #1668af !important;
             }
 
 table
@@ -105,7 +105,7 @@ table
                   ul 
                     .page-item,.active
                       .page-link {
-                        background-color: #1668af;
+                        background-color: #1668af !important;
                       }
 
 .w3-teal {
@@ -124,4 +124,9 @@ h3 {
 
 .w3-button {
   font-family: 'Comfortaa', sans-serif !important;
+}
+
+.fa-plus {
+  font-size: 2rem !important;
+  border-right: 1px solid #dee2e6;
 }
