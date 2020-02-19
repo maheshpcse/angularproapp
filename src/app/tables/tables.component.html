@@ -52,10 +52,10 @@
               </div>
             </div>
             <div class="card-body padding-0">
+                <!-- | datacolumnfilter: {keys:'title, description, status, doneby, doneon', values: filterQuery -->
               <!-- angular8-data-table -->
-              <table class="table table-striped table-borderless" [svData]="tasksArr | datacolumnfilter: {keys:'title, description, status, doneby, doneon',
-              values: filterQuery" #sv="svDataTable"
-                [svRowsOnPage]="5" svSortBy="name" svSortOrder="asc">
+              <table class="table table-striped table-borderless" [svData]="tasksArr" #sv="svDataTable"
+                [svRowsOnPage]="5" svSortBy="sortBy" svSortOrder="sortOrder">
                 <thead>
                   <tr>
                     <th>

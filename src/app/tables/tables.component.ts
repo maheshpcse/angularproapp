@@ -15,6 +15,8 @@ export class TablesComponent implements OnInit {
 
   public data: any = [];
   public filterQuery = '';
+  public sortBy = '';
+  public sortOrder = 'asc';
 
   selectedEntities: any[];
 
