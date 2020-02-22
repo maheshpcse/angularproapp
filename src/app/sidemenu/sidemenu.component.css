@@ -1,6 +1,16 @@
 .sidebar-heading {
+  color: #1668af;
   font-family: 'Nunito', sans-serif;
   cursor: pointer;
+}
+
+input[type=text] {
+  padding: 5px;
+}
+
+.input-group-text {
+  color: white;
+  background-color: #1668af;
 }
 
 .user {

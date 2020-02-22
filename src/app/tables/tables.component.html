@@ -22,9 +22,10 @@
           <div class="card">
             <div class="card-header p-1">
               <div class="card-title mt-2">
+                <i class="fa fa-plus" aria-hidden="true" (click)="getTaskid('', '', 'add')"></i>
                 <i class="fa fa-group ml-2"></i><span class="ml-2">User Task List</span>
                 <span class="ml-3">
-                  <button class="btn btnn col-md-2" (click)="downloadReport()">
+                  <button class="btn btnn" (click)="downloadReport()">
                     <i class="fa fa-download"></i><span class="ml-2">Download Report</span>
                   </button>
                 </span>
@@ -51,28 +52,29 @@
               </div>
             </div>
             <div class="card-body padding-0">
+                <!-- | datacolumnfilter: {keys:'title, description, status, doneby, doneon', values: filterQuery -->
               <!-- angular8-data-table -->
               <table class="table table-striped table-borderless" [svData]="tasksArr" #sv="svDataTable"
-                [svRowsOnPage]="5" svSortBy="name" svSortOrder="asc">
+                [svRowsOnPage]="5" svSortBy="sortBy" svSortOrder="sortOrder">
                 <thead>
                   <tr>
                     <th>
-                      <sv-default-sorter by="name">S.No</sv-default-sorter>
+                      <sv-default-sorter by="sno">S.No</sv-default-sorter>
                     </th>
                     <th>
-                      <sv-default-sorter by="name">Title</sv-default-sorter>
+                      <sv-default-sorter by="title">Title</sv-default-sorter>
                     </th>
                     <th>
-                      <sv-default-sorter by="name">Description</sv-default-sorter>
+                      <sv-default-sorter by="description">Description</sv-default-sorter>
                     </th>
                     <th>
-                      <sv-default-sorter by="name">Status</sv-default-sorter>
+                      <sv-default-sorter by="status">Status</sv-default-sorter>
                     </th>
                     <th>
-                      <sv-default-sorter by="name">Done By</sv-default-sorter>
+                      <sv-default-sorter by="doneby">Done By</sv-default-sorter>
                     </th>
                     <th>
-                      <sv-default-sorter by="name">Done On</sv-default-sorter>
+                      <sv-default-sorter by="doneon">Done On</sv-default-sorter>
                     </th>
                     <th class="text-center">
                       Action
@@ -183,7 +185,8 @@
       <header class="w3-container w3-teal p-2">
         <span onclick="document.getElementById('id01').style.display='none'"
           class="w3-button w3-display-topright">&times;</span>
-        <h3>Update Task</h3>
+          <h3 *ngIf="isAddTask">Add Task</h3>
+        <h3 *ngIf="isUpdateTask">Update Task</h3>
       </header>
       <div class="w3-container">
         <div class="container">
@@ -218,8 +221,10 @@
       </div>
       <footer class="w3-container w3-teal">
         <div class="w3-container w3-teal w3-padding">
-          <button class="w3-button w3-right w3-white w3-border" (click)="updateTask()">
+          <button class="w3-button w3-right w3-white w3-border" *ngIf="isUpdateTask" (click)="updateTask()">
             Update</button>
+          <button class="w3-button w3-right w3-white w3-border" *ngIf="isAddTask" (click)="addTask()">
+            Add</button>
           <button class="w3-button w3-right w3-teal w3-border"
             onclick="document.getElementById('id01').style.display='none'">Close</button>
         </div>

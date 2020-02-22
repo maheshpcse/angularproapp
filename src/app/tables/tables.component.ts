@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import * as _ from 'underscore';
-
+import { ToastrManager } from 'ng6-toastr-notifications';
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
@@ -14,7 +14,9 @@ import * as _ from 'underscore';
 export class TablesComponent implements OnInit {
 
   public data: any = [];
-  public svSortBy = '';
+  public filterQuery = '';
+  public sortBy = '';
+  public sortOrder = 'asc';
 
   selectedEntities: any[];
 
@@ -28,7 +30,8 @@ export class TablesComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    public toastr: ToastrManager
   ) { }
 
   ngOnInit() {
@@ -57,10 +60,14 @@ export class TablesComponent implements OnInit {
   }
 
   taskArray: any = [];
+  isAddTask: boolean;
+  isUpdateTask:boolean;
 
   getTaskid(taskid, userid, action) {
     if (action == 'edit') {
       document.getElementById('id01').style.display = 'block';
+      this.isUpdateTask = true;
+      this.isAddTask = false;
       this.task_id = taskid;
       this.user_id = userid;
       this.taskArray = _.filter(this.tasksArr, (o: any) => {
@@ -71,12 +78,53 @@ export class TablesComponent implements OnInit {
       this.description = this.taskArray[0].description;
       this.status = this.taskArray[0].is_complete;
       this.date = this.taskArray[0].updated_at;
-    } else {
+    } else if (action == 'delete') {
       document.getElementById('id02').style.display = 'block';
       this.task_id = taskid;
+    } else if (action == 'add') {
+      document.getElementById('id01').style.display = 'block';
+      this.isUpdateTask = false;
+      this.isAddTask = true;
     }
     console.log("task id is:", this.task_id);
     console.log("user id is:", this.user_id);
+  }
+
+  addTask() {
+    let taskData = {
+      title: this.title,
+      description: this.description,
+      is_complete: Number(this.status),
+      user_id: 6,
+      created_at: this.date
+    }
+    this.sharedService.addTask(taskData).subscribe(res => {
+      if (res['success'] == true) {
+        console.log("Task added successful");
+        document.getElementById('id01').style.display = 'none';
+        this.toastr.successToastr('Task added successful','',
+        {
+          toastTimeout: 2000,
+          position: 'bottom-center',
+          showCloseButton: true,
+          animate: 'slideFromLeft'
+        });
+        this.getAllTasks();
+        this.route.navigate(['/admin/tables']);
+      } else {
+        console.log("Failed to add a task");
+        document.getElementById('id01').style.display = 'none';
+        this.toastr.errorToastr('Failed to add a task', '',
+          {
+            toastTimeout: 2000,
+            position: 'bottom-center',
+            showCloseButton: true,
+            animate: 'slideFromLeft'
+          });
+        this.getAllTasks();
+        this.route.navigate(['/admin/tables']);
+      }
+    })
   }
 
   updateTask() {
@@ -92,11 +140,27 @@ export class TablesComponent implements OnInit {
       if (res['success'] == true) {
         console.log("Task updated successful");
         document.getElementById('id01').style.display = 'none';
-        this.route.navigate(['/tables']);
+        this.toastr.successToastr('Task updated successful','',
+        {
+          toastTimeout: 2000,
+          position: 'bottom-center',
+          showCloseButton: true,
+          animate: 'slideFromLeft'
+        });
+        this.getAllTasks();
+        this.route.navigate(['/admin/tables']);
       } else {
-        console.log("Failed to updated task");
+        console.log("Failed to update a task");
         document.getElementById('id01').style.display = 'none';
-        this.route.navigate(['/tables']);
+        this.toastr.errorToastr('Failed to update a task', '',
+          {
+            toastTimeout: 2000,
+            position: 'bottom-center',
+            showCloseButton: true,
+            animate: 'slideFromLeft'
+          });
+        this.getAllTasks();
+        this.route.navigate(['/admin/tables']);
       }
     })
   }
