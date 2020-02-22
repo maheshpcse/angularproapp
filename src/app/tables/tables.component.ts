@@ -14,6 +14,7 @@ import * as _ from 'underscore';
 export class TablesComponent implements OnInit {
 
   public data: any = [];
+  public svSortBy = '';
 
   selectedEntities: any[];
 
@@ -68,7 +69,7 @@ export class TablesComponent implements OnInit {
       console.log("task array list", this.taskArray);
       this.title = this.taskArray[0].title;
       this.description = this.taskArray[0].description;
-      this.status = this.taskArray[0].status;
+      this.status = this.taskArray[0].is_complete;
       this.date = this.taskArray[0].updated_at;
     } else {
       document.getElementById('id02').style.display = 'block';

@@ -18,14 +18,14 @@
                 <div class="row">
                   <div class="col-md-3 p-3">
                     <div class="w3-container">
-                      <!-- <img [src]="imgSrc" alt="_profile" class="img-responsive"> -->
+                      <img [src]="imgSrc" alt="_profile" class="img-responsive">
                     </div>
                   </div>
                   <div class="col-md-9 p-2">
                     <div class="primary-text">
                       <label for="firstname"><span class="ml-2"><i class="fa fa-user"></i> {{ firstname }}</span></label>
                       <span class="ml-1">{{ lastname }}</span>
-                      <p class="design ml-2"><i class="fa fa-briefcase"></i> {{ designation }}</p>
+                      <p class="design ml-2"><i class="fa fa-briefcase"></i><span class="ml-2">{{ designation }}</span></p>
                     </div>
                     <hr>
                     <div class="w3-container">
@@ -77,15 +77,15 @@
                       </tbody>
                     </table>
                   </div>
-                </div> 
+                </div>  -->
                 <h3>Handsontable :</h3>
                 <div class="row">
                   <div class="col-md-12">
-                    <hot-table [data]="data" [colHeaders]="true" [rowHeaders]="true" [width]="600" [height]="300"
+                    <hot-table [data]="data" [colHeaders]="true" [rowHeaders]="true"
                       [settings]="settings" [licenseKey]="00000-00000-00000-00000-00000">
                     </hot-table>
                   </div>
-                </div> -->
+                </div>
               </div>
             </div>
           </div>

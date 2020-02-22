@@ -19,16 +19,43 @@ export class AdminProfileComponent implements OnInit {
   apiUrl: string;
 
   data: any[] = [
-    ['', 'Tesla', 'Mercedes', 'Toyota', 'Volvo'],
-    ['2019', 10, 11, 12, 13],
-    ['2020', 20, 11, 14, 13],
-    ['2021', 30, 15, 12, 13]
+    {
+      timeperiod: '1 -5 years',
+      preference: 'daily',
+      days: '10'
+    },
+    {
+      timeperiod: '6 - 10 years',
+      preference: 'monthly',
+      days: '20'
+    },
+    {
+      timeperiod: '11 - 15 years',
+      preference: 'yearly',
+      days: '30'
+    }
   ];
 
-  settings: Object =  {
+  settings: Object = {
     data: this.data,
+    stretchH: 'all',
+    width: 1200,
+    autoWrapRow: true,
+    height: 300,
     rowHeaders: true,
-    colHeaders: true,
+    colHeaders: [
+      'TimePeriod',
+      'Months',
+      'Days'
+    ],
+    columns: [
+      {},
+      {
+        type: 'dropdown',
+        source: ['One month', 'Quaterly', 'Half yearly', 'Yearly']
+      },
+      {}
+    ],
     licenseKey: 'non-commercial-and-evaluation'
   }
 
@@ -43,6 +70,8 @@ export class AdminProfileComponent implements OnInit {
   ngOnInit() {
     this.getUserInfo();
     this.getUsersInfo();
+
+
   }
 
   firstname: any;
@@ -86,7 +115,7 @@ export class AdminProfileComponent implements OnInit {
         }
         else if (extName == 'pdf' || extName == 'PDF') {
           this.pdfData = res['file'];
-          console.log("type of pdf data is:", typeof(this.pdfData));
+          console.log("type of pdf data is:", typeof (this.pdfData));
         }
         else if (extName == 'xlsx' || extName == 'xls' || extName == 'XLSX' || extName == 'XLS') {
           this.excelData = res['file'];
