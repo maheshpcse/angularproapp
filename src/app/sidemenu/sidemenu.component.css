@@ -37,3 +37,13 @@ a:hover {
   background-color: #dee2e6;
   border-left: 5px solid #1668af;
 }
+
+.btn-back {
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.btn-back:hover {
+  color: white;
+  background-color: #c54040;
+}
