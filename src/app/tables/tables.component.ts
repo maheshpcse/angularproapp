@@ -6,6 +6,7 @@ import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import * as _ from 'underscore';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import * as moment from 'moment';
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
@@ -77,7 +78,8 @@ export class TablesComponent implements OnInit {
       this.title = this.taskArray[0].title;
       this.description = this.taskArray[0].description;
       this.status = this.taskArray[0].is_complete;
-      this.date = this.taskArray[0].updated_at;
+      this.date = new Date(this.taskArray[0].updated_at).getFullYear() + '-' + (new Date(this.taskArray[0].updated_at).getMonth() + 1) + '-' +
+                  new Date(this.taskArray[0].updated_at).getDate();
     } else if (action == 'delete') {
       document.getElementById('id02').style.display = 'block';
       this.task_id = taskid;

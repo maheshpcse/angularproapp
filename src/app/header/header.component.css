@@ -37,7 +37,7 @@ a {
 .badge {
   position: absolute;
   top: -5px;
-  margin-left: 10px;
+  margin-left: 15px;
   padding: 5px 10px;
   border-radius: 50%;
   background-color: #c54040;
@@ -50,4 +50,10 @@ a {
 
 .btn-view {
   margin-left: 32px;
+  border: 1px solid #1668af;
+}
+
+.btn-view:hover {
+ color: white;
+ background-color: #1668af;
 }

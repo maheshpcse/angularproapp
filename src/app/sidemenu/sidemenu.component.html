@@ -16,14 +16,14 @@
         </div>
       </div>
     </div> -->
-    <div class="input-group">
+    <!-- <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
           <i class="fa fa-search"></i>
         </span>
       </div>
       <input type="text" name="task" [(ngModel)]="filterQuery" placeholder="Quick Search" autocomplete="off">
-    </div>
+    </div> -->
     <!-- For admin -->
     <div class="list-group list-group-flush list" *ngIf="role == 'admin'">
       <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action"

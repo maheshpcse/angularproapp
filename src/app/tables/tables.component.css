@@ -89,8 +89,8 @@ table
     tr
       th
         sv-default-sorter
-          a
-            .fa-sort-up::after {
+          .text-nowrap
+            .fa-sort-up {
               color: #1668af !important;
             }
 
