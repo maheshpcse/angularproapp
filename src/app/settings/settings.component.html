@@ -12,6 +12,74 @@
           Settings works!
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">
+                <i class="fa fa-user" aria-hidden="true"> Role Management</i>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-3">
+                    <select name="rolename" id="rolename">
+                      <option value="disabled">Select Role :</option>
+                      <option value="admin">Admin</option>
+                      <option value="manager">Manager</option>
+                      <option value="user">User</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    selected Role : <span class="ml-2">Admin</span>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <table class="table table-light table-borderless table-hover" style="width: 100%">
+                      <thead class="thead-light">
+                        <tr>
+                          <th>Module Name</th>
+                          <th>Add</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                          <th>View</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            Task Info
+                          </td>
+                          <td>
+                            <input type="checkbox" class="form-control">
+                          </td>
+                          <td>
+                            <input type="checkbox" class="form-control">
+                          </td>
+                          <td>
+                            <input type="checkbox" class="form-control">
+                          </td>
+                          <td>
+                            <input type="checkbox" class="form-control">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn success-btn">
+                <i class="fa fa-check-circle" aria-hidden="true"> Save</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- /#page-content-wrapper -->

@@ -11,6 +11,7 @@ input[type=text] {
 .input-group-text {
   color: white;
   background-color: #1668af;
+  width: 100%;
 }
 
 .user {
