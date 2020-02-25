@@ -16,16 +16,24 @@
         </div>
       </div>
     </div> -->
-    <!-- <div class="input-group">
+    <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
           <i class="fa fa-search"></i>
         </span>
       </div>
       <input type="text" name="task" [(ngModel)]="filterQuery" placeholder="Quick Search" autocomplete="off">
-    </div> -->
+    </div>
+
+    <!-- For Back to Dashboard -->
+    <div class="back-btn" *ngIf="role == 'admin' && (href == '/settings' || href == '/settings/roleprivileges')">
+      <button class="btn btn-back" (click)="backTohome()">
+        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"> Back To Home</i>
+      </button>
+    </div>
+
     <!-- For admin -->
-    <div class="list-group list-group-flush list" *ngIf="role == 'admin'">
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && href != '/settings'">
       <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action"
         [ngClass]="{'menuactive': href == '/admin/dashboard'}">
         <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
@@ -85,6 +93,14 @@
       <a [routerLink]="['/manager/accounts']" class="list-group-item list-group-item-action"
         [ngClass]="{'menuactive': href == '/manager/accounts'}">
         <i class="fa fa-table"></i><span class="ml-3">Accounts</span>
+      </a>
+    </div>
+
+    <!-- For Settings -->
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href == '/settings' || href == '/settings/roleprivileges')">
+      <a [routerLink]="['/settings/roleprivileges']" class="list-group-item list-group-item-action"
+      [ngClass]="{'menuactive': href == '/settings/roleprivileges'}">
+      <i class="fa fa-users"></i><span class="ml-3">Role Privileges</span>
       </a>
     </div>
 

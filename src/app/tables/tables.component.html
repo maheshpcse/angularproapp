@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="card-body padding-0">
-                <!-- | datacolumnfilter: {keys:'title, description, status, doneby, doneon', values: filterQuery -->
+              <!-- | datacolumnfilter: {keys:'title, description, status, doneby, doneon', values: filterQuery -->
               <!-- angular8-data-table -->
               <table class="table table-striped table-borderless" [svData]="tasksArr" #sv="svDataTable"
                 [svRowsOnPage]="5" svSortBy="name" svSortOrder="sortOrder">
@@ -183,15 +183,16 @@
   <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom">
       <header class="w3-container w3-teal p-2">
-        <span onclick="document.getElementById('id01').style.display='none'"
-          class="w3-button w3-display-topright">&times;</span>
-          <h3 *ngIf="isAddTask">Add Task</h3>
+        <!-- <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span> -->
+        <span class="w3-button w3-display-topright" (click)="resetTaskForm()">&times;</span>
+        <h3 *ngIf="isAddTask">Add Task</h3>
         <h3 *ngIf="isUpdateTask">Update Task</h3>
       </header>
       <div class="w3-container">
         <div class="container">
           <div class="row mt-3">
-            <!-- <form> -->
+            <!-- <form action="" #taskForm> -->
             <div class="col-md-6">
               <label for="title" class="field-required">Title</label>
               <input type="text" class="form-control" name="title" id="title" [(ngModel)]="title"
@@ -225,8 +226,9 @@
             Update</button>
           <button class="w3-button w3-right w3-white w3-border" *ngIf="isAddTask" (click)="addTask()">
             Add</button>
-          <button class="w3-button w3-right w3-teal w3-border"
-            onclick="document.getElementById('id01').style.display='none'">Close</button>
+          <!-- <button class="w3-button w3-right w3-teal w3-border"
+            onclick="document.getElementById('id01').style.display='none'">Close</button> -->
+          <button class="w3-button w3-right w3-teal w3-border" (click)="resetTaskForm()">Close</button>
         </div>
       </footer>
     </div>

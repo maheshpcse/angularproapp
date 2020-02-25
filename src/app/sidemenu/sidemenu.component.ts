@@ -39,8 +39,8 @@ export class SidemenuComponent implements OnInit {
     // console.log(this.pageType);
     this.getUserInfo();
 
-    this.href = this.router.url;
     console.log(this.router.url);
+    this.href = this.router.url;
     // this.data = this._route.queryParams.subscribe(res => {
     //   this.role = res['data'];
     // });
@@ -68,5 +68,9 @@ export class SidemenuComponent implements OnInit {
         console.log("Error while getting user data");
       }
     })
+  }
+
+  backTohome() {
+    this.router.navigate(['/admin/dashboard']);
   }
 }

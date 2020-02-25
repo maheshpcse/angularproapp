@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SharedService } from '../shared.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
@@ -6,7 +6,7 @@ import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import * as _ from 'underscore';
 import { ToastrManager } from 'ng6-toastr-notifications';
-import * as moment from 'moment';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
@@ -28,6 +28,8 @@ export class TablesComponent implements OnInit {
   status: any;
   user_id: any;
   date: any;
+
+  // @ViewChild('taskForm', { static: false }) taskFormElr: ElementRef;
 
   constructor(
     private route: Router,
@@ -78,8 +80,9 @@ export class TablesComponent implements OnInit {
       this.title = this.taskArray[0].title;
       this.description = this.taskArray[0].description;
       this.status = this.taskArray[0].is_complete;
-      this.date = new Date(this.taskArray[0].updated_at).getFullYear() + '-' + (new Date(this.taskArray[0].updated_at).getMonth() + 1) + '-' +
-                  new Date(this.taskArray[0].updated_at).getDate();
+      this.date = new Date(this.taskArray[0].updated_at).getFullYear() + '-' + (new Date(this.taskArray[0].updated_at).getMonth() + 1) + '-' 
+      + new Date(this.taskArray[0].updated_at).getDate();
+      console.log(this.date);
     } else if (action == 'delete') {
       document.getElementById('id02').style.display = 'block';
       this.task_id = taskid;
@@ -98,7 +101,8 @@ export class TablesComponent implements OnInit {
       description: this.description,
       is_complete: Number(this.status),
       user_id: 6,
-      created_at: this.date
+      created_at: new Date(this.date),
+      updated_at: new Date(this.date)
     }
     this.sharedService.addTask(taskData).subscribe(res => {
       if (res['success'] == true) {
@@ -182,6 +186,14 @@ export class TablesComponent implements OnInit {
         this.route.navigate(['/tables']);
       }
     })
+  }
+
+  resetTaskForm() {
+    document.getElementById('id01').style.display = "none";
+    this.title = '';
+    this.description = '';
+    this.status = '';
+    this.date = '';
   }
 
   downloadReport() {

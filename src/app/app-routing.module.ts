@@ -24,6 +24,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { SiteInfoComponent } from './site-info/site-info.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,11 @@ const routes: Routes = [
   },
   {
     path: 'settings',
+    canActivate: [AuthGuardService],
+    component: SiteInfoComponent
+  },
+  {
+    path: 'settings/roleprivileges',
     canActivate: [AuthGuardService],
     component: SettingsComponent
   },
