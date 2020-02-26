@@ -12,17 +12,31 @@ import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 })
 export class SettingsComponent implements OnInit {
 
-  username: any = sessionStorage.getItem('id');
+  public username: any = sessionStorage.getItem('id');
+  public role: any = sessionStorage.getItem('role');
   image: any;
 
   @ViewChild('fileInput', {static: false}) fileInputRef: ElementRef;
+
+  rolename: any;
+  roles: any;
+  moduleNames: any = [];
 
   constructor(
     private route: Router,
     private authService: AuthService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.rolename = this.role;
+    this.roles = ['Admin', 'Manager', 'User'];
+    this.moduleNames = [
+      {name: 'Task Info', type: 'checkbox'},
+      {name: 'Forms', type: 'checkbox'},
+      {name: 'Test case', type: 'checkbox'},
+      {name: 'Sample one', type: 'checkbox'}
+    ]
+  }
 
   selectedFile(event) {
     console.log(event.target.files[0]);

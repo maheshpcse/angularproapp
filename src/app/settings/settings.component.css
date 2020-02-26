@@ -1,4 +1,32 @@
+.card {
+  border: none;
+}
+
 .success-btn {
-    color: white;
-    background-color: #6dab25;
+  color: white;
+  background-color: #6dab25;
+}
+
+h4 {
+  font-family: 'Montserrat';
+  font-size: 1rem;
+}
+
+table thead th {
+  font-family: 'Montserrat';
+}
+
+.role-select {
+  font-family: 'Comfortaa';
+}
+
+.main-role {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.select-form {
+  padding: 5px;
+  width: 100%;
 }

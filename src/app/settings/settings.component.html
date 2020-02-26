@@ -7,7 +7,8 @@
     <app-header></app-header>
 
     <div class="container-fluid">
-      <div class="row">
+      <!-- upload a file -->
+      <!-- <div class="row">
         <div class="col-md-4">
           <form action="" enctype="multipart/form-data" method="POST">
             <div class="form-group">
@@ -17,28 +18,26 @@
             <button class="btn btn-info" type="submit" (click)="uploadProfile()">Upload</button>
           </form>
         </div>
-      </div>
+      </div> -->
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-5">
           <div class="card">
             <div class="card-header">
               <div class="card-title">
-                <i class="fa fa-user" aria-hidden="true"> Role Management</i>
+                <h4><i class="fa fa-user" aria-hidden="true"> Role Management</i></h4>
               </div>
             </div>
             <div class="card-body">
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-3">
-                    <select name="rolename" id="rolename">
-                      <option value="disabled">Select Role :</option>
-                      <option value="admin">Admin</option>
-                      <option value="manager">Manager</option>
-                      <option value="user">User</option>
+                    <select name="rolename" id="rolename" class="select-form" [(ngModel)]="rolename" value="{{ rolename }}">
+                      <option disabled>Select Role :</option>
+                      <option *ngFor="let item of roles">{{ item }}</option>
                     </select>
                   </div>
-                  <div class="col-md-4">
-                    selected Role : <span class="ml-2">Admin</span>
+                  <div class="col-md-4 role-select">
+                    selected Role :<span class="ml-2 main-role">{{ rolename }}</span>
                   </div>
                 </div>
                 <hr>
@@ -47,29 +46,27 @@
                     <table class="table table-light table-borderless table-hover" style="width: 100%">
                       <thead class="thead-light">
                         <tr>
-                          <th>Module Name</th>
-                          <th>Add</th>
-                          <th>Update</th>
-                          <th>Delete</th>
-                          <th>View</th>
+                          <th class="text-center">Module Name</th>
+                          <th class="text-center">Add</th>
+                          <th class="text-center">Update</th>
+                          <th class="text-center">Delete</th>
+                          <th class="text-center">View</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            Task Info
+                        <tr *ngFor="let item of moduleNames;let i=index">
+                          <td class="text-center">{{ item.name }}</td>
+                          <td class="text-center">
+                            <input type="{{item.type}}" [checked]="true" class="checkbox-form" name="add" id="add">
                           </td>
-                          <td>
-                            <input type="checkbox" class="form-control">
+                          <td class="text-center">
+                            <input type="{{item.type}}" class="checkbox-form" name="update" id="update">
                           </td>
-                          <td>
-                            <input type="checkbox" class="form-control">
+                          <td class="text-center">
+                            <input type="{{item.type}}" class="checkbox-form" name="delete" id="delete">
                           </td>
-                          <td>
-                            <input type="checkbox" class="form-control">
-                          </td>
-                          <td>
-                            <input type="checkbox" class="form-control">
+                          <td class="text-center">
+                            <input type="{{item.type}}" class="checkbox-form" name="view" id="view">
                           </td>
                         </tr>
                       </tbody>
@@ -79,7 +76,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <button class="btn success-btn">
+              <button class="btn success-btn float-right">
                 <i class="fa fa-check-circle" aria-hidden="true"> Save</i>
               </button>
             </div>

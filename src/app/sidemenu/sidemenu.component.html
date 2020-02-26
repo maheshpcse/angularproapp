@@ -35,7 +35,7 @@
     </div>
 
     <!-- For admin -->
-    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && href != '/settings'">
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href != '/settings' && href != '/settings/roleprivileges')">
       <a [routerLink]="['/admin/dashboard']" class="list-group-item list-group-item-action"
         [ngClass]="{'menuactive': href == '/admin/dashboard'}">
         <i class="fa fa-dashboard"></i><span class="ml-3">Dashboard</span>
