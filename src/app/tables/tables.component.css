@@ -80,9 +80,13 @@ input[type=text] {
   border-color: #c54040;
 }
 
-table tr th {
+table thead th {
   font-family: 'Montserrat', sans-serif;
 }
+/* 
+table tbody tr td {
+  font-family: 'Montserrat', sans-serif;
+} */
 
 table
   thead
