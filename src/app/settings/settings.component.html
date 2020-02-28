@@ -24,14 +24,15 @@
           <div class="card">
             <div class="card-header">
               <div class="card-title">
-                <h4><i class="fa fa-user" aria-hidden="true"> Role Management</i></h4>
+                <h4><i class="fa fa-user" aria-hidden="true"></i> Role Management</h4>
               </div>
             </div>
             <div class="card-body">
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-3">
-                    <select name="rolename" id="rolename" class="select-form" [(ngModel)]="rolename" value="{{ rolename }}">
+                    <select name="rolename" id="rolename" class="select-form" [(ngModel)]="rolename"
+                      value="{{ rolename }}">
                       <option disabled>Select Role :</option>
                       <option *ngFor="let item of roles">{{ item }}</option>
                     </select>
@@ -43,48 +44,95 @@
                 <hr>
                 <div class="row">
                   <div class="col-md-12">
-                    <table class="table table-light table-borderless table-hover" style="width: 100%">
+                    <table class="table table-light table-borderless" style="width: 100%">
                       <thead class="thead-light">
                         <tr>
-                          <th class="text-center">Module Name</th>
-                          <th class="text-center">Add</th>
-                          <th class="text-center">Update</th>
-                          <th class="text-center">Delete</th>
-                          <th class="text-center">View</th>
+                          <th>Module Name</th>
+                          <th class="text-center">
+                            <input type="checkbox" class="checkbox-form" name="addAll" id="addAll" (click)="selectAllConfig($event, 'add')">
+                          </th>
+                          <th class="text-center">
+                            <input type="checkbox" class="checkbox-form" name="updateAll" id="updateAll" (click)="selectAllConfig($event, 'update')">
+                          </th>
+                          <th class="text-center">
+                            <input type="checkbox" class="checkbox-form" name="deleteAll" id="deleteAll" (click)="selectAllConfig($event, 'delete')">
+                          </th>
+                          <th class="text-center">
+                            <input type="checkbox" class="checkbox-form" name="viewAll" id="viewAll" (click)="selectAllConfig($event, 'view')">
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let item of moduleNames;let i=index">
-                          <td class="text-center">{{ item.name }}</td>
+                          <td>{{ item.config_name }}</td>
                           <td class="text-center">
-                            <input type="{{item.type}}" [checked]="true" class="checkbox-form" name="add" id="add">
+                            <input type="checkbox" class="checkbox-form" name="add" id="add"
+                              [checked]="item.addConfig == 1 ? item.addConfig : false" (click)="selectConfig($event, i, 'add')">
+                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
+                              <input type="checkbox" name="" id="checkedCheckbox">
+                              <span class="si-label"></span>
+                            </label> -->
                           </td>
                           <td class="text-center">
-                            <input type="{{item.type}}" class="checkbox-form" name="update" id="update">
+                            <input type="checkbox" class="checkbox-form" name="update" id="update"
+                              [checked]="item.updateConfig == 1 ? item.updateConfig : false" (click)="selectConfig($event, i, 'update')">
+                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
+                              <input type="checkbox" name="" id="checkedCheckbox">
+                              <span class="si-label"></span>
+                            </label> -->
                           </td>
                           <td class="text-center">
-                            <input type="{{item.type}}" class="checkbox-form" name="delete" id="delete">
+                            <input type="checkbox" class="checkbox-form" name="delete" id="delete"
+                              [checked]="item.deleteConfig == 1 ? item.deleteConfig : false" (click)="selectConfig($event, i, 'delete')">
+                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
+                              <input type="checkbox" name="" id="checkedCheckbox">
+                              <span class="si-label"></span>
+                            </label> -->
                           </td>
                           <td class="text-center">
-                            <input type="{{item.type}}" class="checkbox-form" name="view" id="view">
+                            <input type="checkbox" class="checkbox-form" name="view" id="view"
+                              [checked]="item.viewConfig == 1 ? item.viewConfig : false" (click)="selectConfig($event, i, 'view')">
+                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
+                              <input type="checkbox" name="" id="checkedCheckbox">
+                              <span class="si-label"></span>
+                            </label> -->
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <div class="row">
+
+                <!-- sample checkbox one-->
+                <!-- <div class="row">
                   <div class="col-md-12">
                     <label for="checkedCheckbox" class="si si-checkbox">
                       <input type="checkbox" name="" id="checkedCheckbox">
-                      <span class="si-label">Check checkbox state</span>
+                      <span class="si-label"></span>
                     </label>
                   </div>
-                </div>
+                </div> -->
+                <!-- end sample checkbox one-->
+
+                <!-- sample checkbox two -->
+                <!-- <div class="row">
+                  <div class="col-md-12">
+                    <ul class="check-list-set">
+                      <li class="check-set" *ngFor="let item of parameters; let j = index">
+                        <div class="checkbox-wrap">
+                          <input type="checkbox" name="parameter" id="parameter-{{j}}" />
+                          <label for="parameter-{{j}}">{{item.perems}}</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div> -->
+                <!-- end sample checkbox two -->
+
               </div>
             </div>
             <div class="card-footer">
-              <button class="btn success-btn float-right">
+              <button class="btn success-btn float-right" (click)="updateConfig()">
                 <i class="fa fa-check-circle" aria-hidden="true"> Save</i>
               </button>
             </div>

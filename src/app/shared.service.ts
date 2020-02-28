@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { translate } from 'translate';
+import { SettingsService } from './settings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,25 @@ import { translate } from 'translate';
 export class SharedService {
 
   public data = 'Getting data';
+  public addEnable : any = '';
+  public updateEnable: any = '';
+  public deleteEnable: any = '';
+  public viewEnable: any = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private settingsService: SettingsService
+  ) { }
+
+  getModuleConfig() {
+    this.settingsService.getConfigurations().subscribe(res=>{
+      if(res['success'] == true) {
+
+      } else if (res['success'] == false) {
+
+      }
+    })
+  }
 
   addDatatoDowload(data) {
     console.log(data);

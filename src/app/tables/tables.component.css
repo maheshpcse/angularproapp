@@ -7,6 +7,10 @@
   color: #1668af;
 }
 
+.title {
+  font-family: 'Montserrat';
+}
+
 .tooltip {
   position: relative;
   display: inline-block;

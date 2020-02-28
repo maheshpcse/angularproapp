@@ -31,6 +31,7 @@ table thead th {
   width: 100%;
 }
 
+/* checkbox styles start */
 .si {
   --color-default: #dee5f2;
   --color-active: #0069ff;
@@ -113,3 +114,4 @@ table thead th {
 .si.si-checkbox > input:checked + .si-label::before {
   transform: rotate(var(--rotate-active)) scale(0);
 }
+/* end checkbox styles */

@@ -32,6 +32,10 @@ export class ApiService {
     DELETE_TASK: environment.apiUrl + '/deleteTask',
 
     // NOTIFICATIONS API URL's
-    GET_NOTIFICATIONS_COUNT: environment.apiUrl + '/getNotifications'
+    GET_NOTIFICATIONS_COUNT: environment.apiUrl + '/getNotifications',
+
+    // CONFIGURATION API URL's
+    GET_MODULE_CONFIGURATIONS: environment.apiUrl + '/getConfigurations',
+    UPDATE_MODULE_CONFIGURATIONS: environment.apiUrl + '/updateConfigurations'
   }
 }

@@ -42,6 +42,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { DatacolumnfilterPipe } from './datacolumnfilter.pipe';
 import { SiteInfoComponent } from './site-info/site-info.component';
+import { SettingsService } from './settings.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +92,7 @@ import { SiteInfoComponent } from './site-info/site-info.component';
     SharedService,
     AuthService,
     AuthGuardService,
+    SettingsService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]

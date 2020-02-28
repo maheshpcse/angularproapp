@@ -41,10 +41,11 @@ a:hover {
 
 .btn-back {
   width: 100%;
+  color: #c54040;
   font-family: 'Comfortaa';
 }
 
-.btn-back:hover {
+/* .btn-back:hover {
   color: white;
   background-color: #c54040;
-}
+} */
