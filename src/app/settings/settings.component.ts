@@ -156,9 +156,11 @@ export class SettingsComponent implements OnInit {
       if (res['success'] == true) {
         console.log("Module configurations updated successful");
         this.getConfigurations();
+        this.sharedService.getModulesConfig();
       } else if (res['success'] == false) {
         console.log("Unable to update module configurations");
         this.getConfigurations();
+        this.sharedService.getModulesConfig();
       }
     })
   }

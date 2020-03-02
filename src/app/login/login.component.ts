@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    public sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -52,6 +54,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('id', res['id']);
         sessionStorage.setItem('role', res['role']);
         this.isSuccess = true;
+        this.sharedService.getModulesData();
         setInterval(() => {
           this.route.navigate([`/${res['role']}/dashboard`]);
         }, 1000);
