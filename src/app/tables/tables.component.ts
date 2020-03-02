@@ -33,7 +33,7 @@ export class TablesComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private sharedService: SharedService,
+    public sharedService: SharedService,
     public toastr: ToastrManager
   ) { }
 
@@ -47,16 +47,19 @@ export class TablesComponent implements OnInit {
       { name: 'Kingston', email: 'king1ston@gmail.com', age: 29, city: 'China' }
     ]
     this.getAllTasks();
+    // console.log(this.sharedService.addEnable, " ", this.sharedService.updateEnable, " ", this.sharedService.deleteEnable,
+    // " ", this.sharedService.viewEnable);
   }
 
   public setSelectedEntities($event: any) {
     this.selectedEntities = $event;
   }
 
-
   tasksArr: any = [];
 
   getAllTasks() {
+    // console.log(this.sharedService.getModulesConfig('Task Info'));
+    console.log(this.sharedService.getData('Task Info'));
     this.sharedService.getAllTasks().subscribe(res => {
       this.tasksArr = res['data'];
     })
@@ -64,7 +67,7 @@ export class TablesComponent implements OnInit {
 
   taskArray: any = [];
   isAddTask: boolean;
-  isUpdateTask:boolean;
+  isUpdateTask: boolean;
 
   getTaskid(taskid, userid, action) {
     if (action == 'edit') {
