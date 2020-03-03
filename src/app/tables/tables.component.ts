@@ -179,13 +179,29 @@ export class TablesComponent implements OnInit {
     }
     this.sharedService.deleteTask(taskData).subscribe(res => {
       if (res['success'] == true) {
-        console.log("Task delete successful");
+        console.log("Task deleted successful");
         document.getElementById('id02').style.display = 'none';
-        this.route.navigate(['/tables']);
+        this.toastr.successToastr('Task deleted successful','',
+        {
+          toastTimeout: 2000,
+          position: 'bottom-center',
+          showCloseButton: true,
+          animate: 'slideFromLeft'
+        });
+        this.getAllTasks();
+        this.route.navigate(['/admin/tables']);
       } else {
         console.log("Failed to delete task");
         document.getElementById('id02').style.display = 'none';
-        this.route.navigate(['/tables']);
+        this.toastr.errorToastr('Failed to delete a task', '',
+          {
+            toastTimeout: 2000,
+            position: 'bottom-center',
+            showCloseButton: true,
+            animate: 'slideFromLeft'
+          });
+        this.getAllTasks();
+        this.route.navigate(['/admin/tables']);
       }
     })
   }

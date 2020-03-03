@@ -70,8 +70,6 @@ export class AdminProfileComponent implements OnInit {
   ngOnInit() {
     this.getUserInfo();
     this.getUsersInfo();
-
-
   }
 
   firstname: any;
