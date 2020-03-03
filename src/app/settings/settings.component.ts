@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { SharedService } from '../shared.service';
 import { SettingsService } from '../settings.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-settings',
@@ -30,7 +31,8 @@ export class SettingsComponent implements OnInit {
     private route: Router,
     private authService: AuthService,
     private sharedService: SharedService,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    public toastr: ToastrManager
   ) { }
 
   ngOnInit() {
@@ -150,15 +152,35 @@ export class SettingsComponent implements OnInit {
   updateConfig() {
     if (this.updatedModules.length <= 0) {
       this.updatedModules = this.moduleNames;
+      this.updatedModules.forEach(element => {
+        element.role = this.rolename.toLowerCase();
+      });
     }
+    this.updatedModules.forEach(element => {
+      element.role = this.rolename.toLowerCase();
+    });
     console.log("update module configurations", this.updatedModules);
     this.settingsService.updateConfigurations(this.updatedModules).subscribe(res => {
       if (res['success'] == true) {
         console.log("Module configurations updated successful");
+        this.toastr.successToastr('Module configurations updated successful','',
+        {
+          toastTimeout: 2000,
+          position: 'bottom-center',
+          showCloseButton: true,
+          animate: 'slideFromLeft'
+        });
         this.getConfigurations();
         this.sharedService.getModulesConfig();
       } else if (res['success'] == false) {
         console.log("Unable to update module configurations");
+        this.toastr.errorToastr('Failed to update module configurations', '',
+          {
+            toastTimeout: 2000,
+            position: 'bottom-center',
+            showCloseButton: true,
+            animate: 'slideFromLeft'
+          });
         this.getConfigurations();
         this.sharedService.getModulesConfig();
       }
