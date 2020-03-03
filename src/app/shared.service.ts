@@ -13,55 +13,37 @@ export class SharedService implements OnInit {
   public addEnable: any;
   public updateEnable: any;
   public deleteEnable: any;
-  public viewEnable: any = true;
+  public viewEnable: any;
   public modulesConfig: any = [];
   public moduless: any = [];
 
   constructor(
     private http: HttpClient,
     public settingsService: SettingsService
-  ) { }
+    ) { 
+      this.getModulesConfig('');
+    }
+    
+  ngOnInit () { }
 
-  ngOnInit () {
-    this.getModulesConfig();
-  }
-
-  getModulesConfig() {
+  getModulesConfig(moduleName: any) {
     this.settingsService.getConfigurations().subscribe(res => {
       if (res['success'] == true) {
         console.log("Module configurations", res['data']);
         this.modulesConfig = res['data'];
-        // this.addEnable = res['data'][0].addConfig;
-        // this.updateEnable = res['data'][0].updateConfig;
-        // this.deleteEnable = res['data'][0].deleteConfig;
-        // this.viewEnable = res['data'][0].viewConfig;
+        for (let i = 0; i < this.modulesConfig.length; i++) {
+          if (this.modulesConfig[i].config_name == moduleName && this.modulesConfig[i].viewConfig == 1) {
+            console.log("entered if");
+            this.viewEnable = true;
+          } else {
+            console.log("entered else");
+            this.viewEnable = false;
+          }
+        }
       } else if (res['success'] == false) {
         console.log("Unable to get module configurations");
       }
-      // console.log("this.viewEnable value is:", this.viewEnable);
-      // return this.viewEnable;
     });
-  }
-
-  getModulesData() {
-    this.moduless = ["Forms", "Tasks", "Tables", "Settings"];
-    console.log("this.modules data:", this.moduless);
-  }
-
-  getData(moduleName: any) {
-    // console.log("this.modulesConfig data:", this.modulesConfig);
-    // data = this.viewEnable;
-    // for (let i = 0; i < this.modulesConfig.length; i++) {
-    //   if (this.modulesConfig[i].config_name == moduleName && this.modulesConfig[i].viewConfig == 1) {
-    //     console.log("entered if");
-    //     this.viewEnable = true;
-    //   } else {
-    //     console.log("entered else");
-    //     this.viewEnable = false;
-    //   }
-    // }
-    moduleName = this.moduless;
-    return moduleName;
   }
 
   addDatatoDowload(data) {

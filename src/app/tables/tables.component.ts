@@ -58,8 +58,7 @@ export class TablesComponent implements OnInit {
   tasksArr: any = [];
 
   getAllTasks() {
-    // console.log(this.sharedService.getModulesConfig('Task Info'));
-    console.log(this.sharedService.getData('Task Info'));
+    console.log(this.sharedService.getModulesConfig('Task Info'));
     this.sharedService.getAllTasks().subscribe(res => {
       this.tasksArr = res['data'];
     })
