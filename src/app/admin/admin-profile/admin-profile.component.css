@@ -27,3 +27,8 @@ h3 {
     color: #6dab25;
     font-size: 0.9rem;
 }
+
+.active-details:hover {
+    border-left: 2px solid #1668af;
+    background-color: #dee2e6;
+}

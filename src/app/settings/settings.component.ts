@@ -26,6 +26,8 @@ export class SettingsComponent implements OnInit {
   updateChecked: boolean = false;
   deletedChecked: boolean = false;
   viewChecked: boolean = false;
+  checkBoxStyles: any = [];
+  checked: boolean;
 
   constructor(
     private route: Router,
@@ -75,6 +77,14 @@ export class SettingsComponent implements OnInit {
       if (res['success'] == true) {
         console.log("getting configurations", res['data']);
         this.moduleNames = res['data'];
+        for (let i=0; i<this.moduleNames.length; i++) {
+          let obj = {
+            label: 'si si-checkbox',
+            type: 'checkbox',
+            span: 'si-label'
+          }
+          this.checkBoxStyles.push(obj);
+        }
       } else if (res['success'] == false) {
         console.log("Unable to get configurations");
       }
@@ -171,7 +181,7 @@ export class SettingsComponent implements OnInit {
           animate: 'slideFromLeft'
         });
         this.getConfigurations();
-        this.sharedService.getModulesConfig();
+        // this.sharedService.getModulesConfig();
       } else if (res['success'] == false) {
         console.log("Unable to update module configurations");
         this.toastr.errorToastr('Failed to update module configurations', '',
@@ -182,7 +192,7 @@ export class SettingsComponent implements OnInit {
             animate: 'slideFromLeft'
           });
         this.getConfigurations();
-        this.sharedService.getModulesConfig();
+        // this.sharedService.getModulesConfig();
       }
     })
   }

@@ -23,15 +23,94 @@
                   </div>
                   <div class="col-md-9 p-2">
                     <div class="primary-text">
-                      <label for="firstname"><span class="ml-2"><i class="fa fa-user"></i> {{ firstname }}</span></label>
+                      <label for="firstname"><span class="ml-2"><i class="fa fa-user"></i>
+                          {{ firstname }}</span></label>
                       <span class="ml-1">{{ lastname }}</span>
-                      <p class="design ml-2"><i class="fa fa-briefcase"></i><span class="ml-2">{{ designation }}</span></p>
+                      <p class="design ml-2"><i class="fa fa-briefcase"></i><span class="ml-2">{{ designation }}</span>
+                      </p>
                     </div>
                     <hr>
                     <div class="w3-container">
-                      <label for="email">Email :</label> {{ email }} <br>
-                      <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
-                      <label for="created_on">Created on :</label> {{ created_on }} <br>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <table>
+                            <tr class="active-details">
+                              <th><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{email}}</td>
+                            </tr>
+                            <br>
+                            <tr class="active-details">
+                              <th><i class="fa fa-phone" aria-hidden="true"></i> Phone</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{phoneNumber}}</td>
+                            </tr>
+                            <br>
+                            <tr class="active-details">
+                              <th><i class="fa fa-calendar" aria-hidden="true"></i> Created On</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{created_on | date}}</td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div class="col-md-6">
+                          <table>
+                            <tr class="active-details">
+                              <th><i class="fa fa-graduation-cap" aria-hidden="true"></i> Designation</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{designation}}</td>
+                            </tr>
+                            <br>
+                            <tr class="active-details">
+                              <th><i class="fa fa-industry" aria-hidden="true"></i> Department</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{department}}</td>
+                            </tr>
+                            <br>
+                            <tr class="active-details">
+                              <th><i class="fa fa-code-fork" aria-hidden="true"></i> Role</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{role}}</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -81,8 +160,8 @@
                 <h3>Handsontable :</h3>
                 <div class="row">
                   <div class="col-md-12">
-                    <hot-table [data]="data" [colHeaders]="true" [rowHeaders]="true"
-                      [settings]="settings" [licenseKey]="00000-00000-00000-00000-00000">
+                    <hot-table [data]="data" [colHeaders]="true" [rowHeaders]="true" [settings]="settings"
+                      [licenseKey]="00000-00000-00000-00000-00000">
                     </hot-table>
                   </div>
                 </div>

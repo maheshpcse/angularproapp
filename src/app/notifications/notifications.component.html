@@ -43,7 +43,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of notifications">
+                        <tr *ngFor="let item of notifications; let i=index">
                           <td>{{ i+1 }}</td>
                           <td>{{ item.notification }}</td>
                           <td>{{ item.type_of_notify }}</td>

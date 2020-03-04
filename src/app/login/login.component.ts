@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('id', res['id']);
         sessionStorage.setItem('role', res['role']);
         this.isSuccess = true;
-        this.sharedService.getModulesData();
+        // this.sharedService.getModulesData();
         setInterval(() => {
           this.route.navigate([`/${res['role']}/dashboard`]);
         }, 1000);

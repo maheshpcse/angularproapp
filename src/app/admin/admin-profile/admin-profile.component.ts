@@ -79,7 +79,9 @@ export class AdminProfileComponent implements OnInit {
   email: any;
   phoneNumber: any;
   designation: any;
+  department: any;
   created_on: any;
+  role: any;
   imgSrc: SafeResourceUrl;
   textData: any;
   pdfData: any;
@@ -103,6 +105,8 @@ export class AdminProfileComponent implements OnInit {
         this.email = this.userData[0].email;
         this.phoneNumber = this.userData[0].phonenumber;
         this.designation = this.userData[0].designation;
+        this.department = this.userData[0].department;
+        this.role = this.userData[0].role;
         this.created_on = this.userData[0].created_at;
         if (extName == 'jpg' || extName == 'png' || extName == 'gif' || extName == 'JPEG' || extName == 'PNG' || extName == 'GIF') {
           this.profileImage = res['file'];
