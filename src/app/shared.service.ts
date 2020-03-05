@@ -29,14 +29,14 @@ export class SharedService implements OnInit {
   getModulesConfig(moduleName: any) {
     this.settingsService.getConfigurations().subscribe(res => {
       if (res['success'] == true) {
-        console.log("Module configurations", res['data']);
+        // console.log("Module configurations", res['data']);
         this.modulesConfig = res['data'];
         for (let i = 0; i < this.modulesConfig.length; i++) {
           if (this.modulesConfig[i].config_name == moduleName && this.modulesConfig[i].viewConfig == 1) {
-            console.log("entered if");
+            // console.log("entered if");
             this.viewEnable = true;
           } else {
-            console.log("entered else");
+            // console.log("entered else");
             this.viewEnable = false;
           }
         }
