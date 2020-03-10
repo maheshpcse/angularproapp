@@ -25,6 +25,7 @@ export class SidemenuComponent implements OnInit {
 
   public href: string = "";
 
+  public filterQuery = '';
   adminMenu: any = [];
   userMenu: any = [];
   managerMenu: any = [];
@@ -35,15 +36,16 @@ export class SidemenuComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     // public ubuntu:
-  ) { }
-
-  ngOnInit() {
-    this.getModules();
+    ) { 
+      this.getModules();
+    }
+    
+    ngOnInit() {
+      this.getUserInfo();
     // this.currentUrl = window.location.href.split('http://localhost:3200/')[1];
     // console.log("current url is", this.currentUrl);
     this.pageType = this._route.snapshot.url[0].path;
     // console.log(this.pageType);
-    this.getUserInfo();
 
     console.log(this.router.url);
     this.href = this.router.url;
@@ -56,10 +58,29 @@ export class SidemenuComponent implements OnInit {
   }
 
   getModules() {
-    this.adminMenu = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
-    this.userMenu = ['Dashboard', 'Services', 'Chat', 'Activity'];
-    this.managerMenu = ['Dashboard', 'Attandance', 'Leaves', 'Accounts'];
-    this.settingsMenu = ['Site Info', 'Role Privileges'];
+    this.adminMenu = [
+      {name: 'Dashboard', icon: 'fa-dashboard', url: '/admin/dashboard'},
+      {name: 'Tasks', icon: 'fa-folder-o', url: '/admin/tasks'},
+      {name: 'Forms', icon: 'fa-wpforms', url: '/admin/forms'},
+      {name: 'Tables', icon: 'fa-table', url: '/admin/tables'},
+      {name: 'Visit', icon: 'fa-gear', url: '/admin/companies'}
+    ];
+    this.userMenu = [
+      {name: 'Dashboard', icon: 'fa-dashboard', url: '/user/dashboard'},
+      {name: 'Services', icon: 'fa-gear', url: '/user/services'},
+      {name: 'Chat', icon: 'fa-wpforms', url: '/user/chat'},
+      {name: 'Activity', icon: 'fa-table', url: '/user/activities'}
+    ];
+    this.managerMenu = [
+      {name: 'Dashboard', icon: 'fa-dashboard', url: '/manager/dashboard'},
+      {name: 'Attandance', icon: 'fa-gear', url: '/manager/attandance'},
+      {name: 'Leaves', icon: 'fa-wpforms', url: '/manager/leaves'},
+      {name: 'Accounts', icon: 'fa-table', url: '/manager/accounts'}
+    ];
+    this.settingsMenu = [
+      {name: 'Site Info', icon: 'fa-dashboard', url: '/settings/siteinfo'},
+      {name: 'Role Privileges', icon: 'fa-users', url: '/settings/roleprivileges'}
+    ];
   }
 
   getUserInfo() {
@@ -85,5 +106,12 @@ export class SidemenuComponent implements OnInit {
 
   backTohome() {
     this.router.navigate(['/admin/dashboard']);
+  }
+
+  searchModule() {
+    let val = this.filterQuery ? this.filterQuery : '';
+    if (val == '' || val == null || val == undefined) {
+      this.adminMenu = [];
+    }
   }
 }

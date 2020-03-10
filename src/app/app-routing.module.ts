@@ -50,7 +50,7 @@ const routes: Routes = [
     component: ForgotpasswordComponent
   },
   {
-    path: 'settings',
+    path: 'settings/siteinfo',
     canActivate: [AuthGuardService],
     component: SiteInfoComponent
   },
