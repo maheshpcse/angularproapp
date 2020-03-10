@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,33 +13,51 @@ export class DashboardComponent implements OnInit {
   searchItem: any;
   hiddenItem: any;
 
-  dataItems: any = [];
-  searchRes: boolean = false;
+  modules: any = [];
+  hideData: boolean = false;
+  data: any = [];
 
   constructor(
     private route: Router,
+    private _route: ActivatedRoute,
     private authService: AuthService
-  ) { }
-
-  ngOnInit() {
-    this.dataItems = ['MongoDB', 'ExpressJS', 'Angular', 'Node.JS'];
+  ) { 
+    this._route.params.subscribe(res => {
+      console.log(res['data']);
+    });
   }
 
-  data: any = [];
+  ngOnInit() {
+    this.getModules();
+  }
 
-  searchData(val: any) {
-    console.log(val);
-    for (let i = 0; i < this.dataItems.length; i++) {
-      if (val == '' || val == null || val == undefined) {
-        this.searchRes = false;
-      }
-      else if (this.dataItems[i].toLowerCase() == val.toLowerCase()) {
-        this.searchRes = true;
-        this.data.push(this.dataItems[i]);
-      } else {
-        this.searchRes = true;
-        this.data[0] = 'No data found';
-      }
+  getModules() {
+    this.modules = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
+  }
+
+  searchData() {
+    console.log(this.searchItem);
+    let val = this.searchItem.toLowerCase();
+    if (val == '' || val == null || val == undefined) {
+      this.hideData = true;
+      this.modules = [];
+      return;
+    } else {
+      this.hideData = false;
+      this.modules = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
+      let arr = _.filter(this.modules, (e: any) => {
+        if (e.toLowerCase() == val) {
+          return e;
+        } else if (e.toLowerCase().includes(val)) {
+          return e;
+        }
+      });
+      this.modules = arr;
+      return this.modules;
     }
+  }
+
+  onCompleted() {
+    this.route.navigate(['/your route', { data: 'completed' }]);
   }
 }

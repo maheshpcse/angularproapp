@@ -25,6 +25,11 @@ export class SidemenuComponent implements OnInit {
 
   public href: string = "";
 
+  adminMenu: any = [];
+  userMenu: any = [];
+  managerMenu: any = [];
+  settingsMenu: any = [];
+
   constructor(
     public _route: ActivatedRoute,
     private router: Router,
@@ -33,6 +38,7 @@ export class SidemenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getModules();
     // this.currentUrl = window.location.href.split('http://localhost:3200/')[1];
     // console.log("current url is", this.currentUrl);
     this.pageType = this._route.snapshot.url[0].path;
@@ -47,6 +53,13 @@ export class SidemenuComponent implements OnInit {
 
     // console.log("getting role is:", this.role);
     // sessionStorage.setItem('role', this.role);
+  }
+
+  getModules() {
+    this.adminMenu = ['Dashboard', 'Tasks', 'Forms', 'Tables', 'Visit'];
+    this.userMenu = ['Dashboard', 'Services', 'Chat', 'Activity'];
+    this.managerMenu = ['Dashboard', 'Attandance', 'Leaves', 'Accounts'];
+    this.settingsMenu = ['Site Info', 'Role Privileges'];
   }
 
   getUserInfo() {

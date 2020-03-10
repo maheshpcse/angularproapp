@@ -9,13 +9,13 @@
       <div class="row">
         <div class="col-md-12 mt-5">
           <form class="example">
-            <input type="text" name="search" [(ngModel)]="searchItem" placeholder="Search..."
-              (keypress)="searchData(searchItem)">
-            <button type="submit" (click)="searchData(searchItem)"><i class="fa fa-search"></i></button>
+            <input type="text" name="search" [(ngModel)]="searchItem" placeholder="Quick seach"
+              (keyup)="searchData()">
+            <button type="submit" (click)="searchData()"><i class="fa fa-search"></i></button>
           </form>
-          <div class="card" *ngIf="searchRes">
+          <div class="card" *ngIf="hideData">
             <div class="card-body">
-              <ul class="list-group list" *ngFor="let item of data">
+              <ul class="list-group list" *ngFor="let item of modules">
                 <li class="list-group-item">{{ item }}</li>
               </ul>
             </div>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="row" *ngIf="searchRes">
+      <div class="row" *ngIf="hideData">
         <div class="col-md-12 mt-5">
           <p class="text-center">No results found...</p>
         </div>

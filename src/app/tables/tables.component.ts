@@ -64,6 +64,31 @@ export class TablesComponent implements OnInit {
     })
   }
 
+  searchTask () {
+    let value = this.filterQuery.toLowerCase();
+    if (this.filterQuery == '' || this.filterQuery == null || this.filterQuery == undefined) {
+      this.tasksArr = [];
+      this.getAllTasks();
+      return;
+    }
+    else {
+      let arr = _.filter(this.tasksArr, (e: any) => {
+        return e.title.toLowerCase() && e.description.toLowerCase() && e.username.toLowerCase()
+      });
+      let dataAdd = _.filter(arr, (e: any) => {
+        if(e.title == value || e.description == value || e.username == value) {
+          return e;
+        }
+        else if (e.title.toLowerCase().includes(value) || e.description.toLowerCase().includes(value) || 
+          e.username.toLowerCase().includes(value)) {
+          return e;
+        }
+      });
+      this.tasksArr = dataAdd;
+      return this.tasksArr;
+    }
+  }
+
   taskArray: any = [];
   isAddTask: boolean;
   isUpdateTask: boolean;
