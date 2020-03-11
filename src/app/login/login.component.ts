@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { SharedService } from '../shared.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-login',
@@ -53,6 +54,13 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res['token']);
         sessionStorage.setItem('id', res['id']);
         sessionStorage.setItem('role', res['role']);
+        sessionStorage.setItem('firstname', res['firstname']);
+        sessionStorage.setItem('lastname', res['lastname']);
+        sessionStorage.setItem('password', res['password']);
+        sessionStorage.setItem('phonenumber', res['phonenumber']);
+        sessionStorage.setItem('designation', res['designation']);
+        sessionStorage.setItem('department', res['department']);
+        sessionStorage.setItem('created_at', moment(res['created_at']).format('YYYY-MM-DD'));
         this.isSuccess = true;
         // this.sharedService.getModulesData();
         setInterval(() => {

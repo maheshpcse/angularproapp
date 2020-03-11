@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import * as $ from 'jquery';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-sidemenu',
@@ -37,7 +38,7 @@ export class SidemenuComponent implements OnInit {
     private authService: AuthService,
     // public ubuntu:
     ) { 
-      this.getModules();
+      this.getAllModules();
     }
     
     ngOnInit() {
@@ -57,7 +58,7 @@ export class SidemenuComponent implements OnInit {
     // sessionStorage.setItem('role', this.role);
   }
 
-  getModules() {
+  getAllModules() {
     this.adminMenu = [
       {name: 'Dashboard', icon: 'fa-dashboard', url: '/admin/dashboard'},
       {name: 'Tasks', icon: 'fa-folder-o', url: '/admin/tasks'},
@@ -109,9 +110,48 @@ export class SidemenuComponent implements OnInit {
   }
 
   searchModule() {
-    let val = this.filterQuery ? this.filterQuery : '';
+    let val = this.filterQuery ? this.filterQuery.toLowerCase() : '';
     if (val == '' || val == null || val == undefined) {
       this.adminMenu = [];
+      this.userMenu = [];
+      this.managerMenu = [];
+      this.settingsMenu = [];
+      this.getAllModules();
+    } else {
+      if (this.role == 'admin') {
+        let arr = _.filter(this.adminMenu, (e: any) => {
+          if (e.toLowerCase() == val) {
+            return e;
+          }
+          if (e.toLowerCase().includes(val)) {
+            return e;
+          }
+        });
+        this.adminMenu = arr;
+        return this.adminMenu;
+      } else if (this.role == 'user') {
+        let arr = _.filter(this.userMenu, (e: any) => {
+          if (e.toLowerCase() == val) {
+            return e;
+          }
+          if (e.toLowerCase().includes(val)) {
+            return e;
+          }
+        });
+        this.userMenu = arr;
+        return this.userMenu;
+      } else if (this.role == 'manager') {
+        let arr = _.filter(this.managerMenu, (e: any) => {
+          if (e.toLowerCase() == val) {
+            return e;
+          }
+          if (e.toLowerCase().includes(val)) {
+            return e;
+          }
+        });
+        this.managerMenu = arr;
+        return this.managerMenu;
+      }
     }
   }
 }
