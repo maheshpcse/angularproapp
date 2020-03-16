@@ -28,6 +28,7 @@ export class TablesComponent implements OnInit {
   status: any;
   user_id: any;
   date: any;
+  spinner: any = false;
 
   // @ViewChild('taskForm', { static: false }) taskFormElr: ElementRef;
 
@@ -58,9 +59,11 @@ export class TablesComponent implements OnInit {
   tasksArr: any = [];
 
   getAllTasks() {
+    this.spinner = true;
     console.log(this.sharedService.getModulesConfig('Task Info'));
     this.sharedService.getAllTasks().subscribe(res => {
       this.tasksArr = res['data'];
+      this.spinner = false;
     })
   }
 

@@ -25,6 +25,7 @@ import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard
 import { CompaniesComponent } from './companies/companies.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { SiteInfoComponent } from './site-info/site-info.component';
+import { BlockChainComponent } from './block-chain/block-chain.component';
 
 
 const routes: Routes = [
@@ -58,6 +59,11 @@ const routes: Routes = [
     path: 'settings/roleprivileges',
     canActivate: [AuthGuardService],
     component: SettingsComponent
+  },
+  {
+    path: 'settings/blockchain',
+    canActivate: [AuthGuardService],
+    component: BlockChainComponent
   },
   {
     path: 'notifications',

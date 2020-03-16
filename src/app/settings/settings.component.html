@@ -98,6 +98,18 @@
                             </label> -->
                           </td>
                         </tr>
+                        <tr *ngIf="moduleNames.length <= 0 && !spinner">
+                          <td colspan="10" class="text-center">
+                            <div>No Data Found</div>
+                          </td>
+                        </tr>
+                        <tr *ngIf="spinner">
+                          <td colspan="10" class="text-center">
+                            <div class="spinner-border text-secondary" role="status">
+                              <span class="sr-only">Loading...</span>
+                            </div>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>

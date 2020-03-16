@@ -80,7 +80,8 @@ export class SidemenuComponent implements OnInit {
     ];
     this.settingsMenu = [
       {name: 'Site Info', icon: 'fa-dashboard', url: '/settings/siteinfo'},
-      {name: 'Role Privileges', icon: 'fa-users', url: '/settings/roleprivileges'}
+      {name: 'Role Privileges', icon: 'fa-users', url: '/settings/roleprivileges'},
+      {name: 'Block Chain', icon: 'fa-cube', url: '/settings/blockchain'}
     ];
   }
 

@@ -28,6 +28,7 @@ export class SettingsComponent implements OnInit {
   viewChecked: boolean = false;
   checkBoxStyles: any = [];
   checked: boolean;
+  spinner: any = false;  
 
   constructor(
     private route: Router,
@@ -73,6 +74,7 @@ export class SettingsComponent implements OnInit {
   }
 
   getConfigurations() {
+    this.spinner = true;
     this.settingsService.getConfigurations().subscribe(res => {
       if (res['success'] == true) {
         console.log("getting configurations", res['data']);
@@ -85,8 +87,10 @@ export class SettingsComponent implements OnInit {
           }
           this.checkBoxStyles.push(obj);
         }
+        this.spinner = false;
       } else if (res['success'] == false) {
         console.log("Unable to get configurations");
+        this.spinner = true;
       }
     })
   }

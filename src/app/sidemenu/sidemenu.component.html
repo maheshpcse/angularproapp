@@ -29,14 +29,16 @@
     </div>
 
     <!-- For Back to Dashboard -->
-    <div class="back-btn" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges')">
+    <div class="back-btn" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges' ||
+      '/settings/blockchain')">
       <button class="btn btn-back" (click)="backTohome()">
         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back To Home
       </button>
     </div>
 
     <!-- For admin -->
-    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href != '/settings/siteinfo' && href != '/settings/roleprivileges')">
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href != '/settings/siteinfo' && href != '/settings/roleprivileges' &&
+      href != '/settings/blockchain')">
       <a *ngFor="let item of adminMenu" [routerLink]="[item.url]" class="list-group-item list-group-item-action"
         [ngClass]="{'menuactive': href == item.url}">
         <i class="fa {{item.icon}}"></i><span class="ml-3">{{item.name}}</span>
@@ -60,7 +62,8 @@
     </div>
 
     <!-- For Settings -->
-    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges')">
+    <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges' ||
+      '/settings/blockchain')">
       <a *ngFor="let item of settingsMenu" [routerLink]="[item.url]" class="list-group-item list-group-item-action"
         [ngClass]="{'menuactive': href == item.url}">
         <i class="fa {{item.icon}}"></i><span class="ml-3">{{item.name}}</span>

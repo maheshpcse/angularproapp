@@ -43,6 +43,7 @@ import { ToastrModule } from 'ng6-toastr-notifications';
 import { DatacolumnfilterPipe } from './datacolumnfilter.pipe';
 import { SiteInfoComponent } from './site-info/site-info.component';
 import { SettingsService } from './settings.service';
+import { BlockChainComponent } from './block-chain/block-chain.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,8 @@ import { SettingsService } from './settings.service';
     CompaniesComponent,
     TasksComponent,
     DatacolumnfilterPipe,
-    SiteInfoComponent
+    SiteInfoComponent,
+    BlockChainComponent
   ],
   imports: [
     BrowserModule,

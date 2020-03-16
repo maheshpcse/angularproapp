@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
   languages: any = [];
   public activeLanguage = 'en-Us';
   public href: string = "";
+  public hideSwitch: any;
 
   constructor(
     private router: Router,
@@ -68,6 +69,11 @@ export class HeaderComponent implements OnInit {
 
     this.href = this.router.url;
     console.log(this.router.url);
+    if(this.href.includes('/settings')) {
+      this.hideSwitch = true;
+    } else {
+      this.hideSwitch = false;
+    }
   }
 
   switchLanguage(item: any) {
