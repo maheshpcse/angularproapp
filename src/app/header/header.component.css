@@ -13,6 +13,10 @@ a {
   font-family: 'Comfortaa', sans-serif;
 }
 
+.back {
+  color: whitesmoke;
+}
+
 .bars {
   border: 1px dashed whitesmoke;
   padding: 5px;
