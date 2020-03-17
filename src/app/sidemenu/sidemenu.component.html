@@ -63,7 +63,7 @@
 
     <!-- For Settings -->
     <div class="list-group list-group-flush list" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges' ||
-      '/settings/blockchain')">
+      href == '/settings/blockchain')">
       <a *ngFor="let item of settingsMenu" [routerLink]="[item.url]" class="list-group-item list-group-item-action"
         [ngClass]="{'menuactive': href == item.url}">
         <i class="fa {{item.icon}}"></i><span class="ml-3">{{item.name}}</span>
