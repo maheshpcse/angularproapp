@@ -47,7 +47,7 @@
                       </span>
                     </div>
                     <input type="text" name="task" [(ngModel)]="filterQuery" placeholder="Search" autocomplete="off"
-                    (keyup)="searchTask()">
+                      (keyup)="searchTask()">
                   </div>
                 </span>
               </div>
@@ -92,18 +92,29 @@
                     <td>{{ item.username }}</td>
                     <td>{{ item.updated_at | date }}</td>
                     <td class="text-center">
-                      <i class="fa fa-edit btn btn-blue btn1" aria-hidden="true"
+                      <!-- <i class="fa fa-edit btn btn-blue btn1" aria-hidden="true"
                         (click)="getTaskid(item.task_id, item.user_id, 'edit')"></i>
                       <i class="fa fa-trash btn btn-maroon btn1 ml-3" aria-hidden="true"
-                        (click)="getTaskid(item.task_id,'','delete')"></i>
-                      <!-- <div class="w3-dropdown-hover">
-                        <i class="fa fa-gears" aria-hidden="true"></i>
-                        <div class="w3-dropdown-content w3-bar-block w3-border">
-                          <a class="w3-bar-item w3-button"
-                            (click)="getTaskid(item.task_id, item.user_id, 'edit')">Edit</a>
-                          <a class="w3-bar-item w3-button" (click)="getTaskid(item.task_id,'','delete')">Delete</a>
+                        (click)="getTaskid(item.task_id,'','delete')"></i> -->
+                      <div class="dropdown">
+                        <a role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v dropdown" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <a class="dropdown-item action-view">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            View
+                          </a>
+                          <a class="dropdown-item action-view" (click)="getTaskid(item.task_id, item.user_id, 'edit')">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                            Edit
+                          </a>
+                          <a class="dropdown-item action-view" (click)="getTaskid(item.task_id,'','delete')">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            Delete
+                          </a>
                         </div>
-                      </div> -->
+                      </div>
                     </td>
                   </tr>
                   <tr *ngIf="sv.data.length <= 0 && !spinner">
@@ -230,13 +241,13 @@
       </div>
       <footer class="w3-container w3-teal">
         <div class="w3-container w3-teal w3-padding">
-          <button class="w3-button w3-right w3-white w3-border" *ngIf="isUpdateTask" (click)="updateTask()">
+          <button class="w3-button w3-right w3-white w3-border update-btn" *ngIf="isUpdateTask" (click)="updateTask()">
             Update</button>
-          <button class="w3-button w3-right w3-white w3-border" *ngIf="isAddTask" (click)="addTask()">
+          <button class="w3-button w3-right w3-white w3-border update-btn" *ngIf="isAddTask" (click)="addTask()">
             Add</button>
           <!-- <button class="w3-button w3-right w3-teal w3-border"
             onclick="document.getElementById('id01').style.display='none'">Close</button> -->
-          <button class="w3-button w3-right w3-teal w3-border" (click)="resetTaskForm()">Close</button>
+          <button class="w3-button w3-right w3-teal w3-border close-btn" (click)="resetTaskForm()">Close</button>
         </div>
       </footer>
     </div>
@@ -263,9 +274,9 @@
       </div>
       <footer class="w3-container w3-teal">
         <div class="w3-container w3-teal w3-padding">
-          <button class="w3-button w3-right w3-white w3-border" (click)="deleteTask()">
+          <button class="w3-button w3-right w3-white w3-border update-btn" (click)="deleteTask()">
             Yes</button>
-          <button class="w3-button w3-right w3-teal w3-border"
+          <button class="w3-button w3-right w3-teal w3-border close-btn"
             onclick="document.getElementById('id02').style.display='none'">No</button>
         </div>
       </footer>

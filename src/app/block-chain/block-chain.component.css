@@ -138,6 +138,25 @@ h3 {
   color: #1668af;
 }
 
+.action-view {
+  cursor: pointer;
+}
+
+.action-view:hover {
+  color: white;
+  background-color: #1668af;
+}
+
+.update-btn {
+  color: white !important;
+  background-color: #6dab25 !important;
+}
+
+.close-btn {
+  color: white !important;
+  background-color: #c54040 !important;
+}
+
 /* checkbox styles start */
 .si {
   --color-default: gray;

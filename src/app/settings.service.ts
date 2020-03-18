@@ -14,6 +14,10 @@ export class SettingsService {
   }
 
   updateConfigurations(data) {
-    return this.http.post(ApiService.API.UPDATE_MODULE_CONFIGURATIONS, data)
+    return this.http.post(ApiService.API.UPDATE_MODULE_CONFIGURATIONS, data);
+  }
+
+  getAllUsers() {
+    return this.http.get(ApiService.API.GET_USERS_LIST);
   }
 }

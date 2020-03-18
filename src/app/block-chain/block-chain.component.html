@@ -8,11 +8,16 @@
 
     <div class="container-fluid">
       <div class="row">
+        <div class="col-md-12">
+          <h3 class="user-block">User Block chain</h3>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-12 mt-5">
           <div class="card">
             <div class="card-header p-1">
               <div class="card-title mt-2">
-                <i class="fa fa-user-circle-o ml-2" aria-hidden="true"></i><span class="ml-2 title">Users List</span>
+                <i class="fa fa-group ml-2" aria-hidden="true"></i><span class="ml-2 title">Users List</span>
                 <span class="float-right">
                   <!-- <div class="input-group">
                       <div class="input-group-prepend">
@@ -82,8 +87,8 @@
                     <td>
                       <i class="fa fa-user-o" aria-hidden="true"></i><span class="ml-2 user">{{ item.username }}</span>
                     </td>
-                    <td>{{ item.department }}</td>
-                    <td>{{ item.designation }}</td>
+                    <td>{{ item.department | titlecase }}</td>
+                    <td>{{ item.designation | titlecase }}</td>
                     <td>{{ item.phonenumber }}</td>
                     <td>{{ item.email }}</td>
                     <td>{{ item.created_at | date }}</td>
@@ -94,9 +99,18 @@
                           <i class="fa fa-ellipsis-v dropdown" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item">View</a>
-                          <a class="dropdown-item">Block</a>
-                          <a class="dropdown-item">Un block</a>
+                          <a class="dropdown-item action-view" (click)="editUser(item,'view')">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <span class="ml-2">View</span>
+                          </a>
+                          <a class="dropdown-item action-view" (click)="editUser(item,'block')">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <span class="ml-2">Block</span>
+                          </a>
+                          <a class="dropdown-item action-view" (click)="editUser(item,'unblock')">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                            <span class="ml-2">UnBlock</span>
+                          </a>
                         </div>
                       </div> -->
                       <div class="w3-dropdown-click">
@@ -144,3 +158,32 @@
 
 </div>
 <!-- /#wrapper -->
+
+<!-- View Modal -->
+<div class="w3-container">
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+        <header class="w3-container w3-teal p-2">
+          <!-- <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span> -->
+          <span class="w3-button w3-display-topright" (click)="resetTaskForm()">&times;</span>
+          <h3>View User</h3>
+        </header>
+        <div class="w3-container">
+          <div class="container">
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <img src="" alt="" class="img-responsive">
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+        <!-- <footer class="w3-container w3-teal">
+          <div class="w3-container w3-teal w3-padding">
+          </div>
+        </footer> -->
+      </div>
+    </div>
+</div>
+  <!-- End Modal -->

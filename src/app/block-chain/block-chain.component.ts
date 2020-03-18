@@ -3,6 +3,7 @@ import { SharedService } from '../shared.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-block-chain',
@@ -22,6 +23,7 @@ export class BlockChainComponent implements OnInit {
     private route: Router,
     public authService: AuthService,
     public sharedService: SharedService,
+    public settingService: SettingsService,
     public toastr: ToastrManager
   ) { }
 
@@ -31,7 +33,7 @@ export class BlockChainComponent implements OnInit {
 
   getUsersList() {
     this.spinner = true;
-    this.authService.getAllUsers().subscribe(res=>{
+    this.settingService.getAllUsers().subscribe(res=>{
       if(res['success'] == true) {
         console.log("Get all users list", res['data']);
         this.usersList = res['data'];
@@ -50,5 +52,20 @@ export class BlockChainComponent implements OnInit {
     } else {
       x.className = x.className.replace(" w3-show", "");
     }
+  }
+  editUser(item: any, config: any) {
+    if(config == 'view') {
+      document.getElementById('id01').style.display = 'block';
+    }
+    // else if(config == 'block') {
+
+    // } 
+    // else if (config == 'unblock') {
+
+    // }
+  }
+
+  resetTaskForm() {
+    document.getElementById('id01').style.display = "none";
   }
 }
