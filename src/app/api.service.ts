@@ -18,6 +18,7 @@ export class ApiService {
     FORGOT_PASSWORD: environment.apiUrl + '/forgotpassword',
     
     // USERS API URLS's
+    GET_USERS_LIST: environment.apiUrl + '/getUsers',
     GET_USER_PROFILE: environment.apiUrl + '/getuserprofile',
     GET_USERS_PROFILES: environment.apiUrl + '/getusersprofiles',
     UPLOAD_SINGLE_IMAGE: environment.apiUrl + '/uploadsingle',

@@ -1,0 +1,224 @@
+.fa {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.card-title {
+  color: #1668af;
+}
+
+.title {
+  font-family: 'Montserrat';
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.btnn {
+  color: #1668af;
+  border: 1px solid #1668af
+}
+
+.btnn:hover {
+  color: white;
+  background-color: #1668af;
+}
+
+.btn1 {
+  padding: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  width: 2.5%;
+  padding: 0.5;
+}
+
+input[type=text] {
+  padding: 5px;
+}
+
+.input-group-text {
+  color: white;
+  background-color: #1668af;
+}
+
+.btn-blue {
+  color: #1668af;
+  border-color: #1668af;
+}
+
+.btn-maroon {
+  color: #c54040;
+  border-color: #c54040;
+}
+
+table thead th {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* 
+  table tbody tr td {
+    font-family: 'Montserrat', sans-serif;
+  } */
+
+table thead tr th sv-default-sorter .text-nowrap .fa-sort-up {
+  color: #1668af !important;
+}
+
+table tfoot tr td sv-bootstrap-paginator sv-paginator .row .col-md-10 ul .page-item,
+.active .page-link {
+  background-color: #1668af !important;
+}
+
+.w3-teal {
+  background-color: #1668af !important;
+}
+
+h3 {
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.field-required:after {
+  content: "*";
+  color: #c54040;
+}
+
+.w3-button {
+  font-family: 'Comfortaa', sans-serif !important;
+}
+
+.fa-plus {
+  font-size: 2rem !important;
+  border-right: 1px solid #dee2e6;
+}
+
+.fa-check-circle {
+  color: #6dab25;
+}
+
+.fa-user-o {
+  font-size: 1.5rem !important;
+}
+
+.user {
+  cursor: pointer;
+  color: #1668af;
+}
+
+/* checkbox styles start */
+.si {
+  --color-default: gray;
+  --color-active: #0069ff;
+  --rotate-default: 180deg;
+  --rotate-active: 40deg;
+  --border-size-checkmark: 2px;
+  --border-size-box: 1px;
+  --input-size: 20px;
+  --guter: 15px;
+}
+
+.si,
+.si *,
+.si *::before,
+.si *::after {
+  box-sizing: border-box;
+}
+
+.si {
+  cursor: pointer;
+  position: relative;
+}
+
+.si > input[type="checkbox"],
+.si > input[type="radio"] {
+  clip-path: polygon(0 0);
+}
+
+.si .si-label {
+  display: inline-block;
+  padding-left: var(--guter);
+  color: #9aa6bf;
+  vertical-align: text-top;
+}
+
+.si .si-label::before,
+.si .si-label::after {
+  transition: all 0.2s ease-in-out;
+}
+
+.si .si-label::before {
+  content: '';
+  display: block;
+  width: var(--input-size);
+  height: var(--input-size);
+  border: var(--border-size-box) solid var(--color-default);
+  position: absolute;
+  /* top: -3px; */
+  left: 0;
+  transform: rotate(0deg) scale(1);
+}
+
+.si .si-label:hover::before {
+  border-color: var(--color-active);
+}
+
+.si.si-checkbox .si-label::before {
+  border-radius: var(--border-size-checkmark);
+}
+
+.si.si-checkbox .si-label::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 18px;
+  border-width: 0 var(--border-size-checkmark) var(--border-size-checkmark) 0;
+  border-style: solid;
+  border-color: transparent var(--color-active) var(--color-active) transparent;
+  position: absolute;
+  /* top: -3px; */
+  left: 0;
+  transform: rotate(var(--rotate-default)) scale(0);
+}
+
+.si.si-checkbox > input:checked + .si-label::after {
+  left: 8px;
+  transform: rotate(var(--rotate-active)) scale(1);
+}
+
+.si.si-checkbox > input:checked + .si-label::before {
+  transform: rotate(var(--rotate-active)) scale(0);
+}
+/* end checkbox styles */

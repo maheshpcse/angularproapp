@@ -30,7 +30,7 @@
 
     <!-- For Back to Dashboard -->
     <div class="back-btn" *ngIf="role == 'admin' && (href == '/settings/siteinfo' || href == '/settings/roleprivileges' ||
-      '/settings/blockchain')">
+      href == '/settings/blockchain')">
       <button class="btn btn-back" (click)="backTohome()">
         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back To Home
       </button>
