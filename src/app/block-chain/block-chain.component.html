@@ -46,9 +46,9 @@
                 #sv="svDataTable" [svRowsOnPage]="5" svSortBy="name" svSortOrder="sortOrder">
                 <thead>
                   <tr>
-                    <th class="text-center">
-                      <label for="checkedCheckbox" class="si si-checkbox">
-                        <input type="checkbox" name="" id="checkedCheckbox">
+                    <th>
+                      <label for="checkedCheckbox" class="si si-checkbox" (click)="selectAll($event)">
+                        <input type="checkbox" name="" id="checkedCheckbox" [checked]="selectedAll">
                         <span class="si-label"></span>
                       </label>
                     </th>
@@ -79,8 +79,8 @@
                 <tbody>
                   <tr *ngFor="let item of sv.data; let i=index">
                     <td>
-                      <label for="checkedCheckbox" class="si si-checkbox">
-                        <input type="checkbox" name="" id="checkedCheckbox">
+                      <label for="checkedCheckbox-{{i}}" class="si si-checkbox" (click)="selectOne($event, i)">
+                        <input type="checkbox" name="checkbox" id="checkedCheckbox-{{i}}" [checked]="item.checked">
                         <span class="si-label"></span>
                       </label>
                     </td>
@@ -94,7 +94,7 @@
                     <td>{{ item.created_at | date }}</td>
                     <td><i class="fa fa-check-circle mt-2"></i> Active</td>
                     <td class="text-center">
-                      <!-- <div class="dropdown">
+                      <div class="dropdown">
                         <a role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fa fa-ellipsis-v dropdown" aria-hidden="true"></i>
                         </a>
@@ -112,15 +112,15 @@
                             <span class="ml-2">UnBlock</span>
                           </a>
                         </div>
-                      </div> -->
-                      <div class="w3-dropdown-click">
+                      </div>
+                      <!-- <div class="w3-dropdown-click">
                         <i class="fa fa-ellipsis-v" (click)="myFunction()"></i>
                         <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
                           <a class="w3-bar-item w3-button">Link 1</a>
                           <a class="w3-bar-item w3-button">Link 2</a>
                           <a class="w3-bar-item w3-button">Link 3</a>
                         </div>
-                      </div>
+                      </div> -->
                     </td>
                   </tr>
                   <tr *ngIf="sv.data.length <= 0 && !spinner">

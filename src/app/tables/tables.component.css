@@ -52,12 +52,12 @@
   padding: 5px;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 input[type=number] {
@@ -87,34 +87,31 @@ input[type=text] {
 table thead th {
   font-family: 'Montserrat', sans-serif;
 }
-/* 
-table tbody tr td {
-  font-family: 'Montserrat', sans-serif;
-} */
 
-table
-  thead
-    tr
-      th
-        sv-default-sorter
-          .text-nowrap
-            .fa-sort-up {
-              color: #1668af !important;
-            }
+.pagination>li>a {
+  background-color: white;
+  color: #5A4181;
+}
 
-table
-  tfoot
-      tr
-        td
-          sv-bootstrap-paginator
-            sv-paginator
-              .row
-                .col-md-10
-                  ul 
-                    .page-item,.active
-                      .page-link {
-                        background-color: #1668af !important;
-                      }
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+  color: #5a5a5a;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.pagination>.active>a {
+  color: white;
+  background-color: #5A4181 !important;
+  border: solid 1px #5A4181 !important;
+}
+
+.pagination>.active>a:hover {
+  background-color: #5A4181 !important;
+  border: solid 1px #5A4181;
+}
 
 .w3-teal {
   background-color: #1668af !important;

@@ -18,6 +18,7 @@ export class BlockChainComponent implements OnInit {
   
   usersList: any = [];
   public spinner: any;
+  selectedAll: boolean = false;
 
   constructor(
     private route: Router,
@@ -37,6 +38,12 @@ export class BlockChainComponent implements OnInit {
       if(res['success'] == true) {
         console.log("Get all users list", res['data']);
         this.usersList = res['data'];
+        let arr = [];
+        this.usersList.forEach(element => {
+          element.checked = false;
+          arr.push(element);
+        });
+        this.usersList = arr;
         this.spinner = false;
       } else if (res['success'] == false) {
         console.log("Unable to get users list");
@@ -67,5 +74,36 @@ export class BlockChainComponent implements OnInit {
 
   resetTaskForm() {
     document.getElementById('id01').style.display = "none";
+  }
+
+  selectAll(event: any){
+    if(event.target.checked == true) {
+      this.usersList.forEach(element => {
+        element.checked = true;
+      });
+    } else {
+      this.usersList.forEach(element => {
+        element.checked = false;
+      });
+    }
+  }
+
+  selectOne(event: any, index:any) {
+    if(event.target.checked == false) {
+      this.selectedAll = false;
+    } else if(event.target.checked == true) {
+      this.usersList[index].checked = true;
+      console.log(this.usersList[index]);
+    }
+    console.log(this.usersList);
+    let arr = [];
+    for(let i=0;i<this.usersList.length; i++) {
+      if(this.usersList[i].checked == true) {
+        arr.push(this.usersList[i]);
+      }
+    }
+    if(this.usersList.length == arr.length) {
+      this.selectedAll = true;
+    }
   }
 }
