@@ -138,3 +138,22 @@ h3 {
   font-size: 2rem !important;
   border-right: 1px solid #dee2e6;
 }
+
+.action-view {
+  cursor: pointer;
+}
+
+.action-view:hover {
+  color: white;
+  background-color: #1668af;
+}
+
+.update-btn {
+  color: white !important;
+  background-color: #6dab25 !important;
+}
+
+.close-btn {
+  color: white !important;
+  background-color: #c54040 !important;
+}
