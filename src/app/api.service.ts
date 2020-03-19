@@ -16,6 +16,7 @@ export class ApiService {
     VALID_LOGIN: environment.apiUrl + '/validlogin',
     VALIDATE_USER: environment.apiUrl + '/validateuser',
     FORGOT_PASSWORD: environment.apiUrl + '/forgotpassword',
+    USER_LOGOUT: environment.apiUrl + '/logout',
     
     // USERS API URLS's
     GET_USERS_LIST: environment.apiUrl + '/getUsers',
@@ -25,6 +26,7 @@ export class ApiService {
     UPLOAD_MULTIPLE_IMAGES: environment.apiUrl + '/uploadmultiple',
     CHANGE_PASSWORD: environment.apiUrl + '/changepassword',
     SEND_MESSAGE: environment.apiUrl + '/sendmessage',
+    UPDATE_USER_STATUS: environment.apiUrl + '/updateuserstatus',
 
     // TASKS API URL's
     GET_ALL_TASKS: environment.apiUrl + '/getTasks',

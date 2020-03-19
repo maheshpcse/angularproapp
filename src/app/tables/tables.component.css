@@ -150,7 +150,17 @@ h3 {
   background-color: #6dab25 !important;
 }
 
+.update-btn:hover {
+  color: white !important;
+  background-color: #92b669 !important;
+}
+
 .close-btn {
   color: white !important;
   background-color: #c54040 !important;
+}
+
+.close-btn:hover {
+  color: white !important;
+  background-color: #ca6464 !important;
 }

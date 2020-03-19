@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   isSuccess: boolean = false;
   isFalied: boolean = false;
   isInfo: boolean = false;
+  isBlock: boolean = false;
 
   userLogin() {
     let userData = {
@@ -52,6 +53,7 @@ export class LoginComponent implements OnInit {
       if (res['success'] == true) {
         console.log("Login successful", res);
         localStorage.setItem('token', res['token']);
+        sessionStorage.setItem('userid', res['data'][0].user_id);
         sessionStorage.setItem('id', res['id']);
         sessionStorage.setItem('role', res['role']);
         sessionStorage.setItem('firstname', res['firstname']);
@@ -65,20 +67,27 @@ export class LoginComponent implements OnInit {
         // this.sharedService.getModulesData();
         setInterval(() => {
           this.route.navigate([`/${res['role']}/dashboard`]);
-        }, 1000);
+        },1000);
       } else if (res['statusCode'] == 204) {
         console.log("Required fields are empty");
         this.isInfo = true;
         setInterval(() => {
           this.isInfo = false;
-        }, 1000);
+        }, 5000);
       } else if (res['statusCode'] == 404) {
         console.log("Invalid username or password");
         this.isFalied = true;
         setInterval(() => {
           this.isFalied = false;
-        }, 1000);
-      } else {
+        }, 5000);
+      } else if (res['statusCode'] == 405) {
+        console.log("User is blocked");
+        this.isBlock = true;
+        setInterval(() => {
+          this.isBlock = false;
+        }, 5000);
+      }
+      else {
         console.log('Login failed');
       }
     })

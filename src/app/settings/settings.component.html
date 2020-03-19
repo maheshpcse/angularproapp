@@ -49,16 +49,36 @@
                         <tr>
                           <th>Module Name</th>
                           <th class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="addAll" id="addAll" (click)="selectAllConfig($event, 'add')">
+                            <!-- <input type="checkbox" class="checkbox-form" name="addAll" id="addAll" (click)="selectAllConfig($event, 'add')"> -->
+                            <label for="checkedCheckbox" class="si si-checkbox"
+                              (change)="selectAllConfig($event, 'add')">
+                              <input type="checkbox" name="addAll" id="checkedCheckbox" [checked]="addAll">
+                              <span class="si-label">Add</span>
+                            </label>
                           </th>
                           <th class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="updateAll" id="updateAll" (click)="selectAllConfig($event, 'update')">
+                            <!-- <input type="checkbox" class="checkbox-form" name="updateAll" id="updateAll" (click)="selectAllConfig($event, 'update')"> -->
+                            <label for="checkedCheckbox" class="si si-checkbox"
+                              (change)="selectAllConfig($event, 'update')">
+                              <input type="checkbox" name="updateAll" id="checkedCheckbox" [checked]="updateAll">
+                              <span class="si-label">Update</span>
+                            </label>
                           </th>
                           <th class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="deleteAll" id="deleteAll" (click)="selectAllConfig($event, 'delete')">
+                            <!-- <input type="checkbox" class="checkbox-form" name="deleteAll" id="deleteAll" (click)="selectAllConfig($event, 'delete')"> -->
+                            <label for="checkedCheckbox" class="si si-checkbox"
+                              (change)="selectAllConfig($event, 'delete')">
+                              <input type="checkbox" name="deleteAll" id="checkedCheckbox" [checked]="deleteAll">
+                              <span class="si-label">Delete</span>
+                            </label>
                           </th>
                           <th class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="viewAll" id="viewAll" (click)="selectAllConfig($event, 'view')">
+                            <!-- <input type="checkbox" class="checkbox-form" name="viewAll" id="viewAll" (click)="selectAllConfig($event, 'view')"> -->
+                            <label for="checkedCheckbox" class="si si-checkbox"
+                              (change)="selectAllConfig($event, 'view')">
+                              <input type="checkbox" name="viewAll" id="checkedCheckbox" [checked]="viewAll">
+                              <span class="si-label">View</span>
+                            </label>
                           </th>
                         </tr>
                       </thead>
@@ -66,36 +86,48 @@
                         <tr *ngFor="let item of moduleNames;let i=index">
                           <td>{{ item.config_name }}</td>
                           <td class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="add" id="add"
-                              [checked]="item.addConfig == 1 ? item.addConfig : false" (click)="selectConfig($event, i, 'add')">
-                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
-                              <input type="checkbox" name="" id="checkedCheckbox">
-                              <span class="si-label"></span>
-                            </label> -->
+                            <!-- <input type="checkbox" class="checkbox-form" name="add" id="add" 
+                            [checked]="item.addConfig == 1 ? item.addConfig : false"
+                            (click)="selectConfig($event, i, 'add')"> -->
+                            <label for="checkedCheckbox-{{i}}" class="si si-checkbox"
+                              (change)="selectConfig($event, i, 'add')">
+                              <input type="checkbox" name="checkbox" id="checkedCheckbox-{{i}}"
+                                [checked]="item.addConfig == 1 ? item.addConfig : false">
+                              <span class="si-label">Add</span>
+                            </label>
                           </td>
                           <td class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="update" id="update"
-                              [checked]="item.updateConfig == 1 ? item.updateConfig : false" (click)="selectConfig($event, i, 'update')">
-                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
-                              <input type="checkbox" name="" id="checkedCheckbox">
-                              <span class="si-label"></span>
-                            </label> -->
+                            <!-- <input type="checkbox" class="checkbox-form" name="update" id="update"
+                              [checked]="item.updateConfig == 1 ? item.updateConfig : false"
+                              (click)="selectConfig($event, i, 'update')"> -->
+                            <label for="checkedCheckbox-{{i}}" class="si si-checkbox"
+                              (change)="selectConfig($event, i, 'update')">
+                              <input type="checkbox" name="checkbox" id="checkedCheckbox-{{i}}"
+                                [checked]="item.updateConfig == 1 ? item.updateConfig : false">
+                              <span class="si-label">Update</span>
+                            </label>
                           </td>
                           <td class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="delete" id="delete"
-                              [checked]="item.deleteConfig == 1 ? item.deleteConfig : false" (click)="selectConfig($event, i, 'delete')">
-                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
-                              <input type="checkbox" name="" id="checkedCheckbox">
-                              <span class="si-label"></span>
-                            </label> -->
+                            <!-- <input type="checkbox" class="checkbox-form" name="delete" id="delete"
+                              [checked]="item.deleteConfig == 1 ? item.deleteConfig : false"
+                              (click)="selectConfig($event, i, 'delete')"> -->
+                            <label for="checkedCheckbox-{{i}}" class="si si-checkbox"
+                              (change)="selectConfig($event, i, 'delete')">
+                              <input type="checkbox" name="checkbox" id="checkedCheckbox-{{i}}"
+                                [checked]="item.deleteConfig == 1 ? item.deleteConfig : false">
+                              <span class="si-label">Delete</span>
+                            </label>
                           </td>
                           <td class="text-center">
-                            <input type="checkbox" class="checkbox-form" name="view" id="view"
-                              [checked]="item.viewConfig == 1 ? item.viewConfig : false" (click)="selectConfig($event, i, 'view')">
-                            <!-- <label for="checkedCheckbox" class="si si-checkbox">
-                              <input type="checkbox" name="" id="checkedCheckbox">
-                              <span class="si-label"></span>
-                            </label> -->
+                            <!-- <input type="checkbox" class="checkbox-form" name="view" id="view"
+                              [checked]="item.viewConfig == 1 ? item.viewConfig : false"
+                              (click)="selectConfig($event, i, 'view')"> -->
+                            <label for="checkedCheckbox-{{i}}" class="si si-checkbox"
+                              (change)="selectConfig($event, i, 'view')">
+                              <input type="checkbox" name="checkbox" id="checkedCheckbox-{{i}}"
+                                [checked]="item.viewConfig == 1 ? item.viewConfig : false">
+                              <span class="si-label">View</span>
+                            </label>
                           </td>
                         </tr>
                         <tr *ngIf="moduleNames.length <= 0 && !spinner">

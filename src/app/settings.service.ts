@@ -20,4 +20,8 @@ export class SettingsService {
   getAllUsers() {
     return this.http.get(ApiService.API.GET_USERS_LIST);
   }
+
+  updatedUserStatus(data: any) {
+    return this.http.post(ApiService.API.UPDATE_USER_STATUS, data);
+  }
 }

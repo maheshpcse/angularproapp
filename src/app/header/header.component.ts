@@ -14,6 +14,7 @@ import { SharedService } from '../shared.service';
 export class HeaderComponent implements OnInit {
 
   userData: any = [];
+  public userid = sessionStorage.getItem('userid');
   public role = sessionStorage.getItem('role');
   public roles: any = [];
   public rolesArr: any = [];
@@ -93,7 +94,11 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.clear();
     sessionStorage.clear();
-    this.router.navigate(['']);
+    console.log(this.userid);
+    this.authService.userLogout({ user_id: this.userid }).subscribe(res => {
+      console.log('User is logged out');
+      this.router.navigate(['']);
+    })
   }
 
   getUserInfo() {

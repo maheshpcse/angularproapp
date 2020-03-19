@@ -88,4 +88,8 @@ export class AuthService {
     return this.http.post(ApiService.API.SEND_MESSAGE, data);
   }
 
+  userLogout(data) {
+    return this.http.post(ApiService.API.USER_LOGOUT, data);
+  }
+
 }

@@ -11,55 +11,165 @@
         <div class="col-md-12 mt-3">
           <div class="w3-container">
             <div class="w3-card-4">
-              <header class="w3-container w3-light-gray">
-                <h3>{{ username }}</h3>
-              </header>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-3 p-3">
-                    <div class="w3-container">
-                      <img [src]="imgSrc" alt="_profile" class="img-responsive" style="width: 50%;">
+              <div class="w3-card-4">
+                <header class="w3-container w3-light-gray">
+                  <h3><i class="fa fa-check-circle mt-2"></i> {{ username }}</h3>
+                </header>
+                <div class="container-fluid">
+                  <div class="row mt-3">
+                    <div class="col-md-3">
+                      <img src="" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-md-9">
+                      <div class="primary-text">
+                        <label for="firstname"><span class="ml-2"><i class="fa fa-user"></i>
+                            {{ userOne.firstname }}</span></label>
+                        <span class="ml-1">{{ userOne.lastname }}</span>
+                        <p class="design ml-2"><i class="fa fa-briefcase"></i><span
+                            class="ml-2">{{ userOne.designation }}</span>
+                        </p>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <table>
+                            <tr>
+                              <th><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{userOne.email}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                              <th><i class="fa fa-phone" aria-hidden="true"></i> Phone</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{userOne.phonenumber}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                              <th><i class="fa fa-calendar" aria-hidden="true"></i> Created On</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{userOne.created_at | date}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                              <th><i class="fa fa-check-circle" aria-hidden="true"></i> Status</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td class="success" *ngIf="userOne.status == 'Active'">{{userOne.status}}</td>
+                              <td class="danger" *ngIf="userOne.status == 'Inactive'">{{userOne.status}}</td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div class="col-md-6">
+                          <table>
+                            <tr>
+                              <th><i class="fa fa-graduation-cap" aria-hidden="true"></i> Designation</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{userOne.designation}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                              <th><i class="fa fa-industry" aria-hidden="true"></i> Department</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{userOne.department}}</td>
+                            </tr>
+                            <br>
+                            <tr class="active-details">
+                              <th><i class="fa fa-code-fork" aria-hidden="true"></i> Role</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>{{userOne.role}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                              <th><i class="fa fa-cog" aria-hidden="true"></i> Configuration</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <th>:</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td class="danger" *ngIf="userOne.configure == 'Blocked'">{{userOne.configure}}</td>
+                              <td class="success" *ngIf="userOne.configure == 'Unblocked'">{{userOne.configure}}</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-9 p-3">
-                    <div class="w3-container">
-                      <label for="email">Email :</label> {{ email }} <br>
-                      <label for="phonenumber">Phone number :</label> {{ phoneNumber }} <br>
-                      <label for="created_on">Created on :</label> {{ created_on }} <br>
-                    </div>
-                  </div>
+                  <br>
                 </div>
-              </div>
-              <hr>
-              <!-- user story and message -->
-              <div class="w3-container">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light" role="tablist">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#story" role="tab" aria-controls="#story-tab">Item 1</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#message" role="tab" aria-controls="#message-tab" tabindex="-1">Item
-                        2</a>
-                    </li>
-                  </ul>
-                  <div class="tab-content" role="tabpanel">
-                    <div class="tab-pane fade active" id="story" aria-labelledby="story-tab">coming soon...</div>
-                    <div class="tab-pane fade" id="message" aria-labelledby="message-tab">
-                      <textarea name="content" id="content" cols="30" rows="10"
-                        placeholder="Enter message..."></textarea>
+                <hr>
+                <!-- user story and message -->
+                <div class="w3-container">
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light" role="tablist">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#story" role="tab" aria-controls="#story-tab">Item 1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#message" role="tab" aria-controls="#message-tab" tabindex="-1">Item
+                          2</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" role="tabpanel">
+                      <div class="tab-pane fade active" id="story" aria-labelledby="story-tab">coming soon...</div>
+                      <div class="tab-pane fade" id="message" aria-labelledby="message-tab">
+                        <textarea name="content" id="content" cols="30" rows="10"
+                          placeholder="Enter message..."></textarea>
+                      </div>
+                      <button class="btn btn-info" (click)="sendMessage()">Send</button>
                     </div>
-                    <button class="btn btn-info" (click)="sendMessage()">Send</button>
-                  </div>
-                </nav>
+                  </nav>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- /#page-content-wrapper -->
+    <!-- /#page-content-wrapper -->
 
-</div>
-<!-- /#wrapper -->
+  </div>
+  <!-- /#wrapper -->

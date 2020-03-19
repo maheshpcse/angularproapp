@@ -152,9 +152,51 @@ h3 {
   background-color: #6dab25 !important;
 }
 
+.update-btn:hover {
+  color: white !important;
+  background-color: #92b669 !important;
+}
+
 .close-btn {
   color: white !important;
   background-color: #c54040 !important;
+}
+
+.close-btn:hover {
+  color: white !important;
+  background-color: #ca6464 !important;
+}
+
+.inactive {
+  color : #c54040 !important
+}
+
+.block {
+  background-color: #ad6b6b;
+}
+
+.unblock {
+  background-color: #88a06e;
+}
+
+.header-data {
+  position: sticky;
+}
+
+.scroll-data {
+  overflow: scroll;
+}
+
+.success {
+  color: #6dab25;
+  border: 1px solid #6dab25;
+  border-radius: 10px;
+}
+
+.danger {
+  color: #c54040;
+  border: 1px solid #c54040;
+  border-radius: 10px;
 }
 
 /* checkbox styles start */

@@ -4,7 +4,8 @@ import { AuthService } from '../auth.service';
 import { SharedService } from '../shared.service';
 import { SettingsService } from '../settings.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
-
+import * as moment from 'moment';
+import * as _ from 'underscore';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -26,9 +27,12 @@ export class SettingsComponent implements OnInit {
   updateChecked: boolean = false;
   deletedChecked: boolean = false;
   viewChecked: boolean = false;
-  checkBoxStyles: any = [];
   checked: boolean;
   spinner: any = false;  
+  addAll: boolean;
+  updateAll: boolean;
+  deleteAll: boolean;
+  viewAll: boolean;
 
   constructor(
     private route: Router,
@@ -79,14 +83,22 @@ export class SettingsComponent implements OnInit {
       if (res['success'] == true) {
         console.log("getting configurations", res['data']);
         this.moduleNames = res['data'];
-        for (let i=0; i<this.moduleNames.length; i++) {
-          let obj = {
-            label: 'si si-checkbox',
-            type: 'checkbox',
-            span: 'si-label'
-          }
-          this.checkBoxStyles.push(obj);
-        }
+        let addArr = _.filter(this.moduleNames, (e:any) => {
+          return e.addConfig != 0;
+        });
+        let updateArr = _.filter(this.moduleNames, (e:any) => {
+          return e.updateConfig != 0;
+        });
+        let deleteArr = _.filter(this.moduleNames, (e:any) => {
+          return e.deleteConfig != 0;
+        });
+        let viewArr = _.filter(this.moduleNames, (e:any) => {
+          return e.viewConfig != 0;
+        });
+        this.addAll = this.moduleNames.length === addArr.length ? true : false;
+        this.updateAll = this.moduleNames.length === updateArr.length ? true : false;
+        this.deleteAll = this.moduleNames.length === deleteArr.length ? true : false;
+        this.viewAll = this.moduleNames.length === viewArr.length ? true : false;
         this.spinner = false;
       } else if (res['success'] == false) {
         console.log("Unable to get configurations");
@@ -104,6 +116,7 @@ export class SettingsComponent implements OnInit {
       } else if (k == i && event.target.checked == false && config == 'add') {
         this.moduleNames[i].addConfig = 0;
         this.updatedModules.push(this.moduleNames[i]);
+        this.addAll = false;
       }
       if (k == i && event.target.checked == true && config == 'update') {
         this.moduleNames[i].updateConfig = 1;
@@ -111,6 +124,7 @@ export class SettingsComponent implements OnInit {
       } else if (k == i && event.target.checked == false && config == 'update') {
         this.moduleNames[i].updateConfig = 0;
         this.updatedModules.push(this.moduleNames[i]);
+        this.updateAll = false;
       }
       if (k == i && event.target.checked == true && config == 'delete') {
         this.moduleNames[i].deleteConfig = 1;
@@ -118,6 +132,7 @@ export class SettingsComponent implements OnInit {
       } else if (k == i && event.target.checked == false && config == 'delete') {
         this.moduleNames[i].deleteConfig = 0;
         this.updatedModules.push(this.moduleNames[i]);
+        this.deleteAll = false;
       }
       if (k == i && event.target.checked == true && config == 'view') {
         this.moduleNames[i].viewConfig = 1;
@@ -125,8 +140,25 @@ export class SettingsComponent implements OnInit {
       } else if (k == i && event.target.checked == false && config == 'view') {
         this.moduleNames[i].viewConfig = 0;
         this.updatedModules.push(this.moduleNames[i]);
+        this.viewAll = false;
       }
     }
+    let addArr = _.filter(this.moduleNames, (e:any) => {
+      return e.addConfig != 0;
+    });
+    let updateArr = _.filter(this.moduleNames, (e:any) => {
+      return e.updateConfig != 0;
+    });
+    let deleteArr = _.filter(this.moduleNames, (e:any) => {
+      return e.deleteConfig != 0;
+    });
+    let viewArr = _.filter(this.moduleNames, (e:any) => {
+      return e.viewConfig != 0;
+    });
+    this.addAll = this.moduleNames.length === addArr.length ? true : false;
+    this.updateAll = this.moduleNames.length === updateArr.length ? true : false;
+    this.deleteAll = this.moduleNames.length === deleteArr.length ? true : false;
+    this.viewAll = this.moduleNames.length === viewArr.length ? true : false;
   }
 
   selectAllConfig(event: any, config: any) {
@@ -134,30 +166,38 @@ export class SettingsComponent implements OnInit {
       for (let k = 0; k<this.moduleNames.length; k++) {
         if (config == 'add') {
           this.moduleNames[k].addConfig = 1;
+          this.addAll = true;
         }
         if (config == 'update') {
           this.moduleNames[k].updateConfig = 1;
+          this.updateAll = true;
         }
         if (config == 'delete') {
           this.moduleNames[k].deleteConfig = 1;
+          this.deleteAll = true;
         }
         if (config == 'view') {
           this.moduleNames[k].viewConfig = 1;
+          this.viewAll = true;
         }
       }
     } else if (event.target.checked == false) {
       for (let k = 0; k<this.moduleNames.length; k++) {
         if (config == 'add') {
           this.moduleNames[k].addConfig = 0;
+          this.addAll = false;
         }
         if (config == 'update') {
           this.moduleNames[k].updateConfig = 0;
+          this.updateAll = false;
         }
         if (config == 'delete') {
           this.moduleNames[k].deleteConfig = 0;
+          this.deleteAll = false;
         }
         if (config == 'view') {
           this.moduleNames[k].viewConfig = 0;
+          this.viewAll = false;
         }
       }
     }  
