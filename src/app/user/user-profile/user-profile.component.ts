@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
@@ -14,17 +14,27 @@ export class UserProfileComponent implements OnInit {
   userData: any = [];
   project: any;
   apiUrl: string;
+  userOne: any = {};
 
   constructor(
     private route: Router,
+    private router: ActivatedRoute,
     private authService: AuthService,
     private sanitization: DomSanitizer
   ) {
     this.apiUrl = environment.apiUrl;
+    this.router.paramMap.subscribe(res => {
+      this.userOne = res['params'];
+      console.log(this.userOne);
+    });
   }
 
   ngOnInit() {
     this.getUserInfo();
+    // this.router.params.subscribe(res => {
+    //   this.userOne = res['item'];
+    //   console.log(this.userOne);
+    // });
   }
 
   username: any;

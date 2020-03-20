@@ -12,9 +12,141 @@
           <div class="w3-container">
             <div class="w3-card-4">
               <header class="w3-container w3-light-gray">
-                <h3>{{ username }}</h3>
+                <h3><i class="fa fa-check-circle mt-2"></i> {{ userOne.role }}
+                  <span class="float-right">
+                    <button class="btn btn-bg">
+                      <i class="fa fa-reply" aria-hidden="true"></i>
+                      Back
+                    </button>
+                  </span>
+                </h3>
               </header>
               <div class="container-fluid">
+                <div class="row mt-3">
+                  <div class="col-md-3">
+                    <img src="../../../assets/images/manager-avatar.jpg" alt="_profile" class="rounded-circle" width="200" height="200">
+                  </div>
+                  <div class="col-md-9">
+                    <div class="primary-text">
+                      <label for="firstname"><span class="ml-2"><i class="fa fa-user"></i>
+                          {{ userOne.firstname }}</span></label>
+                      <span class="ml-1">{{ userOne.lastname }}</span>
+                      <p class="design ml-2"><i class="fa fa-briefcase"></i><span
+                          class="ml-2">{{ userOne.designation }}</span>
+                      </p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <table>
+                          <tr>
+                            <th><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{userOne.email}}</td>
+                          </tr>
+                          <br>
+                          <tr>
+                            <th><i class="fa fa-phone" aria-hidden="true"></i> Phone</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{userOne.phonenumber}}</td>
+                          </tr>
+                          <br>
+                          <tr>
+                            <th><i class="fa fa-calendar" aria-hidden="true"></i> Created On</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{userOne.created_at | date}}</td>
+                          </tr>
+                          <br>
+                          <tr>
+                            <th><i class="fa fa-check-circle" aria-hidden="true"></i> Status</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="success" *ngIf="userOne.status == 'Active'">{{userOne.status}}</td>
+                            <td class="danger" *ngIf="userOne.status == 'Inactive'">{{userOne.status}}</td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="col-md-6">
+                        <table>
+                          <tr>
+                            <th><i class="fa fa-graduation-cap" aria-hidden="true"></i> Designation</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{userOne.designation}}</td>
+                          </tr>
+                          <br>
+                          <tr>
+                            <th><i class="fa fa-industry" aria-hidden="true"></i> Department</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{userOne.department}}</td>
+                          </tr>
+                          <br>
+                          <tr class="active-details">
+                            <th><i class="fa fa-code-fork" aria-hidden="true"></i> Role</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{userOne.role}}</td>
+                          </tr>
+                          <br>
+                          <tr>
+                            <th><i class="fa fa-cog" aria-hidden="true"></i> Configuration</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>:</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="danger" *ngIf="userOne.configure == 'Blocked'">{{userOne.configure}}</td>
+                            <td class="success" *ngIf="userOne.configure == 'Unblocked'">{{userOne.configure}}</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+              </div>
+              <!-- <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-3 p-3">
                     <div class="w3-container">
@@ -29,7 +161,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

@@ -59,6 +59,10 @@ export class SharedService implements OnInit {
     return this.http.get(ApiService.API.GET_ALL_TASKS);
   }
 
+  getTasksByFilter(offset: Number, limit: Number) {
+    return this.http.get(ApiService.API.GET_ALL_TASKS + '?offset=' + offset + '&limit=' + limit);
+  }
+
   addTask(data: any) {
     return this.http.post(ApiService.API.ADD_TASK, data);
   }

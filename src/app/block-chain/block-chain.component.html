@@ -85,7 +85,11 @@
                       </label>
                     </td>
                     <td>
-                      <i class="fa fa-user-o" aria-hidden="true"></i><span class="ml-2 user" (click)="employeeView(item)">{{ item.username }}</span>
+                      <img *ngIf="item.role != 'manager'" src="../../assets/images/{{ item.role }}-avatar.png" alt="_profileImg" class="rounded-circle"
+                        width="30" height="30">
+                        <img *ngIf="item.role == 'manager'" src="../../assets/images/{{ item.role }}-avatar.jpg" alt="_profileImg" class="rounded-circle"
+                        width="30" height="30">
+                      <span class="ml-2 user" (click)="employeeView(item)">{{ item.username }}</span>
                     </td>
                     <td>{{ item.department | titlecase }}</td>
                     <td>{{ item.designation | titlecase }}</td>

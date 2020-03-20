@@ -1,0 +1,62 @@
+.tiny-footer {
+  font-size: 14px;
+  /* padding: 14px 0px; */
+  font-weight: 600;
+  background-color: transparent;
+  color: #888d90;
+  line-height: 1;
+}
+
+.copyrightlink {
+  text-decoration: none !important;
+  color: #1668af !important;
+}
+
+.fa {
+  color: #1668af;
+  font-size: 1.5rem;
+}
+
+.company {
+  border-left: 1px solid #ededed;
+}
+
+.card-title {
+  font-family: 'VarelaRound';
+}
+
+.title {
+  color: #1668af;
+}
+
+.design {
+  font-family: 'VarelaRound';
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  /* padding: 5px; */
+}
+
+.edit-design {
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.nav-link {
+  color: rgb(156, 152, 152);
+}
+
+.nav-link.active {
+  background-color: #1668af;
+}
+
+.success-btn {
+  color: white;
+  background-color: #6dab25;
+}
+
+.fa-check-circle {
+  font-size: 1rem !important;
+  color: white !important;
+}

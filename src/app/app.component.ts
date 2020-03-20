@@ -12,13 +12,17 @@ import { switchMap } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   title = 'AngularPro';
-
+  public role: any = sessionStorage.getItem('role');
+  public href: any;
   constructor(
     private authService: AuthService,
     private sharedService: SharedService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) { 
+    this.href = this.router.url;
+    console.log(this.href);
+  }
 
   ngOnInit() {
   }

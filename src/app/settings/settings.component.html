@@ -38,7 +38,11 @@
                     </select>
                   </div>
                   <div class="col-md-4 role-select">
-                    selected Role :<span class="ml-2 main-role">{{ rolename | titlecase }}</span>
+                    selected Role :<span class="ml-2 main-role">
+                      <img *ngIf="rolename!= 'manager'" src="../../assets/images/{{ rolename }}-avatar.png" alt="_profileImg" class="rounded-circle"
+                        width="30" height="30">{{ rolename | titlecase }}
+                        <img *ngIf="rolename == 'manager'" src="../../assets/images/{{ rolename }}-avatar.jpg" alt="_profileImg" class="rounded-circle"
+                        width="30" height="30">{{ rolename | titlecase }}</span>
                   </div>
                 </div>
                 <hr>

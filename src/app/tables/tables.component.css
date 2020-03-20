@@ -174,3 +174,68 @@ h3 {
   color: white !important;
   background-color: #ca6464 !important;
 }
+
+.user {
+  cursor: pointer;
+  color: #1668af;
+}
+
+/* Pagination styles */
+/* .pagination-custom {
+  margin-left: 60%;
+} */
+
+.pag-link {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.pag-link.disabled>span,
+.pag-link.current>span,
+.pag-link>a {
+  display: block;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1.42857;
+  margin-right: 5px;
+  padding: 10px 17px;
+  position: relative;
+  text-decoration: none;
+  border: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.pag-link:active>a,
+.pag-link:hover>a,
+.pag-link:focus>a,
+.pag-link.current>span {
+  /* font-size: 24px; */
+  /* font-weight: bold; */
+  padding: 10px 20px;
+}
+
+.pag-link>a {
+  background-color: #1668af;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pag-link.disabled>span,
+.pag-link.current>span {
+  background-color: #13b3bc;
+  color: #fff;
+  cursor: inherit;
+}
+
+.pag-link:active>a,
+.pag-link:hover>a,
+.pag-link:focus>a {
+  background-color: #417fb6 !important;
+  border-color: #417fb6;
+  color: #fff;
+}

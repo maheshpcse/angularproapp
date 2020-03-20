@@ -23,6 +23,7 @@ export class BlockChainComponent implements OnInit {
   hideBlock: boolean = false;
   finalObj = {};
   userOne:any = {};
+  role: any = sessionStorage.getItem('role');
 
   constructor(
     private route: Router,
@@ -151,5 +152,9 @@ export class BlockChainComponent implements OnInit {
       return e.checked == true;
     });
     this.selectedAll = this.usersList.length === arr.length ? true : false;
+  }
+
+  employeeView(item: any) {
+    this.route.navigate([`/${item.role}/profile`, item]);
   }
 }

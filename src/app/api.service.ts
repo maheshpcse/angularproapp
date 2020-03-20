@@ -33,6 +33,7 @@ export class ApiService {
     ADD_TASK: environment.apiUrl + '/addTask',
     UPDATE_TASK: environment.apiUrl + '/updateTask',
     DELETE_TASK: environment.apiUrl + '/deleteTask',
+    GET_TASKS_BY_FILTER: environment.apiUrl + '/gettasksbyfilter',
 
     // NOTIFICATIONS API URL's
     GET_NOTIFICATIONS_COUNT: environment.apiUrl + '/getNotifications',

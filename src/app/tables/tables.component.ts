@@ -29,6 +29,13 @@ export class TablesComponent implements OnInit {
   user_id: any;
   date: any;
   spinner: any = false;
+  tasksArr: any = [];
+  taskArray: any = [];
+  isAddTask: boolean;
+  isUpdateTask: boolean;
+
+  public offset: Number = 0;
+  public limit: Number = 3;
 
   // @ViewChild('taskForm', { static: false }) taskFormElr: ElementRef;
 
@@ -56,8 +63,6 @@ export class TablesComponent implements OnInit {
     this.selectedEntities = $event;
   }
 
-  tasksArr: any = [];
-
   getAllTasks() {
     this.spinner = true;
     console.log(this.sharedService.getModulesConfig('Task Info'));
@@ -65,6 +70,31 @@ export class TablesComponent implements OnInit {
       this.tasksArr = res['data'];
       this.spinner = false;
     })
+  }
+
+  getTasksByFilter(offset: number, limit: number) {
+    this.spinner = true;
+    this.tasksArr = [];
+    this.offset = offset;
+    this.limit = limit;
+    if (this.offset >= 0) {
+      this.sharedService.getTasksByFilter(offset, limit).subscribe(
+        (res: any) => {
+          console.log(res);
+          if (res.length > 0) {
+            this.tasksArr = res['data'];
+            this.spinner = false;
+          } else {
+            offset = 0;
+          }
+        }, (err) => {
+          console.log(err);
+          this.spinner = false;
+        });
+    } else {
+      this.offset = 0;
+      this.limit = 4;
+    }
   }
 
   searchTask () {
@@ -91,10 +121,6 @@ export class TablesComponent implements OnInit {
       return this.tasksArr;
     }
   }
-
-  taskArray: any = [];
-  isAddTask: boolean;
-  isUpdateTask: boolean;
 
   getTaskid(taskid, userid, action) {
     if (action == 'edit') {
@@ -282,5 +308,10 @@ export class TablesComponent implements OnInit {
       cellStyles: true
     });
     XLSX.writeFile(wb, 'a.xlsx')
+  }
+
+  employeeView(item: any) {
+    item.created_at = item.created_on;
+    this.route.navigate([`/${item.role}/profile`, item]);
   }
 }

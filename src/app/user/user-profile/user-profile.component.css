@@ -1,0 +1,15 @@
+h3 {
+  color: #1668af;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+}
+
+.btn-bg {
+  color: white;
+  background-color: #d3d3d3;
+}
+
+.btn-bg:hover {
+  color: white;
+  background-color: #1668af;
+}
