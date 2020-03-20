@@ -64,19 +64,22 @@ export class SidemenuComponent implements OnInit {
       {name: 'Tasks', icon: 'fa-folder-o', url: '/admin/tasks'},
       {name: 'Forms', icon: 'fa-wpforms', url: '/admin/forms'},
       {name: 'Tables', icon: 'fa-table', url: '/admin/tables'},
-      {name: 'Visit', icon: 'fa-gear', url: '/admin/companies'}
+      {name: 'Visit', icon: 'fa-gear', url: '/admin/companies'},
+      {name: '', icon: '', url: '/admin/profile'}
     ];
     this.userMenu = [
       {name: 'Dashboard', icon: 'fa-dashboard', url: '/user/dashboard'},
       {name: 'Services', icon: 'fa-gear', url: '/user/services'},
       {name: 'Chat', icon: 'fa-wpforms', url: '/user/chat'},
-      {name: 'Activity', icon: 'fa-table', url: '/user/activities'}
+      {name: 'Activity', icon: 'fa-table', url: '/user/activities'},
+      {name: '', icon: '', url: '/user/profile'}
     ];
     this.managerMenu = [
       {name: 'Dashboard', icon: 'fa-dashboard', url: '/manager/dashboard'},
       {name: 'Attandance', icon: 'fa-gear', url: '/manager/attandance'},
       {name: 'Leaves', icon: 'fa-wpforms', url: '/manager/leaves'},
-      {name: 'Accounts', icon: 'fa-table', url: '/manager/accounts'}
+      {name: 'Accounts', icon: 'fa-table', url: '/manager/accounts'},
+      {name: '', icon: '', url: '/manager/profile'}
     ];
     this.settingsMenu = [
       {name: 'Site Info', icon: 'fa-dashboard', url: '/settings/siteinfo'},

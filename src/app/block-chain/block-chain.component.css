@@ -188,15 +188,17 @@ h3 {
 }
 
 .success {
+  text-align: center;
   color: #6dab25;
   border: 1px solid #6dab25;
   border-radius: 10px;
 }
 
 .danger {
+  text-align: center;
   color: #c54040;
   border: 1px solid #c54040;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 /* checkbox styles start */

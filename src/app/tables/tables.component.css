@@ -88,9 +88,19 @@ table thead th {
   font-family: 'Montserrat', sans-serif;
 }
 
-.pagination>li>a {
-  background-color: white;
-  color: #5A4181;
+/* pagination styles */
+
+.pagination>li>a.active {
+  background-color: #1668af;
+  border-color: #1668af;
+}
+
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #1668af;
+  border-color: #1668af;
 }
 
 .pagination>li>a:focus,

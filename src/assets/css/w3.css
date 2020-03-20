@@ -1967,3 +1967,13 @@ a {
 .w3-hover-border-pale-blue:hover {
   border-color: #e7ffff !important
 }
+
+sv-bootstrap-paginator sv-paginator .row .col-md-10 .pagination .page-item.active .page-link  {
+  background-color: #1668af;
+  border-color: #1668af;
+}
+
+sv-bootstrap-paginator sv-paginator .row .col-md-2 .pagination .page-item.active .page-link  {
+  background-color: #1668af;
+  border-color: #1668af;
+}
