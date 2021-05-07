@@ -41,7 +41,7 @@
     "translate": "^1.1.1",
     "tslib": "^1.10.0",
     "typeface-ubuntu": "0.0.65",
-    "underscore": "^1.9.2",
+    "underscore": "^1.12.1",
     "xlsx": "^0.15.5",
     "zone.js": "~0.9.1"
   },
