@@ -42,7 +42,7 @@
     "tslib": "^1.10.0",
     "typeface-ubuntu": "0.0.65",
     "underscore": "^1.9.2",
-    "xlsx": "^0.15.5",
+    "xlsx": "^0.17.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
